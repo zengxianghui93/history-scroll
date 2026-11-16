@@ -1,0 +1,541 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 40rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #FDF6E3 0%, #FBEFD6 100%);
+}
+
+/* ===== 封面区 ===== */
+.cover-illus {
+  position: relative;
+  height: 320rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(160deg, #AFD3E8 0%, #CDE7F0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cover-img { width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+.cover-emoji { font-size: 130rpx; }
+.share-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6E6157;
+  background: rgba(255, 253, 248, .9);
+  border-radius: 50%;
+}
+.cover-info {
+  padding: 24rpx 28rpx;
+  margin: -36rpx 24rpx 0;
+  position: relative;
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 22rpx rgba(120, 90, 60, .12);
+}
+.cover-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cover-name {
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #4A3F35;
+  letter-spacing: 2rpx;
+}
+.collect {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  border: 1rpx solid #D8CDBF;
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+  background: #FFFDF8;
+}
+.collect.on {
+  color: #fff;
+  background: #E0A93B;
+  border-color: #E0A93B;
+  box-shadow: 0 4rpx 12rpx rgba(224, 169, 59, .35);
+}
+.cover-sub {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #8A7B6E;
+}
+
+/* ===== 玩法卡（discovery 入口，第 3 位） ===== */
+.play-card {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+  padding: 26rpx 28rpx;
+  background: linear-gradient(135deg, #FFF6E9 0%, #FBEFD6 100%);
+  border: 1rpx solid #F3DDB6;
+  animation: fadeUp .5s ease both;
+}
+.play-illus {
+  font-size: 56rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.play-body { flex: 1; }
+.play-text {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #8A7B6E;
+  line-height: 1.5;
+}
+
+/* ===== 风物册（插画卡 + 点亮收集） ===== */
+.fenwu {
+  margin-top: 24rpx;
+}
+.fw-section { margin-bottom: 20rpx; }
+.fw-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #4A3F35;
+  padding: 4rpx 4rpx 14rpx;
+}
+.fw-scroll {
+  white-space: nowrap;
+  width: 100%;
+}
+.fw-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 200rpx;
+  margin-right: 18rpx;
+  padding: 22rpx 18rpx 18rpx;
+  background: #FFFDF8;
+  border-radius: 22rpx;
+  box-shadow: 0 3rpx 10rpx rgba(120, 90, 60, .08);
+  border: 1rpx solid #F0E7D8;
+  white-space: normal;
+}
+.fw-card.lit {
+  border-color: #E0A93B;
+  box-shadow: 0 4rpx 14rpx rgba(224, 169, 59, .28);
+  background: #FFF9EC;
+}
+.fw-card.focused { border: 3rpx solid #607A50; }
+.focus-hint { background: #E7ECDF; color: #526A42; padding: 18rpx 22rpx; border-radius: 14rpx; font-size: 24rpx; margin-bottom: 20rpx; }
+.reading-label { color: #8B704C; font-size: 23rpx; margin-bottom: 14rpx; }
+.fw-illus {
+  width: 100%;
+  height: 120rpx;
+  border-radius: 16rpx;
+  background: #FBEFD6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60rpx;
+  margin-bottom: 12rpx;
+}
+.fw-illus.green { background: #EAF2DC; }
+.fw-illus.blue { background: #E3EFF6; }
+.fw-illus.orange { background: #FBEAD9; }
+.fw-name {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #4A3F35;
+  text-align: center;
+}
+.fw-intro {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 20rpx;
+  color: #8A7B6E;
+  line-height: 1.4;
+  text-align: center;
+  max-height: 56rpx;
+  overflow: hidden;
+}
+.fw-lit {
+  display: block;
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #B6A892;
+}
+.fw-card.lit .fw-lit { color: #E0A93B; font-weight: 700; }
+.fw-progress {
+  margin-top: 4rpx;
+  font-size: 24rpx;
+  color: #8A7B6E;
+  text-align: center;
+}
+
+/* ===== 知识块（列表级，减弱阴影） ===== */
+.kb {
+  padding: 26rpx 28rpx;
+  margin-top: 24rpx;
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 3rpx 10rpx rgba(120, 90, 60, .06);
+  animation: fadeUp .5s ease both;
+}
+.kb-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.kb-illus {
+  width: 72rpx;
+  height: 72rpx;
+  background: #FBEFD6;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38rpx;
+  margin-right: 18rpx;
+}
+.kb-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+.kb-text {
+  font-size: 30rpx;
+  color: #6E6157;
+  line-height: 1.6;
+}
+.kb-text.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.kb-fold {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #E8924A;
+  font-weight: 600;
+}
+.kb-fact {
+  font-size: 28rpx;
+  color: #6E6157;
+  line-height: 1.7;
+  margin-bottom: 12rpx;
+}
+
+/* 历史沿革：竖向时间轴 */
+.timeline {
+  position: relative;
+  padding-left: 28rpx;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7rpx;
+  top: 10rpx;
+  bottom: 10rpx;
+  width: 2rpx;
+  background: #E5D9C5;
+}
+.tl-node {
+  position: relative;
+  padding: 12rpx 0;
+}
+.tl-dot {
+  position: absolute;
+  left: -28rpx;
+  top: 22rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #E0A93B;
+  border: 3rpx solid #FFFDF8;
+}
+.tl-text {
+  font-size: 28rpx;
+  color: #4A3F35;
+}
+
+/* 美食风物：独立条目 */
+.food-item {
+  font-size: 28rpx;
+  color: #6E6157;
+  background: #FBEFD6;
+  border-radius: 14rpx;
+  padding: 14rpx 20rpx;
+  margin-bottom: 12rpx;
+}
+.pet-entry {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #B06A24;
+  font-weight: 600;
+}
+
+/* ===== 景点区 ===== */
+.spots {
+  padding: 26rpx 28rpx;
+  margin-top: 24rpx;
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 3rpx 10rpx rgba(120, 90, 60, .06);
+  animation: fadeUp .6s ease both;
+}
+.spots-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #4A3F35;
+  margin-bottom: 20rpx;
+}
+.spot-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.spot {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24rpx;
+}
+.spot-ic {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 22rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42rpx;
+  flex-shrink: 0;
+  margin-right: 16rpx;
+}
+.spot-ic.green { background: #EAF2DC; }
+.spot-ic.blue { background: #E3EFF6; }
+.spot-ic.orange { background: #FBEAD9; }
+.spot-body { flex: 1; }
+.spot-name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+.spot-intro {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #8A7B6E;
+  line-height: 1.4;
+}
+.spot-state {
+  display: inline-block;
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #B6A892;
+}
+.spot-state.on { color: #E0A93B; font-weight: 600; }
+.spot-progress {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #8A7B6E;
+  text-align: center;
+}
+
+/* ===== 吸底操作 ===== */
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 28rpx calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 253, 248, .96);
+  box-shadow: 0 -6rpx 18rpx rgba(120, 90, 60, .08);
+}
+.fbtn {
+  flex: 1;
+  text-align: center;
+  border-radius: 999rpx;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.fbtn.want {
+  color: #7FA64B;
+  border: 1rpx solid #A8C66C;
+  background: #FFFDF8;
+}
+.fbtn.want.on {
+  color: #fff;
+  background: #A8C66C;
+  border-color: #A8C66C;
+}
+.fbtn.go {
+  color: #fff;
+  background: #E8924A;
+  box-shadow: 0 6rpx 16rpx rgba(232, 146, 74, .30);
+}
+.footer-space { height: 150rpx; }
+
+/* ===== 日记头（信件开场） ===== */
+.diary-head {
+  padding: 28rpx 28rpx 30rpx;
+  margin-bottom: 24rpx;
+  animation: fadeUp .5s ease both;
+}
+.dh-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+.dh-emoji { font-size: 48rpx; margin-right: 16rpx; }
+.dh-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.dh-from {
+  font-size: 24rpx;
+  color: #B06A24;
+  font-weight: 600;
+}
+.dh-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #4A3F35;
+  margin-top: 2rpx;
+}
+.dh-diary {
+  font-size: 32rpx;
+  line-height: 2;
+  color: #5A4F45;
+  letter-spacing: 1rpx;
+}
+.takeaway {
+  margin-top: 26rpx;
+  background: #FBEFD6;
+  border-radius: 18rpx;
+  padding: 22rpx 24rpx;
+  border-left: 8rpx solid #E0A93B;
+}
+.tw-label {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #E8924A;
+  margin-bottom: 10rpx;
+}
+.tw-text {
+  font-size: 27rpx;
+  line-height: 1.7;
+  color: #6E6157;
+}
+.read-btn {
+  margin-top: 26rpx;
+  text-align: center;
+  border-radius: 16rpx;
+  padding: 22rpx 0;
+  font-size: 30rpx;
+  font-weight: 700;
+  background: #E8924A;
+  color: #fff;
+  box-shadow: 0 6rpx 16rpx rgba(232, 146, 74, .28);
+}
+.read-btn.done {
+  background: #F0E9DA;
+  color: #B06A24;
+  box-shadow: none;
+}
+
+/* ===== 旅行时间线卡片 ===== */
+.block-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+.tl-card {
+  padding: 26rpx 28rpx;
+  margin-top: 24rpx;
+  animation: fadeUp .6s ease both;
+}
+.tl-share {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #8A7B6E;
+  text-align: center;
+}
+/* 时间线节点横向布局（仅作用于足迹卡片，不干扰历史沿革轴） */
+.tl-card .tl-node {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  padding: 14rpx 0;
+}
+.tl-card .tl-date { font-size: 24rpx; color: #B06A24; font-weight: 600; }
+.tl-card .tl-city { font-size: 28rpx; color: #4A3F35; font-weight: 700; }
+.tl-card .tl-title { font-size: 26rpx; color: #6E6157; }
+
+/* ===== 深卷专题知识点 ===== */
+.deep-block {
+  padding: 26rpx 28rpx;
+  margin-bottom: 24rpx;
+  animation: fadeUp .55s ease both;
+}
+.deep-point {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 18rpx;
+}
+.dp-icon {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+.dp-body { flex: 1; }
+.dp-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+.dp-text {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #6E6157;
+}
+
+.deep-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 18rpx;
+}
+.deep-tab {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  background: #FBEFD6;
+  border-radius: 999rpx;
+  padding: 8rpx 18rpx;
+}
+.deep-tab.on {
+  color: #fff;
+  background: #E8924A;
+  font-weight: 600;
+}
+.return-map { color: #637A51; background: #E7ECDF; padding: 20rpx 12rpx; font-size: 25rpx; line-height: 1.6; margin-bottom: 22rpx; border-radius: 12rpx; }
+.return-map::after, .chapter-topic::after { border: 0; }
+.chapter-topic { text-align: left; padding: 18rpx 20rpx; margin: 0; min-width: 46%; flex: 1; border: 2rpx solid #DDC8A5; border-radius: 12rpx; line-height: 1.6; }
+.chapter-topic text { display: block; font-size: 20rpx; margin-top: 6rpx; opacity: .85; }
+.page .chapter-sources button { display: block; width: 100%; min-width: 0; max-width: none; box-sizing: border-box; font-size: 21rpx; font-weight: 400; background: transparent; color: #95967F; margin: 12rpx 0 0; padding: 8rpx 0; line-height: 1.7; text-align: left; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16rpx); }
+  to { opacity: 1; transform: none; }
+}
+.outcome-note { margin: 18rpx 0 0; padding: 14rpx 18rpx; background: #EBEFDF; color: #6A7D53; font-size: 23rpx; line-height: 1.8; border-radius: 10rpx; }

@@ -1,0 +1,2 @@
+@import "../beijing/beijing.wxss";
+.page { padding-bottom: calc(4rpx + env(safe-area-inset-bottom)); }

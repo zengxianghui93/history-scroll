@@ -1,0 +1,42 @@
+<view class="page" wx:if="{{pet}}">
+  <!-- 萌宠大图卡 -->
+  <view class="card profile">
+    <view class="pet-stage {{pet.species === 'cat' ? 'stage-cat' : 'stage-dog'}}">
+      <text class="pet-big">{{pet.species === 'cat' ? '🐱' : '🐶'}}</text>
+    </view>
+    <view class="pet-name-row">
+      <text class="pet-name">{{pet.name}}</text>
+      <text class="pet-species">{{pet.species === 'cat' ? '猫' : '狗'}}</text>
+      <text class="pet-lv">Lv.{{pet.level}}</text>
+    </view>
+    <view class="prog">
+      <text class="prog-label">亲密</text>
+      <view class="track"><view class="fill gold" style="width:{{intimacyPct}}%"></view></view>
+      <text class="prog-num">{{pet.intimacy}}</text>
+    </view>
+    <view class="prog">
+      <text class="prog-label">里程</text>
+      <view class="track"><view class="fill green" style="width:{{mileagePct}}%"></view></view>
+      <text class="prog-num">{{pet.mileage}} 城</text>
+    </view>
+  </view>
+
+  <!-- 旅行时间线 -->
+  <view class="card">
+    <view class="block-title">旅行时间线</view>
+    <view class="trip" wx:for="{{trips}}" wx:key="chapterId"
+          style="animation-delay:{{index * 0.06}}s"
+          data-cityid="{{item.cityId}}" bindtap="goTrip">
+      <text class="trip-date">{{item.date}}</text>
+      <text class="trip-label">{{item.label}}</text>
+      <text class="chev">›</text>
+    </view>
+    <view wx:if="{{trips.length === 0}}" class="empty">{{pet.name}}还在家里，带它出发吧 🐾</view>
+  </view>
+
+  <!-- 阶段二占位 -->
+  <view class="future">
+    <view class="fbtn" bindtap="onDecorate">🎀 装扮</view>
+    <view class="fbtn" bindtap="onGacha">🎲 抽卡</view>
+  </view>
+</view>

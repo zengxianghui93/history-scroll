@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "北京风物",
+  "enableShareAppMessage": true,
+  "usingComponents": { "landmark-seal": "/components/landmark-seal/landmark-seal" }
+}

@@ -1,0 +1,11 @@
+<view class="preview-page">
+  <view class="preview-cover"><image src="{{cover}}" mode="aspectFill"/><view class="preview-wash"/><view class="preview-cover-copy"><text>下一卷 · 正在绘制</text><view>西安</view><text>从一道城门，走近长安</text></view></view>
+  <view class="preview-paper">
+    <view class="preview-kicker">先带来一篇完整故事</view>
+    <view class="preview-title">进永宁门，为什么要穿过好几道门？</view>
+    <view class="preview-copy">过了第一道门，眼前还有一座被城墙围住的院子。先从永宁门，认识古城怎样守住自己的入口。</view>
+    <button class="preview-primary" bindtap="onRead">读永宁门 · 约 2 分钟 ↗</button>
+    <view class="preview-note">西安其余地标正在打磨，暂不开放整城探索。试读中获得的印章、收藏与手册记录都会保留。</view>
+    <button class="preview-back" bindtap="onBeijing">继续逛北京 ›</button>
+  </view>
+</view>

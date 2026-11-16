@@ -1,0 +1,124 @@
+@import "../../styles/discovery-motion.wxss";
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 40rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #FDF6E3 0%, #FBEFD6 100%);
+}
+
+.card {
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 3rpx 10rpx rgba(120, 90, 60, .06);
+}
+
+/* 收集总览（轻量） */
+.overview {
+  margin-bottom: 24rpx;
+}
+.ov-text {
+  font-size: 26rpx;
+  color: #8A7B6E;
+}
+.ov-track {
+  height: 8rpx;
+  background: #F0E6D2;
+  border-radius: 999rpx;
+  overflow: hidden;
+  margin-top: 12rpx;
+}
+.ov-fill {
+  height: 100%;
+  background: #E0A93B;
+  border-radius: 999rpx;
+}
+
+/* 城市列表 */
+.list { }
+.city-item {
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  animation: fadeUp .5s ease both;
+}
+.city-illus {
+  position: relative;
+  height: 220rpx;
+  background: linear-gradient(160deg, #AFD3E8 0%, #CDE7F0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.city-img { width: 100%; height: 100%; }
+.city-illus-emoji { font-size: 96rpx; }
+.city-body {
+  padding: 22rpx 28rpx 24rpx;
+}
+.city-body-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.city-name {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: #4A3F35;
+  letter-spacing: 2rpx;
+}
+.collect-tag {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  border: 1rpx solid #E5D9C5;
+  border-radius: 999rpx;
+  padding: 8rpx 18rpx;
+  background: #F7F0E1;
+}
+.collect-tag.on {
+  color: #fff;
+  background: #E0A93B;
+  border-color: #E0A93B;
+}
+.city-sub {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #8A7B6E;
+}
+.city-go {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #9C8E7E;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16rpx); }
+  to { opacity: 1; transform: none; }
+}
+
+/* 首屏发现主卡与轻量续看入口 */
+.home-heading { margin: 8rpx 0 24rpx; color: #988365; font-size: 21rpx; letter-spacing: 2rpx; }
+.home-heading > view { color: #514A3A; font-family: "Songti SC", serif; font-size: 34rpx; letter-spacing: 1rpx; margin-top: 12rpx; }
+.daily-card { overflow: hidden; background: #FFFCF4; border: 1rpx solid #DACBAE; border-radius: 28rpx; box-shadow: 0 10rpx 30rpx rgba(103, 80, 42, .08); margin-bottom: 20rpx; }
+.daily-art { height: 260rpx; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #E9E6D2; }
+.daily-image { width: 100%; height: 100%; display: block; }
+.daily-crop { position: absolute; max-width: none; }
+.daily-emoji { font-size: 110rpx; }
+.daily-badge { position: absolute; top: 20rpx; left: 22rpx; background: #687C55; color: #FFFCF0; border-radius: 8rpx; padding: 8rpx 16rpx; font-size: 24rpx; letter-spacing: 2rpx; }
+.daily-place { position: absolute; bottom: 18rpx; left: 22rpx; background: rgba(255, 252, 240, .94); color: #706043; border: 1rpx solid #DED1B8; border-radius: 8rpx; padding: 7rpx 14rpx; font-size: 22rpx; }
+.daily-body { padding: 24rpx 28rpx 28rpx; }
+.daily-intro { color: #968260; font-size: 22rpx; line-height: 1.7; }
+.daily-question { color: #4B4435; font-family: "Songti SC", serif; font-size: 36rpx; font-weight: 700; line-height: 1.6; margin: 12rpx 0 18rpx; }
+.daily-meta { display: flex; flex-wrap: wrap; color: #8F826B; font-size: 22rpx; line-height: 1.7; margin-bottom: 20rpx; }
+.daily-state { margin-left: 20rpx; color: #657B53; }
+.page button.daily-action { display: flex; align-items: center; justify-content: space-between; width: 100%; min-width: 0; max-width: none; margin: 0; box-sizing: border-box; background: #687C55; color: #FFFCF0; padding: 19rpx 24rpx; font-size: 28rpx; line-height: 1.7; border-radius: 12rpx; }
+.page button::after { border: 0; }
+.page button.resume-card { display: flex; align-items: center; justify-content: space-between; width: 100%; min-width: 0; max-width: none; margin: 0 0 20rpx; box-sizing: border-box; background: #F3ECD9; padding: 20rpx 22rpx; text-align: left; font-size: 24rpx; line-height: 1.7; border-radius: 12rpx; color: #6E654F; }
+.resume-card > view { flex: 1; min-width: 0; }
+.resume-label { display: block; color: #A18C68; font-size: 20rpx; }
+.resume-name { display: block; margin-top: 4rpx; }
+.resume-arrow { flex-shrink: 0; margin-left: 16rpx; font-size: 22rpx; color: #748260; }
+.list-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; margin: 34rpx 0 16rpx; color: #574D3D; font-size: 30rpx; }
+.list-heading > text { color: #A19073; font-size: 21rpx; margin-top: 8rpx; }
+.city-progress { color: #718459; font-size: 23rpx; margin-top: 12rpx; }
+.city-outcomes { display: flex; flex-wrap: wrap; font-size: 22rpx; line-height: 1.8; color: #948061; margin-top: 10rpx; }
+.city-outcomes > text { margin-right: 24rpx; }
+.page button.deep-map-link { display: flex; align-items: center; justify-content: space-between; width: 100%; min-width: 0; max-width: none; box-sizing: border-box; margin: 0 0 16rpx; padding: 16rpx 20rpx; border-radius: 12rpx; background: #EDF0E5; color: #526A42; text-align: left; font-size: 26rpx; line-height: 1.6; }

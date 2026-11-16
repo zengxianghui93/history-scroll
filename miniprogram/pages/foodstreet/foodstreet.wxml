@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="eyebrow">北京城市画卷 · 城市味道</view>
+  <view class="title">沿着香气，逛一条街</view>
+  <view class="hero"><image src="{{image}}" mode="scaleToFill" style="{{artStyle}}" /></view>
+  <view class="lead">吃的是一口味道，读的是一种生活。</view>
+  <view class="description">先选一个好奇的问题，认识做法与风味，再收藏喜欢的见闻。</view>
+  <view class="progress">五味小集 <text>已收藏 {{collectedCount}} / 5</text></view>
+  <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" id="food-{{index}}" class="motion-control food-card {{item.lit ? 'collected' : ''}} {{item.id === focusedId ? 'focused' : ''}}" wx:for="{{cards}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenCard">
+    <view class="food-icon">{{item.emoji}}</view><view class="food-body"><view class="food-name">{{item.name}}</view><view class="food-question">{{item.question}}</view><view class="food-state">{{item.lit ? '▣ 已收藏 · 回看见闻' : '打开看看 ›'}}</view></view><text class="arrow">↗</text>
+  </button>
+  <view class="note">京味小街是一组城市风味主题，不代表某条实际街道或店铺。</view>
+  <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control map-button" bindtap="onMap">回到北京画卷，继续发现 ›</button>
+</view>

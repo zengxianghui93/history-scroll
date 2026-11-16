@@ -1,0 +1,39 @@
+/* 大千小卷 全局样式 - 吉卜力暖系 */
+page {
+  --bg: #FDF6E3;
+  --card: #FFFDF8;
+  --ink: #4A3F35;
+  --ink-soft: #8A7B6E;
+  --accent: #E8924A;
+  --green: #A8C66C;
+  --gold: #E0A93B;
+  --sky: #AFD3E8;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(120, 90, 60, 0.12);
+  padding: 32rpx;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 999rpx;
+  text-align: center;
+}
+
+.btn-green {
+  background: var(--green);
+  color: #ffffff;
+  border-radius: 999rpx;
+  text-align: center;
+}
+
+.text-soft {
+  color: var(--ink-soft);
+}

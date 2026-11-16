@@ -1,0 +1,49 @@
+<view class="page">
+  <beijing-challenge />
+  <view class="list-heading"><view>想多了解一点？</view><text>从短读或画卷继续</text></view>
+  <button class="motion-control deep-map-link" hover-class="motion-pressed" hover-start-time="0" data-id="city_beijing" bindtap="goCity">打开北京画卷 <text>↗</text></button>
+  <view class="daily-card" wx:if="{{discovery}}">
+    <view class="daily-art">
+      <image wx:if="{{discovery.entry.image}}" class="daily-image" src="{{discovery.entry.image}}" mode="aspectFill" />
+      <image wx:elif="{{discoveryArtStyle}}" class="daily-crop" src="{{mapImage}}" mode="scaleToFill" style="{{discoveryArtStyle}}" />
+      <text wx:else class="daily-emoji">{{discovery.entry.emoji}}</text>
+      <view class="daily-badge">今日短读</view>
+      <view class="daily-place">北京 · {{discovery.entry.name}}</view>
+    </view>
+    <view class="daily-body">
+      <view class="daily-intro">{{discovery.introduction}}</view>
+      <view class="daily-question">{{discovery.entry.question}}</view>
+      <view class="daily-meta"><text>约 1 分钟</text><text class="daily-state">{{discovery.stateText}}</text></view>
+      <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control daily-action" bindtap="goDiscovery">{{discovery.state === 'unseen' ? '读这一则' : '重读这一则'}} <text>→</text></button>
+    </view>
+  </view>
+  <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{resume}}" class="motion-control resume-card" bindtap="onResume"><view><text class="resume-label">继续上次</text><text class="resume-name">{{resume.name}}</text></view><text class="resume-arrow">接着看看 ›</text></button>
+
+  <view class="list-heading"><view>挑一座城，慢慢发现</view><text>随时出发，自由探索</text></view>
+  <!-- 城市印章总览 -->
+  <view class="overview">
+    <text class="ov-text">{{outcomeIcons.city}} 城市印章 {{collectedCount}} / {{total}} · 想去 {{wantCount}}</text>
+    <view class="ov-track"><view class="ov-fill" style="width:{{collectedPct}}%"></view></view>
+  </view>
+
+  <!-- 城市列表 -->
+  <view class="list">
+    <view class="city-item card" wx:for="{{cities}}" wx:key="id">
+      <view class="city-illus motion-control" hover-class="motion-pressed" hover-start-time="0" hover-stay-time="100" bindtap="goCity" data-id="{{item.id}}">
+        <image wx:if="{{item.cover}}" src="{{item.cover}}" mode="aspectFill" class="city-img" />
+        <text wx:else class="city-illus-emoji">{{item.emoji}}</text>
+      </view>
+      <view class="city-body">
+        <view class="city-body-row">
+          <text class="city-name">{{item.name}}</text>
+          <view wx:if="{{item.id === 'city_beijing'}}" class="collect-tag {{item.collected ? 'on' : ''}}">{{outcomeIcons.city}} {{item.collected ? '已开启探索' : '探索后获印章'}}</view>
+          <view wx:else class="collect-tag {{item.collected ? 'on' : ''}}" data-id="{{item.id}}" catchtap="onToggleCollect">{{item.collected ? '✓ 已收集' : '收集'}}</view>
+        </view>
+        <view class="city-sub">{{item.slogan}}</view>
+        <view wx:if="{{item.id === 'city_beijing'}}" class="city-progress">{{beijingUnseenCount > 0 ? '还有 ' + beijingUnseenCount + ' 则见闻未看' : '北京见闻都看过了，随时回来重温'}}</view>
+        <view wx:if="{{item.id === 'city_beijing'}}" class="city-outcomes"><text>{{outcomeIcons.bookmark}} 书签 {{beijingBookmarkCount}} 枚</text><text>{{outcomeIcons.fengwu}} 见闻 {{beijingFengwuCount}} 则</text></view>
+        <view class="city-go motion-control" hover-class="motion-pressed" hover-start-time="0" hover-stay-time="100" bindtap="goCity" data-id="{{item.id}}">{{item.id === 'city_beijing' ? '探索北京 · 寻线索，收风物 ›' : '走进这座城 ›'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

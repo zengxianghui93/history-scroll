@@ -1,0 +1,1 @@
+<image class="art" src="{{src}}" mode="{{mode}}" aria-label="{{label}}" bindload="onLoad" />

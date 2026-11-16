@@ -1,0 +1,141 @@
+<import src="../../components/landmark-seal/landmark-ink.wxml" />
+
+<template name="album-grid">
+  <view class="stamp-grid">
+    <button wx:for="{{section.stamps}}" wx:key="id" class="motion-control stamp-cell {{item.collected ? 'inked' : 'uninked'}}" hover-class="motion-pressed" data-id="{{item.id}}" data-city="{{cityId}}" bindtap="goLandmark" aria-label="{{item.name}}，{{item.collected ? '已盖章，回看地标' : '待盖章，探索地标'}}">
+      <view wx:if="{{item.collected && item.art}}" class="stamp-art" aria-hidden="true"><image src="{{item.art}}" mode="scaleToFill" /></view>
+      <view wx:elif="{{item.collected && cityId === 'city_beijing' && (item.id === 'bell-drum' || item.id === 'square' || item.id === 'archery-tower' || item.id === 'temple-heaven' || item.id === 'yongding' || item.id === 'summer' || item.id === 'lama' || item.id === 'hutong-lane' || item.id === 'olympic' || item.id === 'qianmen' || item.id === 'lugou' || item.id === 'shougang' || item.id === 'canal-culture' || item.id === 'art-798' || item.id === 'sanlitun' || item.id === 'longfu' || item.id === 'daxing')}}" class="stamp-art">
+        <template is="landmark-ink" data="{{landmarkId: item.id, compact: true}}" />
+      </view>
+      <view wx:elif="{{item.collected}}" class="stamp-print {{item.imprint.length <= 3 ? 'stamp-short' : ''}}" aria-hidden="true"><text>{{item.imprint}}</text></view>
+      <view wx:else class="stamp-unknown" aria-hidden="true">?</view>
+      <view class="stamp-caption">{{item.name}}</view>
+    </button>
+  </view>
+</template>
+
+<view class="page">
+  <view class="mine-eyebrow">我的城市册</view>
+  <button wx:if="{{!loggedIn}}" class="account-entry" bindtap="onLogin">登录，保存我的印章与见闻 ›</button>
+  <view class="card beijing-overview">
+    <xian-art wx:if="{{xianActive}}" class="overview-art" src="{{xianCover}}" mode="aspectFill" aria-hidden="true" />
+    <image wx:else class="overview-art" src="{{overviewImage}}" mode="aspectFill" aria-hidden="true" />
+    <view class="overview-shade" aria-hidden="true" />
+    <view class="overview-body">
+      <view class="overview-kicker">继续上次的旅程</view>
+      <view class="landmark-city">{{activeCityName}}</view>
+      <view class="overview-progress"><text>{{currentLandmarkCount}}</text> / {{landmarkTotal}} 枚印章</view>
+      <view class="overview-explanation" wx:if="{{lastScrollName}}">上次停在 · {{lastScrollName}}</view>
+      <button hover-class="motion-pressed" class="motion-control overview-map" bindtap="goBeijingFengwu">继续探索{{activeCityName}} <text aria-hidden="true">↗</text></button>
+      <button wx:if="{{hasNewCity || previewAvailable}}" hover-class="motion-pressed" class="motion-control explore-new-city {{rewardReady && nextCityAvailable ? 'reward-ready' : ''}}" bindtap="onExploreNewCity">{{!hasNewCity && previewAvailable ? '下一城 · 西安筹备中' : '探索新城'}} ›</button>
+    </view>
+  </view>
+
+  <view wx:if="{{albums.length}}" class="card album-card">
+    <view class="section-heading"><view class="section-title">{{albums[albumIndex].archived ? '已完结集章册' : '地标集章册'}}</view><text class="section-count">{{albums[albumIndex].preview ? '试读印章 · ' + albums[albumIndex].collected + ' 枚' : albums[albumIndex].collected + ' / ' + albums[albumIndex].total + ' 枚'}}</text></view>
+    <scroll-view scroll-x class="city-tabs" scroll-into-view="{{'album-tab-' + albums[albumIndex].id}}">
+      <button wx:for="{{albums}}" wx:key="id" id="album-tab-{{item.id}}" class="city-tab {{index === albumIndex ? 'is-current' : ''}}" data-index="{{index}}" bindtap="onAlbumTap">{{item.name}}{{item.preview ? ' · 筹备中' : item.archived ? ' · 已集齐' : ''}}</button>
+    </scroll-view>
+    <view wx:if="{{albums[albumIndex].preview && !albums[albumIndex].unopened}}" class="preview-record-note">西安正在筹备，你已获得的试读印章保留在这里。</view>
+    <view wx:if="{{!albums[albumIndex].unopened}}" class="section-tabs">
+      <button wx:for="{{albums[albumIndex].sections}}" wx:key="id" class="section-tab {{index === sectionIndex ? 'is-current' : ''}}" data-index="{{index}}" bindtap="onSectionTap">{{item.name}}</button>
+    </view>
+    <swiper wx:if="{{albums.length > 1}}" current="{{albumIndex}}" bindchange="onAlbumSwipe" style="height: {{albums[albumIndex].unopened ? 330 : albums[albumIndex].sections[sectionIndex].rows * 174}}rpx">
+      <swiper-item wx:for="{{albums}}" wx:key="id">
+        <view wx:if="{{item.unopened}}" class="album-invitation"><image src="{{item.cover}}" mode="aspectFill"/><view class="album-invitation-shade"/><view class="album-invitation-body"><view class="album-invitation-kicker">下一张画卷 · 正在绘制</view><view class="album-invitation-title">{{item.name}}</view><view>先从永宁门，读一段长安故事</view><button data-city="{{item.id}}" bindtap="onOpenAlbumCity">先睹为快 · 永宁门 ↗</button></view></view>
+        <template wx:else is="album-grid" data="{{section: item.sections[index === albumIndex ? sectionIndex : 0], cityId: item.id}}" />
+      </swiper-item>
+    </swiper>
+    <template wx:else is="album-grid" data="{{section: albums[albumIndex].sections[sectionIndex], cityId: albums[albumIndex].id}}" />
+  </view>
+
+  <view class="handbook-shelf">
+    <view class="section-heading"><view class="section-title">探索手册</view><text class="section-count">一城一本，发现成册</text></view>
+    <scroll-view scroll-x class="handbook-books"><view class="handbook-books-row">
+      <button wx:for="{{handbookAlbums}}" wx:key="id" class="handbook-book {{item.id === 'city_xian' ? 'handbook-book-xian' : ''}}" hover-class="motion-pressed" data-city="{{item.id}}" bindtap="onHandbook" aria-label="翻阅{{item.name}}探索手册，已收录{{item.collected}}枚印章">
+        <image src="{{item.cover}}" mode="aspectFill"/><view class="handbook-book-wash"/><view class="handbook-book-spine"/>
+        <view class="handbook-book-label">探 索 手 册</view><view class="handbook-book-city">{{item.name}}</view><view class="handbook-book-count">{{item.collected ? item.collected + ' 枚印章已成册' : '等待第一段发现'}}</view><view class="handbook-book-footer">{{item.preview ? '试读纪念 · 翻开看看 ›' : item.collected === item.total ? '本城已集齐 · 留一页纪念 ↗' : '翻开这一城 ›'}}</view>
+      </button>
+    </view></scroll-view>
+  </view>
+  <view class="story-shelf">
+    <view class="section-heading"><view class="section-title">我的见闻 <text class="section-count">{{visibleStories.length}} 则</text></view>
+      <view class="story-filters"><button wx:for="{{storyCities}}" wx:key="id" class="story-filter {{storyCity === item.id ? 'is-current' : ''}}" data-id="{{item.id}}" bindtap="onStoryFilter">{{item.name}}</button></view>
+    </view>
+    <button wx:for="{{visibleStories}}" wx:key="key" hover-class="motion-pressed" class="motion-control memory-card" data-id="{{item.id}}" data-city="{{item.cityId}}" bindtap="goFengwu">
+      <view class="memory-cover"><image wx:if="{{item.image}}" class="memory-thumb" src="{{item.image}}" mode="aspectFill" /><text wx:else class="memory-emoji">{{item.emoji}}</text><text class="memory-city">{{item.cityName}}</text></view>
+      <view class="memory-content"><view class="memory-heading">{{item.name}} <text aria-hidden="true">↗</text></view><view class="memory-summary">{{item.answer}}</view></view>
+    </button>
+    <view wx:if="{{!visibleStories.length}}" class="story-empty">{{storyCity === 'all' ? '喜欢的故事可以从地标详情收藏到这里。' : '这座城市还没有收藏的见闻。'}}</view>
+    <button wx:if="{{visibleUncollected.length}}" class="motion-control fold-control" hover-class="motion-pressed" bindtap="onToggleUncollected">{{showUncollected ? '收起待发现见闻 ⌃' : '还有 ' + visibleUncollected.length + ' 则待发现 ⌄'}}</button>
+    <view wx:if="{{showUncollected}}" class="uncollected-stories">
+      <button wx:for="{{visibleUncollected}}" wx:key="key" class="motion-control story-filter" hover-class="motion-pressed" data-id="{{item.id}}" data-city="{{item.cityId}}" bindtap="goFengwu">{{item.name}} ›</button>
+    </view>
+  </view>
+  <view class="other-records-control"><button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control fold-control" bindtap="onToggleOtherRecords">其他记录 · 城市印章 / 阅读记录 / 成就 {{showOtherRecords ? '⌃' : '⌄'}}</button></view>
+  <block wx:if="{{showOtherRecords}}">
+  <!-- 城市印章：开启过的探索 -->
+  <view class="card map-card">
+    <view class="block-title">{{outcomeIcons.city}} 城市印章 <text class="map-count">{{collectedCount}}/{{total}}</text></view>
+    <view class="map-illus">
+      <view class="fp" wx:for="{{footprints}}" wx:key="id">
+        <view class="fp-dot {{item.on ? 'on' : ''}}">{{outcomeIcons.city}}</view>
+        <text class="fp-name">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="map-sub">从画卷里慢慢认识的城市</view>
+  </view>
+
+  <!-- 阅读记录与风物收藏分别展示 -->
+  <view class="card">
+    <view class="block-title">{{outcomeIcons.reading}} 阅读记录 <text class="map-count">{{readingRecords.length + briefRecords.length}}</text></view>
+    <button wx:if="{{resume}}" hover-class="motion-pressed" class="motion-control resume-link" bindtap="onResume">续看见闻 · {{resume.name}} ›</button>
+    <view wx:if="{{briefRecords.length}}" class="enc-wall">
+      <button class="reading-record" wx:for="{{briefRecords}}" wx:key="id" data-id="{{item.id}}" bindtap="goBrief">
+        <view class="enc-city">北京短读 · {{item.entry.name}}</view>
+        <view class="enc-title">{{item.entry.question}}</view>
+        <view class="reading-status">{{outcomeIcons.reading}} 已读 · 回看 ›</view>
+      </button>
+    </view>
+    <view wx:if="{{readingRecords.length}}" class="enc-wall">
+      <button class="reading-record" wx:for="{{readingRecords}}" wx:key="id" data-id="{{item.id}}" bindtap="goReading">
+        <view class="enc-city">{{item.cityName}}</view>
+        <view class="enc-title">{{item.title}}</view>
+        <view class="enc-text">{{item.takeaway}}</view>
+        <view class="reading-status">{{outcomeIcons.reading}} 已读 · 回看 ›</view>
+      </button>
+    </view>
+    <view wx:if="{{!readingRecords.length && !briefRecords.length}}" class="enc-empty">标记已读后，可在这里回看短读和篇章。</view>
+  </view>
+
+  <!-- 成就墙（重排：已获得在前 + 最近可完成 + 查看全部） -->
+  <view class="card">
+    <view class="block-title">成就墙</view>
+    <view class="ach-wall">
+      <view class="ach {{item.on ? 'on' : ''}}" wx:for="{{achievements}}" wx:key="id"
+            data-name="{{item.name}}" data-desc="{{item.desc}}" bindtap="onTapAch">
+        <view class="ach-ic">{{item.icon}}</view>
+        <text class="ach-name">{{item.name}}</text>
+      </view>
+    </view>
+    <view wx:if="{{nextGoal}}" class="ach-next">最近可完成 · {{nextGoal}}</view>
+
+  </view>
+
+  </block>
+</view>
+
+<view wx:if="{{showCitySheet}}" class="city-sheet-overlay" catchtouchmove="onSheetMove">
+  <view class="city-sheet-backdrop" bindtap="onCloseCitySheet"/>
+  <view class="city-sheet">
+    <button class="city-sheet-close" bindtap="onCloseCitySheet" aria-label="关闭">×</button>
+    <view class="city-sheet-art"><image src="{{nextCityAvailable ? nextCityCover : xianCover}}" mode="aspectFill"/><view class="city-sheet-art-shade"/><view class="city-sheet-city">{{nextCityAvailable ? '下一卷 · ' + nextCityName : '西安 · 正在绘制'}}</view></view>
+    <view class="city-sheet-body">
+      <view class="city-sheet-title">{{nextCityAvailable ? '下一城，随时可以出发' : '下一卷长安，慢慢为你准备'}}</view>
+      <view class="city-sheet-copy">{{nextCityAvailable ? '城市之间可以自由选择，已有印章与停留位置都会保留。' : '北京已完整开放。西安先带来一篇永宁门故事，其余地标正在打磨，完整画卷准备好后再与你见面。'}}</view>
+      <view wx:if="{{!nextCityAvailable && rewardReady}}" class="city-sheet-copy">半城足迹已经记下，不必等待新城，也可以继续发现北京。</view>
+      <button class="city-sheet-primary" bindtap="onContinueCity">继续探索{{activeCityName}}</button>
+      <button class="city-sheet-free" bindtap="onOpenPreviewCity">{{nextCityAvailable ? '展开' + nextCityName + ' ↗' : '看看西安预告 ›'}}</button>
+    </view>
+  </view>
+</view>

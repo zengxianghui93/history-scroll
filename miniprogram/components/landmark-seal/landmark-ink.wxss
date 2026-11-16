@@ -1,0 +1,118 @@
+.landmark-ink {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6%;
+  width: 100%; height: 100%; box-sizing: border-box; border: .18em double #F2C28D; border-radius: .3em;
+  background: radial-gradient(ellipse at 32% 20%, #AE4A39, #8E3328 74%);
+  color: #FFE3B4; box-shadow: inset 0 0 0 .09em #843227; font: 700 39rpx/1 "Songti SC", "SimSun", serif;
+}
+.landmark-ink-compact { font-size: 21rpx; }
+.canal-ink-icon { position: relative; width: 2.9em; height: 1.55em; }
+.canal-ink-granary { position: absolute; bottom: .2em; left: 0; width: .85em; height: .8em; background: currentColor; clip-path: polygon(0 36%,50% 0,100% 36%,100% 100%,0 100%); }
+.canal-ink-granary view { position: absolute; left: 25%; bottom: 0; width: 50%; height: .38em; background: #963b2d; }
+.canal-ink-leaf { position: absolute; top: .02em; left: .91em; width: .98em; height: 1.04em; background: currentColor; clip-path: polygon(0 18%,18% 3%,39% 0,50% 12%,61% 0,82% 3%,100% 18%,91% 43%,76% 64%,53% 100%,47% 100%,24% 64%,9% 43%); }
+.canal-ink-leaf view { position: absolute; left: 48%; top: 28%; bottom: 0; width: .035em; background: #963b2d; }
+.canal-ink-sail { position: absolute; right: 0; bottom: .2em; width: .87em; height: 1.05em; background: currentColor; clip-path: polygon(80% 0,83% 70%,100% 92%,12% 92%,0 79%,26% 73%,43% 59%,59% 39%); }
+.canal-ink-water { position: absolute; bottom: 0; left: 0; width: 100%; height: .07em; border-top: .035em solid currentColor; border-bottom: .035em solid currentColor; border-radius: 50%; }
+.shougang-ink-icon { position: relative; width: 2.7em; height: 1.55em; }
+.shougang-ink-tower { position: absolute; left: 0; top: .04em; width: 1.03em; height: 1.24em; background: currentColor; clip-path: polygon(8% 0,92% 0,85% 21%,77% 48%,79% 69%,100% 100%,0 100%,21% 69%,23% 48%,15% 21%); }
+.shougang-ink-tower view { position: absolute; top: .025em; left: 13%; right: 13%; height: .08em; border-radius: 50%; background: #963b2d; }
+.shougang-ink-ramp { position: absolute; left: 43%; top: .16em; width: 57%; height: 1.1em; background: currentColor; clip-path: polygon(0 0,9% 0,15% 16%,24% 36%,36% 55%,48% 66%,60% 68%,72% 60%,80% 55%,81% 65%,72% 74%,60% 80%,48% 78%,34% 68%,23% 53%,12% 30%); }
+.shougang-ink-support { position: absolute; left: 44%; top: .3em; width: .05em; height: 1em; background: currentColor; }
+.shougang-ink-ground { position: absolute; left: 0; bottom: .09em; width: 100%; height: .04em; background: currentColor; }
+.lugou-ink-icon { position: relative; width: 2.8em; height: 1.55em; }
+.lugou-ink-gate { position: absolute; right: 0; top: 0; width: 1.02em; height: .95em; }
+.lugou-ink-roof { height: .3em; background: currentColor; clip-path: polygon(0 55%,10% 65%,23% 30%,28% 0,72% 0,77% 30%,90% 65%,100% 55%,98% 85%,0 85%); }
+.lugou-ink-wall { position: absolute; left: 8%; right: 8%; top: .24em; bottom: 0; background: currentColor; display: flex; align-items: flex-end; justify-content: center; }
+.lugou-ink-wall>view { width: .25em; height: .39em; border-radius: .17em .17em 0 0; background: #963b2d; }
+.lugou-ink-bridge { position: absolute; left: 0; bottom: .2em; width: 1.7em; height: .43em; border-top: .07em solid currentColor; background: currentColor; display: flex; align-items: flex-end; justify-content: space-evenly; }
+.lugou-ink-bridge view { width: .26em; height: .31em; border-radius: .17em .17em 0 0; background: #963b2d; }
+.lugou-ink-water { position: absolute; left: 0; bottom: 0; width: 1.7em; height: .07em; border-top: .035em solid currentColor; border-bottom: .035em solid currentColor; border-radius: 50%; }
+.qianmen-ink-icon { position: relative; width: 2.3em; height: 1.65em; }
+.qianmen-ink-car { position: absolute; top: 0; left: 16%; width: 68%; height: 1.35em; background: currentColor; border-radius: 24% 24% 10% 10%; }
+.qianmen-ink-windows { position: absolute; top: .2em; left: 8%; right: 8%; height: .48em; display: flex; gap: .05em; }
+.qianmen-ink-windows view { flex: 1; background: #963b2d; border-radius: .02em; }
+.qianmen-ink-lamp { position: absolute; top: .83em; left: calc(50% - .09em); width: .18em; height: .18em; background: #963b2d; border-radius: 50%; }
+.qianmen-ink-bumper { position: absolute; bottom: .1em; left: 8%; width: 84%; height: .055em; background: #963b2d; }
+.qianmen-ink-rail { position: absolute; bottom: 0; width: .055em; height: .32em; background: currentColor; transform-origin: top; }
+.qianmen-ink-rail.left { left: 28%; transform: rotate(25deg); }.qianmen-ink-rail.right { right: 28%; transform: rotate(-25deg); }
+.olympic-ink-icon { position: relative; width: 2.8em; height: 1.55em; }
+.olympic-cube { position: absolute; left: 0; bottom: .2em; width: 1.1em; height: .85em; border: .065em solid currentColor; box-sizing: border-box; overflow: hidden; }
+.olympic-cube view { position: absolute; width: .58em; height: .5em; border: .045em solid currentColor; border-radius: 44% 56% 35% 55%; box-sizing: border-box; }
+.olympic-cube view:nth-child(1) { left: -.06em; top: -.1em; }.olympic-cube view:nth-child(2) { right: -.08em; top: -.04em; }.olympic-cube view:nth-child(3) { left: -.04em; bottom: -.08em; }.olympic-cube view:nth-child(4) { right: -.08em; bottom: -.12em; }
+.olympic-nest { position: absolute; right: 0; bottom: .2em; width: 1.5em; height: 1.15em; border: .065em solid currentColor; box-sizing: border-box; border-radius: 50% 50% 35% 35%; background: repeating-linear-gradient(55deg,transparent 0,transparent .19em,currentColor .19em,currentColor .24em,transparent .24em,transparent .39em),repeating-linear-gradient(-45deg,transparent 0,transparent .22em,currentColor .22em,currentColor .27em,transparent .27em,transparent .42em); overflow: hidden; }
+.olympic-nest view { position: absolute; left: 12%; right: 12%; top: 6%; height: .23em; border: .045em solid currentColor; border-radius: 50%; background: #963b2d; }
+.olympic-ground { position: absolute; left: 0; bottom: .05em; width: 100%; height: .04em; background: currentColor; }
+.hutong-ink-icon { position: relative; width: 2.6em; height: 1.65em; }
+.hutong-ink-axis { position: absolute; left: calc(50% - .05em); top: 0; bottom: 0; width: .1em; border-radius: .06em; background: currentColor; }
+.hutong-ink-branches { position: absolute; left: 4%; right: 4%; top: 9%; bottom: 9%; display: flex; flex-direction: column; justify-content: space-between; }
+.hutong-ink-branches view { position: relative; height: .065em; }
+.hutong-ink-branches view::before,.hutong-ink-branches view::after { content: ''; position: absolute; height: 100%; background: currentColor; border-radius: .04em; }
+.hutong-ink-branches view::before { right: 50%; width: 47%; }
+.hutong-ink-branches view::after { left: 50%; width: 43%; top: .025em; }
+.hutong-ink-branches view:nth-child(3n)::before { width: 35%; }
+.hutong-ink-branches view:nth-child(2n)::after { width: 49%; }
+.hutong-ink-branches view:nth-child(4n)::before { width: 42%; }
+.lama-icon { position: relative; width: 2.7em; height: 1.65em; }
+.lama-hall { position: absolute; left: 16%; bottom: .18em; width: 68%; height: .5em; background: repeating-linear-gradient(90deg,currentColor 0,currentColor .07em,transparent .07em,transparent .26em); border: .05em solid currentColor; box-sizing: border-box; }
+.lama-roof { position: absolute; left: 0; bottom: .56em; width: 100%; height: .53em; background: currentColor; clip-path: polygon(0 30%,8% 48%,19% 34%,30% 0,70% 0,81% 34%,92% 48%,100% 30%,98% 73%,84% 100%,16% 100%,2% 73%); }
+.lama-skylights { position: absolute; left: 12%; right: 12%; top: .08em; height: .62em; }
+.lama-skylights view { position: absolute; width: .3em; height: .37em; bottom: 0; background: currentColor; clip-path: polygon(46% 0,54% 0,61% 18%,90% 28%,79% 47%,79% 77%,100% 100%,0 100%,21% 77%,21% 47%,10% 28%,39% 18%); }
+.lama-skylights view:nth-child(1) { left: 0; bottom: -.13em; }
+.lama-skylights view:nth-child(2) { left: 19%; bottom: .02em; }
+.lama-skylights view:nth-child(3) { left: 40%; width: .4em; height: .59em; }
+.lama-skylights view:nth-child(4) { right: 19%; bottom: .02em; }
+.lama-skylights view:nth-child(5) { right: 0; bottom: -.13em; }
+.lama-steps { position: absolute; bottom: 0; left: 7%; width: 86%; height: .15em; border-top: .05em solid currentColor; border-bottom: .05em solid currentColor; }
+.gardens-icon { position: relative; width: 2.8em; height: 1.65em; }
+.gardens-pavilion { position: absolute; left: 0; top: 0; width: 1.4em; height: 1.42em; }
+.gardens-roof { position: absolute; height: .28em; background: currentColor; clip-path: polygon(15% 62%,45% 0,55% 0,85% 62%,100% 76%,94% 100%,6% 100%,0 76%); }
+.gardens-roof.upper { top: 0; left: 23%; width: 54%; }
+.gardens-roof.middle { top: .34em; left: 12%; width: 76%; }
+.gardens-roof.lower { top: .68em; left: 0; width: 100%; }
+.gardens-hall { position: absolute; left: 24%; top: .23em; width: 52%; height: .85em; border: .06em solid currentColor; box-sizing: border-box; background: repeating-linear-gradient(90deg, transparent 0, transparent .17em, currentColor .17em, currentColor .22em); }
+.gardens-platform { position: absolute; left: 8%; bottom: 0; width: 84%; height: .34em; background: currentColor; clip-path: polygon(20% 0,80% 0,100% 100%,0 100%); }
+.gardens-ruins { position: absolute; right: 0; bottom: .23em; display: flex; align-items: flex-end; gap: .14em; }
+.gardens-ruins view { width: .23em; height: .8em; border-top: .12em double currentColor; border-bottom: .1em solid currentColor; background: linear-gradient(90deg, currentColor 0, currentColor 30%, transparent 30%, transparent 48%, currentColor 48%); }
+.gardens-ruins view:nth-child(2) { height: 1.1em; }
+.gardens-ruins view:nth-child(3) { height: .62em; }
+.gardens-water { position: absolute; bottom: 0; left: 0; width: 100%; height: .13em; border-top: .04em solid currentColor; border-bottom: .04em solid currentColor; border-radius: 50%; }
+.gate-icon { position: relative; width: 2.6em; height: 1.4em; }
+.gate-roof { position: absolute; left: 15%; top: 0; width: 70%; height: .61em; background: currentColor; clip-path: polygon(19% 5%,81% 5%,91% 40%,100% 48%,100% 61%,85% 66%,85% 100%,15% 100%,15% 66%,0 61%,0 48%,9% 40%); }
+.gate-roof.lower { top: .42em; left: 7%; width: 86%; height: .51em; border-top: .05em solid #8E3328; }
+.gate-wall { position: absolute; inset: .9em 0 0; display: flex; align-items: flex-end; justify-content: center; gap: .14em; background: currentColor; border-radius: .06em; }
+.gate-wall view { width: .18em; height: .27em; border-radius: .15em .15em 0 0; background: #8E3328; }
+.gate-wall view:nth-child(3) { width: .25em; height: .34em; }
+.bell-drum-symbols { display: flex; align-items: center; gap: .25em; }
+.bronze-bell { width: .82em; height: .68em; background: currentColor; clip-path: polygon(40% 0,60% 0,60% 14%,75% 20%,83% 32%,86% 70%,100% 90%,100% 100%,0 100%,0 90%,14% 70%,17% 32%,25% 20%,40% 14%); }
+.watch-drum { box-sizing: border-box; width: .76em; height: .64em; border: .1em solid currentColor; border-radius: 36%; background: linear-gradient(90deg, transparent 30%, currentColor 31%, currentColor 42%, transparent 43%, transparent 58%, currentColor 59%, currentColor 70%, transparent 71%); }
+
+.arrow-tower-icon{position:relative;width:2.3em;height:1.45em}.arrow-tower-roof{height:.24em;width:100%;background:currentColor;clip-path:polygon(7% 80%,18% 50%,24% 0,76% 0,82% 50%,93% 80%,100% 100%,0 100%)}.arrow-tower-wall{width:82%;height:.76em;box-sizing:border-box;background:currentColor;margin:0 auto;padding:.08em .12em;display:flex;flex-direction:column;justify-content:space-between}.arrow-windows{height:.12em;background:repeating-linear-gradient(90deg,#8e3328 0,#8e3328 .12em,transparent .12em,transparent .3em)}.arrow-tower-base{width:100%;height:.4em;background:currentColor;display:flex;align-items:flex-end;justify-content:center}.arrow-tower-base>view{width:.28em;height:.34em;background:#8e3328;border-radius:.2em .2em 0 0}
+
+.temple-icon{position:relative;width:2.4em;height:1.55em}.temple-finial{position:absolute;width:.12em;height:.13em;left:calc(50% - .06em);top:0;border-radius:50%;background:currentColor}.temple-roof{position:absolute;height:.4em;background:currentColor;clip-path:polygon(47% 0,53% 0,65% 31%,83% 62%,100% 77%,97% 88%,85% 96%,15% 96%,3% 88%,0 77%,17% 62%,35% 31%)}.temple-roof.upper{top:.1em;left:29%;width:42%}.temple-roof.middle{top:.42em;left:18%;width:64%}.temple-roof.lower{top:.76em;left:6%;width:88%}.temple-hall{position:absolute;top:1.1em;left:15%;width:70%;height:.25em;border:.04em solid currentColor;box-sizing:border-box;background:repeating-linear-gradient(90deg,currentColor 0,currentColor .06em,transparent .06em,transparent .25em)}.temple-platform{position:absolute;bottom:0;left:0;width:100%;height:.14em;background:currentColor;clip-path:polygon(12% 0,88% 0,88% 45%,100% 45%,100% 100%,0 100%,0 45%,12% 45%)}
+
+.yongding-icon{position:relative;width:2.6em;height:1.65em}.yongding-hall{position:absolute;left:19%;top:.22em;width:62%;height:1em;border:.05em solid currentColor;background:repeating-linear-gradient(90deg,currentColor 0,currentColor .06em,transparent .06em,transparent .3em);box-sizing:border-box}.yongding-roof{position:absolute;height:.34em;background:currentColor;clip-path:polygon(12% 4%,88% 4%,93% 38%,99% 49%,100% 39%,100% 68%,87% 96%,13% 96%,0 68%,0 39%,1% 49%,7% 38%)}.yongding-roof.upper{width:76%;left:12%;top:0}.yongding-roof.middle{width:88%;left:6%;top:.4em}.yongding-roof.lower{width:100%;left:0;top:.8em}.yongding-base{position:absolute;left:5%;bottom:0;width:90%;height:.42em;background:currentColor;display:flex;align-items:flex-end;justify-content:center}.yongding-base>view{width:.32em;height:.34em;border-radius:.22em .22em 0 0;background:#8e3328}
+
+.art798-ink-icon { position: relative; width: 2.7em; height: 1.55em; }
+.art798-ink-roofs { display: flex; height: .8em; align-items: flex-end; }
+.art798-ink-roofs>view { width: .9em; height: .8em; background: currentColor; clip-path: polygon(0 100%,3% 84%,10% 64%,22% 41%,39% 21%,58% 8%,77% 0,100% 100%); }
+.art798-ink-wall { position: absolute; top: .8em; left: 0; right: 0; height: .57em; display: flex; align-items: center; justify-content: space-around; background: currentColor; }
+.art798-ink-wall>view { width: .34em; height: .38em; background: repeating-linear-gradient(0deg,#963B2D 0,#963B2D .1em,transparent .1em,transparent .14em); border-left: .03em solid #963B2D; border-right: .03em solid #963B2D; }
+.art798-ink-ground { position: absolute; bottom: 0; left: 0; width: 100%; border-top: .05em solid currentColor; }
+
+.sanlitun-ink-icon { position: relative; width: 2.7em; height: 1.55em; }
+.sanlitun-ink-building { position: absolute; top: .1em; width: .84em; height: 1.15em; background: currentColor; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; }
+.sanlitun-ink-building.left { left: .04em; transform: skewY(9deg); }
+.sanlitun-ink-building.right { right: .04em; top: .25em; height: 1em; transform: skewY(-9deg); }
+.sanlitun-ink-building>view { width: 70%; height: .14em; background: repeating-linear-gradient(90deg,#963B2D 0,#963B2D .16em,transparent .16em,transparent .2em); }
+.sanlitun-ink-lane { position: absolute; bottom: 0; left: .6em; width: 1.5em; height: .8em; border-bottom: .035em solid currentColor; background: currentColor; clip-path: polygon(46% 0,54% 0,100% 100%,0 100%); }
+
+.longfu-ink-icon { position: relative; width: 2.7em; height: 1.55em; }
+.longfu-ink-roof { position: absolute; top: 0; left: .15em; width: 2.4em; height: .55em; background: currentColor; clip-path: polygon(0 63%,9% 68%,23% 37%,37% 8%,63% 8%,77% 37%,91% 68%,100% 63%,97% 85%,84% 100%,16% 100%,3% 85%); }
+.longfu-ink-hall { position: absolute; top: .5em; left: .55em; width: 1.6em; height: .48em; border: .055em solid currentColor; box-sizing: border-box; display: flex; justify-content: space-evenly; }
+.longfu-ink-hall>view { width: .05em; height: 100%; background: currentColor; }
+.longfu-ink-terrace { position: absolute; left: 0; top: 1em; width: 100%; height: .08em; background: currentColor; }
+.longfu-ink-base { position: absolute; top: 1.14em; left: .12em; right: .12em; height: .36em; background: currentColor; display: flex; align-items: center; justify-content: space-evenly; }
+.longfu-ink-base>view { width: .5em; height: .17em; background: #963B2D; }
+
+.daxing-ink-icon { position: relative; width: 2.8em; height: 1.6em; }
+.daxing-ink-terminal { position: absolute; inset: 0; background: currentColor; clip-path: polygon(46% 0,54% 0,56% 31%,62% 34%,88% 8%,97% 13%,97% 22%,65% 49%,67% 55%,94% 75%,94% 84%,86% 88%,60% 67%,56% 67%,56% 96%,50% 100%,44% 96%,44% 67%,40% 67%,14% 88%,6% 84%,6% 75%,33% 55%,35% 49%,3% 22%,3% 13%,12% 8%,38% 34%,44% 31%); }
+.daxing-ink-core { position: absolute; top: 40%; left: 43%; width: 14%; height: 17%; background: #963B2D; clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%); }

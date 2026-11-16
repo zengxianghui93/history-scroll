@@ -1,0 +1,16 @@
+{
+  "name": "exploration",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "node ../../scripts/build-cloud-catalog.cjs && tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "wx-server-sdk": "4.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^22.0.0"
+  }
+}

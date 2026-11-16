@@ -1,0 +1,51 @@
+@import "../../styles/discovery-motion.wxss";
+page { background: #F7F1E3; color: #443E32; }
+.page { position: fixed; inset: 0; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; padding: 2rpx 16rpx 4rpx; }
+button { margin: 0; padding: 0; font-weight: 400; background: transparent; line-height: 1.5; }
+button::after { border: 0; }
+.map-toolbar { flex: none; display: flex; justify-content: space-between; align-items: center; gap: 12rpx; padding: 0 8rpx 8rpx; }
+.map-summary, .map-actions { display: flex; align-items: center; gap: 12rpx; white-space: nowrap; }
+.title { font-family: "Songti SC", "SimSun", serif; font-size: 40rpx; font-weight: 700; letter-spacing: 1rpx; }
+.map-progress { font-size: 21rpx; color: #526A42; }
+.page .map-actions button { width: auto; min-width: 0; max-width: none; margin: 0; box-sizing: border-box; min-height: 68rpx; display: flex; align-items: center; font-size: 23rpx; color: #77613F; padding: 4rpx 8rpx; }
+.page .map-actions button.city-info { color: #96513E; }
+.page button.invitation { flex: none; font-size: 23rpx; line-height: 1.65; width: 100%; min-width: 0; max-width: none; text-align: left; background: #E9ECDD; color: #526A42; padding: 9rpx 14rpx; border-radius: 9rpx; margin: 0 0 10rpx; }
+.map-stage { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.map-frame { flex: none; position: relative; overflow: hidden; border-radius: 40rpx 40rpx 24rpx 24rpx; border: 2rpx solid #DED3BB; box-sizing: border-box; background: #F5EDD9; }
+.map-art { width: 100%; height: 100%; position: absolute; inset: 0; }
+.map-swiper { width: 100%; height: 100%; }
+.compass { position: absolute; top: 32rpx; left: 34rpx; color: #536345; font-size: 21rpx; }
+.map-index { position: absolute; top: 23rpx; right: 24rpx; display: flex; align-items: center; gap: 12rpx; color: #5F523E; font-size: 22rpx; pointer-events: none; }
+.map-page-number, .map-hint { border-radius: 99rpx; background: rgba(255, 250, 235, .95); padding: 5rpx 14rpx; }
+.page .map-frame button.map-pin { position: absolute; left: clamp(112rpx, var(--pin-x), calc(100% - 112rpx)); top: clamp(47rpx, var(--pin-y), calc(100% - 47rpx)); transform: translate(-50%, -50%); width: auto; min-width: 0; max-width: none; min-height: 92rpx; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 7rpx; padding: 10rpx 15rpx; border: 2rpx solid #D5C9AF; border-radius: 11rpx 11rpx 17rpx 11rpx; background: rgba(255, 253, 245, .96); box-shadow: 0 5rpx 15rpx #5E4D3020; color: #5F523E; font-size: 25rpx; font-weight: 600; white-space: nowrap; }
+.page .map-frame.compact button.map-pin { left: clamp(96rpx, var(--pin-x), calc(100% - 96rpx)); top: clamp(18px, var(--pin-y), calc(100% - 18px)); min-height: 36px; font-size: 22rpx; padding: 6rpx 9rpx; }
+.pin-mark { color: #526A42; }
+.map-dots { flex: none; display: flex; justify-content: center; align-items: center; }
+.page .map-dots button.map-dot { display: flex; justify-content: center; align-items: center; flex: 0 0 42rpx; width: 42rpx; min-width: 0; max-width: 42rpx; height: 54rpx; margin: 0; padding: 0; }
+.map-dot-mark { width: 10rpx; height: 10rpx; border-radius: 50%; background: #C4B99F; }
+.map-dot.current .map-dot-mark { background: #526A42; }
+/* 首次展开只作用于画面与标签，不缩放点击区域。 */
+.map-frame.map-opening { animation: map-unfold 800ms ease-out; }
+.page .map-frame.map-opening button.map-pin { animation: pin-arrive 220ms var(--pin-delay) ease-out backwards; }
+.page .map-frame button.map-pin.motion-pressed { transform: translate(-50%, -50%) scale(.97); }
+@keyframes map-unfold { from { opacity: .35; } to { opacity: 1; } }
+@keyframes pin-arrive { from { opacity: 0; transform: translate(-50%, calc(-50% + 8rpx)); } to { opacity: 1; transform: translate(-50%, -50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .map-frame.map-opening, .page .map-frame.map-opening button.map-pin { animation: none; }
+  .page .map-frame button.map-pin.motion-pressed { transform: translate(-50%, -50%); }
+}
+/* 勋章和好友推荐各有标记，推荐本身不改变点亮状态。 */
+.page .map-frame button.map-pin.lit { border-color: #AD7A35; background: #FFF0C9; box-shadow: 0 5rpx 18rpx #79572042; }
+.pin-seal { flex: 0 0 24rpx; height: 24rpx; box-sizing: border-box; border: 1rpx solid #A34C36; border-radius: 3rpx; transform: rotate(-6deg); color: #A34C36; font-family: "Songti SC", "SimSun", serif; font-size: 17rpx; line-height: 22rpx; text-align: center; }
+.page .map-frame button.map-pin.fresh-seal { animation: map-seal-glow 880ms 160ms ease-out both; }
+@keyframes map-seal-glow {
+  from { box-shadow: 0 0 0 2rpx #CF9A50, 0 0 17rpx #E3AF58B0; }
+  to { box-shadow: 0 0 0 16rpx #CF9A5000, 0 5rpx 18rpx #79572042; }
+}
+@media (prefers-reduced-motion: reduce) { .page .map-frame button.map-pin.fresh-seal { animation: none; } }
+.page .map-frame button.map-pin.recommended { outline: 4rpx solid #597B52; outline-offset: 4rpx; z-index: 2; }
+.xian-map { background: #EEE5D6; }
+.xian-map .map-progress { color: #8D4938; }
+.xian-map .map-frame { border-color: #AF8D65; background: #31302F; }
+.xian-map .map-dot.current .map-dot-mark { background: #8D4938; }
+.map-preview { position: absolute; left: 22rpx; bottom: 20rpx; padding: 5rpx 14rpx; border-radius: 99rpx; background: #292422DE; color: #FDF2DE; font-size: 21rpx; }

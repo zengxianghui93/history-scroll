@@ -1,0 +1,15 @@
+@import "../brief/brief.wxss";
+.landmark-art { position: absolute; left: 0; width: 100%; height: 1047rpx; }
+.bell-drum-art { left: -30%; width: 160%; height: 1675rpx; }
+.landmark-route { margin-top: 16rpx; }
+.page button.article-disclosure { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; width: 100%; margin: 0; padding: 24rpx; border: 1rpx solid #D8CCB4; border-radius: 14rpx; background: #F5EFDF; color: #62533E; text-align: left; font-size: 27rpx; line-height: 1.6; }
+.article-disclosure::after { border: none; }
+.article-disclosure text:last-child { flex-shrink: 0; color: #7A835D; font-size: 23rpx; }
+.square-plan { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8rpx; margin-top: 12rpx; text-align: center; color: #704C39; font-size: 21rpx; }
+.square-plan text { background: #FFF8E9; border-radius: 8rpx; padding: 10rpx 4rpx; }
+.square-plan text:first-child { grid-column: 2; }
+.square-plan text:nth-child(n+2) { grid-row: 2; }
+.landmark-intro { margin-top: 20rpx; padding: 18rpx 20rpx; background: #EDE8D6; color: #62533E; border-radius: 12rpx; font-size: 27rpx; line-height: 1.65; }
+.page button.section-link { display: inline-block; width: auto; margin-top: 12rpx; padding: 10rpx 14rpx; background: #E7EBD9; color: #526A42; border-radius: 10rpx; font-size: 24rpx; }
+
+.landmark-meta{display:flex;justify-content:space-between;gap:18rpx}.landmark-meta>text:last-child{flex-shrink:0}.landmark-aside{background:#eee8d8;border-left:4rpx solid #a88a55;border-radius:0 12rpx 12rpx 0;padding:23rpx 25rpx;margin-top:23rpx}.landmark-aside>view{color:#8b703e;font-size:23rpx;letter-spacing:2rpx;margin-bottom:10rpx}.landmark-aside>text{font-size:26rpx;line-height:1.8;color:#70604b}.observation-list{margin-top:20rpx}.observation-row{display:flex;align-items:flex-start;gap:22rpx;padding:22rpx 0;border-bottom:1rpx solid #e2d6bf}.observation-row:last-child{border-bottom:0}.observation-number{flex:0 0 42rpx;height:42rpx;border:1rpx solid #c8b68f;border-radius:50%;text-align:center;font:26rpx/42rpx serif;color:#92774d}.observation-title{font-size:28rpx;color:#526a42;margin:2rpx 0 8rpx}.observation-detail{font-size:25rpx;line-height:1.75;color:#7d705e}

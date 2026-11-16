@@ -1,0 +1,13 @@
+<view class="guide">
+  <view class="title">用一卷小卷，读懂大千世界</view>
+  <view class="subtitle">先领养一位旅伴</view>
+
+  <view class="species">
+    <view class="species-item {{species === 'cat' ? 'active' : ''}}" bindtap="selectSpecies" data-species="cat">🐱 小猫</view>
+    <view class="species-item {{species === 'dog' ? 'active' : ''}}" bindtap="selectSpecies" data-species="dog">🐶 小狗</view>
+  </view>
+
+  <input class="name-input" placeholder="给TA起个名字" value="{{name}}" bindinput="onNameInput" />
+
+  <view class="btn-primary confirm" bindtap="onConfirm">开始旅行</view>
+</view>

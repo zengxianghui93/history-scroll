@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="stories-heading">
+    <view class="stories-title">更多北京地标</view>
+    <text class="stories-count">{{readingCards.length}} 处地标</text>
+  </view>
+  <include src="../beijing/story-list.wxml" />
+  <button class="motion-control map-action" hover-class="motion-pressed" hover-start-time="0" bindtap="onMap">回到北京画卷 ›</button>
+  <button class="motion-control share-action" hover-class="motion-pressed" hover-start-time="0" open-type="share">分享这些地标 ↗</button>
+</view>

@@ -1,0 +1,69 @@
+<view class="page">
+  <view class="eyebrow">橘橘的城市发现 · 北京 001</view>
+  <view wx:if="{{invited}}" class="invitation">朋友邀你一起找线索 · 这是属于你的旅程</view>
+  <view class="title">寻找看不见的线</view>
+  <view class="subtitle">一张小地图，藏着一座城的秩序。</view>
+
+  <view class="letter">
+    <text class="cat">🐱</text>
+    <view class="letter-content">
+      <view class="letter-label">{{progress.revealed ? '橘橘的发现' : '橘橘来信 · 请你帮个忙'}}</view>
+      <view class="letter-text">{{feedback}}</view>
+    </view>
+  </view>
+
+  <view class="map-header"><text>北京发现地图</text><text class="map-progress">已找到 {{progress.foundIds.length}} / 3</text></view>
+  <view class="map {{allFound ? 'connected' : ''}}">
+    <view class="map-texture"></view>
+    <view class="axis-line"></view>
+    <view class="compass">北 ↑</view>
+    <view class="map-caption">城市方位示意 · 非导航地图</view>
+    <button wx:for="{{landmarks}}" wx:key="id" class="landmark {{item.kind}} {{item.found ? 'found' : ''}}"
+      style="left: {{item.x}}%; top: {{item.y}}%;" data-id="{{item.id}}" bindtap="onLandmarkTap"
+      aria-label="{{item.name}}{{item.found ? '，已找到' : ''}}">
+      <view class="building"><view class="roof"></view><view class="walls"><view class="door"></view></view></view>
+      <view class="landmark-name">{{item.found ? '✓ ' : ''}}{{item.name}}</view>
+    </button>
+  </view>
+
+  <view wx:if="{{!allFound}}" class="clue-card">
+    <view class="section-label">线索 {{progress.foundIds.length + 1}} / 3 · 点地标找一找</view>
+    <view class="clue-text">{{clue}}</view>
+    <view class="gentle">随时离开也没关系，橘橘会记住你找到的线索。</view>
+  </view>
+
+  <view wx:if="{{allFound && !progress.revealed}}" class="clue-card">
+    <view class="section-label">最后一个小发现</view>
+    <view class="clue-text">看看亮起来的三个地标，它们的位置有什么关系？</view>
+    <button class="choice" data-choice="axis" bindtap="onChoose">从南到北，像排在同一条线上</button>
+    <button class="choice" data-choice="scattered" bindtap="onChoose">散落在城市的不同角落</button>
+    <view wx:if="{{choiceFeedback}}" class="choice-feedback">{{choiceFeedback}}</view>
+  </view>
+
+  <view wx:if="{{progress.revealed}}" class="reveal">
+    <view class="section-label">原来如此 · 一条线读懂城市</view>
+    <view class="reveal-title">你找到了，北京中轴线</view>
+    <view wx:if="{{stampAwarded}}" class="outcome-note">{{outcomeIcons.city}} 同时获得北京印章 · 已开启探索</view>
+    <view class="knowledge">{{takeaway}}</view>
+    <view class="knowledge extra">这次找到的只是沿线的三个地标。中轴线还联系着宫殿、广场等空间；相关遗产也包括天坛等位于线两侧的建筑群。</view>
+    <button class="source" bindtap="onCopySource">知识来源：联合国教科文组织世界遗产中心 ↗</button>
+
+    <view class="bookmark {{progress.collectedAt ? 'collected' : ''}}">
+      <view class="bookmark-seal"><view>北京</view><view>发现</view></view>
+      <view class="bookmark-title">{{outcomeIcons.bookmark}} 中轴线书签</view>
+      <view class="bookmark-route"><view>钟鼓楼</view><view>│</view><view>天安门</view><view>│</view><view>永定门</view></view>
+      <view class="bookmark-caption">我和橘橘，找到了一座城的线索。</view>
+      <view class="bookmark-status">{{progress.collectedAt ? '▥ 已获得发现书签' : '完成这段探索的纪念'}}</view>
+    </view>
+    <button class="primary" bindtap="onClaimBookmark" disabled="{{progress.collectedAt !== null}}">{{progress.collectedAt ? '已获得中轴线书签' : '领取发现书签'}}</button>
+    <button wx:if="{{progress.collectedAt}}" class="text-button" bindtap="onMyCollection">查看我的发现书签 ›</button>
+    <button class="text-button" bindtap="onReadMore">还想知道更多？读读皇城六百年 ›</button>
+  </view>
+
+  <view class="share-card">
+    <view class="share-title">把这条线索，寄给朋友</view>
+    <view class="share-description">朋友打开就能开始找，也会拥有自己的发现书签。</view>
+    <button class="share-button" open-type="share">邀请朋友一起发现</button>
+  </view>
+  <button class="text-button" bindtap="onExplore">回到北京画卷，继续发现 ›</button>
+</view>

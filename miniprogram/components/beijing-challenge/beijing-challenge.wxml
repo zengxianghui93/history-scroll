@@ -1,0 +1,51 @@
+<view class="challenge">
+  <view class="challenge-kicker"><text>大千小卷 · 城市小挑战</text><text>约 1 分钟</text></view>
+  <view class="challenge-title">北京一分钟挑战</view>
+
+  <block wx:if="{{!finished}}">
+    <view class="round-meta"><text>第 {{questionIndex + 1}} / {{questions.length}} 题 · {{question.name}}</text>
+      <view class="round-steps" aria-hidden="true"><view wx:for="{{questions}}" wx:key="id" class="step {{index <= questionIndex ? 'step-on' : ''}}"></view></view>
+    </view>
+    <view class="question">{{question.prompt}}</view>
+
+    <view wx:if="{{selectedIndex !== -1 && question.illustration === 'pool'}}" class="question-art pool-diagram" aria-label="冰场剖面示意，冰面在上，支撑平台居中，原泳池空间在下">
+      <view class="ice">冰面</view><view class="platform">支撑平台</view><view class="pool">原泳池空间</view>
+      <text class="diagram-caption">空间关系示意</text>
+    </view>
+    <view wx:elif="{{selectedIndex !== -1 && question.illustration === 'palace'}}" class="question-art palace-diagram" aria-label="从南向北，先经过外朝，再到内廷">
+      <text class="diagram-caption">从南往北 · 分区示意</text>
+      <view class="palace-route"><view class="court"><text>前 · 外朝</text><text>举行大典</text></view><text>→</text><view class="court"><text>后 · 内廷</text><text>日常起居</text></view></view>
+    </view>
+    <view wx:else class="question-art">
+      <image wx:if="{{question.artStyle}}" class="art-crop" style="{{question.artStyle}}" src="{{question.image}}" mode="scaleToFill" />
+      <image wx:else class="art-image" src="{{question.image}}" mode="aspectFill" />
+      <view wx:if="{{selectedIndex !== -1}}" class="art-label">图中交织的钢梁</view>
+    </view>
+
+    <view class="choices">
+      <button wx:for="{{question.choices}}" wx:key="*this" class="choice {{selectedIndex !== -1 && index === question.correctIndex ? 'choice-correct' : ''}} {{selectedIndex === index && index !== question.correctIndex ? 'choice-picked' : ''}}" data-index="{{index}}" bindtap="onAnswer" disabled="{{selectedIndex !== -1}}" hover-class="pressed" hover-start-time="0">
+        <text class="choice-letter">{{index === 0 ? 'A' : 'B'}}</text><text>{{item}}</text>
+      </button>
+    </view>
+    <view wx:if="{{selectedIndex !== -1}}" class="reveal">
+      <view class="reveal-label">{{selectedIndex === question.correctIndex ? '✓ 猜对了' : '原来是这样'}}</view>
+      <view class="explanation">{{question.explanation}}</view>
+      <button class="main-action" bindtap="onNext" hover-class="pressed" hover-start-time="0">{{questionIndex + 1 === questions.length ? '看结果' : '下一题'}} <text>→</text></button>
+    </view>
+  </block>
+
+  <view wx:else class="result">
+    <view class="result-label">三题都答完啦</view>
+    <view class="result-score">猜对 <text>{{score}}</text> / {{questions.length}} 题</view>
+    <view class="result-copy">哪一题最出乎意料？发给朋友，看看他会怎么猜。</view>
+    <button class="main-action" open-type="share" hover-class="pressed" hover-start-time="0">发给朋友试试 <text>↗</text></button>
+    <button class="replay" bindtap="onReplay" hover-class="pressed" hover-start-time="0">再玩一局</button>
+    <view class="deeper">
+      <view class="deeper-label">挑一个想多了解的地方</view>
+      <view class="deeper-links">
+        <button wx:for="{{questions}}" wx:key="id" data-id="{{item.id}}" bindtap="onBrief">{{item.name}}短读 ›</button>
+        <button bindtap="onMap">北京画卷 ›</button>
+      </view>
+    </view>
+  </view>
+</view>

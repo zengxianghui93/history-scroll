@@ -1,0 +1,48 @@
+<import src="./landmark-ink.wxml" />
+
+<view wx:if="{{landmarkId}}" class="seal-footer">
+  <view wx:if="{{stamped}}" class="seal-keepsake">
+    <view wx:if="{{palaceReveal}}" class="seal-earned-art" aria-hidden="true">
+      <image src="{{revealImage}}" mode="scaleToFill" />
+    </view>
+    <view wx:elif="{{landmarkId === 'bell-drum' || landmarkId === 'square' || landmarkId === 'archery-tower' || landmarkId === 'temple-heaven' || landmarkId === 'yongding' || landmarkId === 'summer' || landmarkId === 'lama' || landmarkId === 'hutong-lane' || landmarkId === 'olympic' || landmarkId === 'qianmen' || landmarkId === 'lugou' || landmarkId === 'shougang' || landmarkId === 'canal-culture' || landmarkId === 'art-798' || landmarkId === 'sanlitun' || landmarkId === 'longfu' || landmarkId === 'daxing'}}" class="seal-earned-art"><template is="landmark-ink" data="{{landmarkId: landmarkId, compact: true}}" /></view>
+    <view wx:else class="seal-earned-mark" aria-hidden="true">印</view>
+    <view><view class="seal-earned-title">已盖章</view><view class="seal-earned-note">{{sealName}} · 已收入集章册</view></view>
+  </view>
+  <block wx:else>
+    <button class="seal-action" hover-class="seal-pressed" bindtap="onStamp" loading="{{busy}}" disabled="{{busy}}">
+      <view class="ink-well" aria-hidden="true">印</view>
+      <text>{{loggedIn ? '盖印打卡' : '登录后盖印打卡'}}</text>
+    </button>
+
+  </block>
+</view>
+<view wx:if="{{showSeal}}" class="seal-overlay {{palaceReveal ? 'palace-overlay' : ''}}" catchtouchmove="onOverlayMove">
+  <view class="seal-paper {{palaceReveal ? 'palace-paper' : ''}}" role="dialog" aria-label="地标盖章成功">
+    <view wx:if="{{palaceReveal}}" class="palace-stage" aria-hidden="true">
+      <image class="palace-layer palace-blank" src="{{blankImage}}" mode="scaleToFill" />
+      <image class="palace-layer palace-reveal" src="{{revealImage}}" mode="scaleToFill" />
+      <image class="palace-layer palace-stamp" src="{{revealImage}}" mode="scaleToFill" bindanimationend="onPalaceImpact" />
+      <view class="palace-flash" />
+      <view class="palace-ring" />
+      <view class="palace-dust"><view /><view /><view /><view /><view /><view /></view>
+    </view>
+    <view wx:elif="{{landmarkId === 'bell-drum' || landmarkId === 'square' || landmarkId === 'archery-tower' || landmarkId === 'temple-heaven' || landmarkId === 'yongding' || landmarkId === 'summer' || landmarkId === 'lama' || landmarkId === 'hutong-lane' || landmarkId === 'olympic' || landmarkId === 'qianmen' || landmarkId === 'lugou' || landmarkId === 'shougang' || landmarkId === 'canal-culture' || landmarkId === 'art-798' || landmarkId === 'sanlitun' || landmarkId === 'longfu' || landmarkId === 'daxing'}}" class="seal-imprint custom-imprint"><template is="landmark-ink" data="{{landmarkId: landmarkId, compact: false}}" /></view>
+    <view wx:else class="seal-imprint {{sealName.length <= 3 ? 'short-name' : ''}}"><text>{{sealName}}</text></view>
+    <view class="seal-result">
+      <view class="seal-result-title">{{passedHalf ? '半城足迹 · 已收录' : '已点亮' + sealName}}</view>
+      <view wx:if="{{passedHalf}}" class="seal-result-note">{{cityName}}已点亮 {{milestoneCount}} / {{milestoneTotal}} 处，把这半城发现收进手册</view>
+      <view wx:else class="seal-result-note">这枚印章已收录进你的{{cityName}}画卷</view>
+      <block wx:if="{{complete}}"><view class="seal-result-note">这一城的印章已集齐，收好整本探索手册</view><button class="seal-return" bindtap="onHandbook">翻开探索手册</button><button class="seal-close" bindtap="onReturnToMap">回画卷看看</button></block>
+      <block wx:elif="{{passedHalf && nextCityName}}">
+        <button class="seal-return" bindtap="onOpenNextCity">展开{{nextCityName}}</button>
+        <button class="seal-close" bindtap="onReturnToMap">继续逛{{cityName}}</button>
+      </block>
+      <block wx:elif="{{passedHalf}}"><button class="seal-return" bindtap="onHandbook">翻开我的探索手册</button><button class="seal-close" bindtap="onReturnToMap">继续逛{{cityName}}</button></block>
+      <block wx:else>
+        <button class="seal-return" bindtap="onReturnToMap">{{passedHalf ? '继续逛' + cityName : '返回画卷看看'}}</button>
+        <button class="seal-close" bindtap="onCloseSeal">留在这里</button>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+.challenge { box-sizing: border-box; border: 1rpx solid #D9C9AC; border-radius: 24rpx; padding: 24rpx; background: #FFF9EF; color: #443E32; }
+.challenge-kicker, .round-meta { display: flex; align-items: center; justify-content: space-between; gap: 12rpx; color: #756349; font-size: 22rpx; line-height: 1.6; }
+.challenge-title { font-family: "Songti SC", "SimSun", serif; color: #3E4E36; font-size: 43rpx; font-weight: 700; line-height: 1.35; margin: 10rpx 0 18rpx; }
+.round-steps { display: flex; flex-shrink: 0; gap: 7rpx; }
+.step { width: 24rpx; height: 6rpx; border-radius: 9rpx; background: #E7DBCA; }
+.step-on { background: #6A825B; }
+.question { margin: 10rpx 0 16rpx; font-size: 37rpx; font-weight: 700; line-height: 1.4; }
+.question-art { position: relative; box-sizing: border-box; height: 188rpx; overflow: hidden; border-radius: 14rpx; background: #EEE3CD; }
+.art-image { display: block; width: 100%; height: 100%; }
+.art-crop { position: absolute; margin-left: -24rpx; margin-top: -81rpx; }
+.art-label { position: absolute; left: 12rpx; bottom: 12rpx; background: #FFF9EF; color: #584731; border-radius: 6rpx; padding: 5rpx 10rpx; font-size: 20rpx; }
+.pool-diagram { background: #EDF0E6; padding: 12rpx 20rpx; text-align: center; font-size: 24rpx; line-height: 1.65; }
+.ice { background: #CEE5E8; color: #2D5B60; }
+.platform { background: #D6C6A9; color: #5E4633; }
+.pool { border: solid #8DABA8; border-width: 0 2rpx 2rpx; }
+.diagram-caption { display: block; color: #685C45; font-size: 20rpx; margin-top: 5rpx; }
+.palace-diagram { padding: 14rpx 18rpx; text-align: center; }
+.palace-route { display: flex; align-items: center; gap: 12rpx; margin-top: 12rpx; color: #714C38; }
+.court { flex: 1; min-width: 0; background: #FFF7E9; border-radius: 8rpx; padding: 10rpx 6rpx; }
+.court text { display: block; font-size: 24rpx; line-height: 1.5; }
+.court text:first-child { font-weight: 700; }
+.challenge button { display: block; box-sizing: border-box; min-width: 0; max-width: none; margin: 0; padding: 0; font-weight: 500; line-height: 1.5; }
+.challenge button::after { border: 0; }
+.choices { display: flex; flex-direction: column; gap: 9rpx; margin-top: 14rpx; }
+.challenge button.choice { display: flex; align-items: center; width: 100%; gap: 12rpx; padding: 12rpx 14rpx; border-radius: 10rpx; background: #F1E7D4; color: #443E32; text-align: left; font-size: 27rpx; }
+.choice-letter { flex-shrink: 0; width: 36rpx; border-radius: 6rpx; text-align: center; background: #FFF9EF; font-size: 23rpx; }
+.challenge button.choice[disabled] { color: #625743; background: #F3EDE0; }
+.challenge button.choice.choice-correct { color: #3D5D38; background: #E0ECD8; }
+.challenge button.choice.choice-picked { color: #794829; background: #F5E1CA; }
+.reveal { margin-top: 14rpx; padding: 14rpx; background: #EEF1E6; border-radius: 10rpx; }
+.reveal-label, .result-label { color: #526A42; font-size: 23rpx; font-weight: 700; }
+.explanation { color: #34462F; font-size: 28rpx; line-height: 1.55; margin-top: 4rpx; }
+.challenge button.main-action { display: flex; justify-content: space-between; width: 100%; margin-top: 12rpx; padding: 13rpx 16rpx; border-radius: 10rpx; background: #526A42; color: #FFFDF4; font-size: 27rpx; }
+.pressed { opacity: .8; }
+.result { background: #EDF0E5; border-radius: 16rpx; padding: 22rpx; }
+.result-score { font-size: 37rpx; line-height: 1.5; color: #43563A; margin: 6rpx 0; }
+.result-score text { font-size: 62rpx; font-weight: 700; }
+.result-copy { color: #554E3F; font-size: 26rpx; line-height: 1.6; }
+.challenge button.replay { width: 100%; margin-top: 8rpx; padding: 10rpx 0; background: transparent; color: #526A42; font-size: 25rpx; }
+.deeper { border-top: 1rpx solid #D5DCCB; margin-top: 8rpx; padding-top: 14rpx; }
+.deeper-label { color: #645D4B; font-size: 22rpx; }
+.deeper-links { display: flex; flex-wrap: wrap; gap: 4rpx 18rpx; margin-top: 5rpx; }
+.challenge .deeper-links button { width: auto; padding: 8rpx 0; background: transparent; color: #526A42; font-size: 22rpx; }

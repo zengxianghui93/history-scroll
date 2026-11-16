@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="eyebrow">西安先睹为快 · 永宁门 <text>约 2 分钟</text></view>
+  <view class="title">永宁门</view>
+  <view class="intro">西安城墙的南门。站在城门下，能看到一座古城怎样守住自己的入口。</view>
+  <view class="cover"><image src="{{image}}" mode="scaleToFill" aria-label="西安城墙永宁门的黄昏画卷局部" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">从南边走来，越过护城河，穿过第一道门，眼前还会出现围墙和下一道门。对守城的人来说，每一道门和围合空间都能把来路再截住一次。</view>
+    <view class="body">箭楼和城楼之间的院子叫瓮城。若外面的门失守，守军仍能关住后面的门，从周围城墙上观察和防守。抬头找找箭楼外壁的一排排小窗，就能看见这种设计留下的线索。</view>
+    <view class="gate-plan" aria-label="由城外向城内依次经过闸楼与月城、箭楼与瓮城、城楼">
+      <view class="plan-caption">从南往北 · 城防关系示意</view>
+      <view class="plan-line">
+        <view class="plan-step"><view class="gate-symbol" /><text>闸楼</text></view>
+        <view class="plan-step plan-space"><view class="court-symbol">→</view><text>月城</text></view>
+        <view class="plan-step"><view class="gate-symbol arrow-tower" /><text>箭楼</text></view>
+        <view class="plan-step plan-space"><view class="court-symbol">→</view><text>瓮城</text></view>
+        <view class="plan-step"><view class="gate-symbol inner" /><text>城楼</text></view>
+      </view>
+      <view class="plan-side"><text>城外</text><text>城内</text></view>
+    </view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">这面墙，厚过它的高度</view>
+    <view class="body">从城下看，最抢眼的是墙有多高。走上墙顶再回头看，才会发现墙身有多厚。厚实的墙体让墙顶留出足够的宽度，守军可以在上面巡行和调动。</view>
+    <view class="body">站在瓮城里时，试着先回望箭楼，再转身找城楼。两道门之间这块看起来像广场的地方，就是整套城防的一部分。</view>
+  </view>
+
+  <view class="actions">
+    <button class="secondary" hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button class="secondary" hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

@@ -1,0 +1,31 @@
+<view class="page" wx:if="{{entry.story}}">
+  <view class="brief-meta landmark-meta"><text>北京 · {{entry.name}}</text><text wx:if="{{entry.story.duration}}">{{entry.story.duration}}</text></view>
+  <view class="brief-title">{{entry.story.title}}</view>
+  <view wx:if="{{entry.story.cover}}" class="article-figure story-cover"><image class="article-figure-image" src="{{entry.story.cover.src}}" mode="widthFix" aria-label="{{entry.story.cover.alt}}"/><view wx:if="{{entry.story.cover.caption}}" class="art-caption">{{entry.story.cover.caption}}</view></view>
+  <view wx:else class="brief-art article-art"><image class="landmark-art {{entry.id === 'bell-drum' ? 'bell-drum-art' : ''}}" src="{{image}}" style="top:{{artTop}}rpx" mode="scaleToFill" aria-label="{{entry.name}}所在画卷的局部插画" /></view>
+  <view class="landmark-intro">{{entry.takeaway}}</view>
+  <view class="article-section" wx:for="{{entry.story.sections}}" wx:key="title">
+    <button wx:if="{{item.collapsed}}" class="article-disclosure motion-control" hover-class="motion-pressed" data-index="{{index}}" bindtap="onToggleSection" aria-expanded="{{expandedSections[index] ? true : false}}"><text>{{item.title}}</text><text>{{expandedSections[index] ? '收起 −' : '展开 ＋'}}</text></button>
+    <view wx:else class="article-heading">{{item.title}}</view>
+    <block wx:if="{{!item.collapsed || expandedSections[index]}}">
+    <view class="article-paragraph">{{item.text}}</view>
+    <view wx:if="{{item.illustration}}" class="article-figure"><image class="article-figure-image" src="{{item.illustration.src}}" mode="widthFix" aria-label="{{item.illustration.alt}}"/><view class="art-caption">{{item.illustration.caption}}</view></view>
+    <view wx:if="{{item.aside}}" class="landmark-aside"><view>{{item.aside.label}}</view><text>{{item.aside.text}}</text></view>
+    <view wx:if="{{item.observations}}" class="observation-list"><view wx:for="{{item.observations}}" wx:for-item="observation" wx:for-index="step" wx:key="name" class="observation-row"><text class="observation-number">{{step + 1}}</text><view><view class="observation-title">{{observation.name}}</view><view class="observation-detail">{{observation.detail}}</view></view></view></view>
+    <view wx:if="{{item.route}}" class="axis-art landmark-route">
+      <text class="art-caption">现场观察 · 由南向北</text>
+      <view class="axis-line"><text>{{item.route[0]}}</text><text>→</text><text>{{item.route[1]}}</text><text>→</text><text>{{item.route[2]}}</text></view>
+    </view>
+    <view wx:if="{{item.squarePlan}}" class="axis-art landmark-route">
+      <text class="art-caption">现场观察 · 面朝北</text>
+      <view class="square-plan"><text>北 · 天安门</text><text>西 · 人民大会堂</text><text>人民英雄纪念碑</text><text>东 · 中国国家博物馆</text></view>
+    </view>
+    <button wx:if="{{item.link}}" class="motion-control section-link" hover-class="motion-pressed" data-index="{{index}}" bindtap="onReadSection">{{item.link.label}} ›</button>
+    </block>
+  </view>
+  <view class="brief-actions article-actions">
+    <button wx:if="{{entry.fengwuId}}" class="motion-control secondary-action" hover-class="motion-pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button class="motion-control finish-action" hover-class="motion-pressed" open-type="share">分享这处发现 ↗</button>
+  </view>
+  <landmark-seal landmark-id="{{entry.id}}" />
+</view>

@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/beijing/beijing",
+    "pages/beijing-share/beijing-share",
+    "pages/beijing-overview/beijing-overview",
+    "pages/beijing-landmark/beijing-landmark",
+    "pages/explore/explore",
+    "pages/challenge/challenge",
+    "pages/brief/brief",
+    "pages/discovery/discovery",
+    "pages/city/city",
+    "pages/beijing-more/beijing-more",
+    "pages/foodstreet/foodstreet",
+    "pages/fengwu/fengwu",
+    "pages/pet/pet",
+    "pages/mine/mine",
+    "pages/guide/guide"
+  ],
+  "subpackages": [
+    {
+      "root": "xian",
+      "pages": [
+        "pages/yongning/yongning",
+        "pages/preview/preview"
+      ]
+    },
+    {
+      "root": "account",
+      "pages": [
+        "pages/login/login"
+      ]
+    },
+    {
+      "root": "memories",
+      "pages": [
+        "pages/postcard/postcard",
+        "pages/handbook/handbook"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTitleText": "大千小卷",
+    "navigationBarBackgroundColor": "#FDF6E3",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FDF6E3"
+  },
+  "tabBar": {
+    "color": "#8A7B6E",
+    "selectedColor": "#E8924A",
+    "backgroundColor": "#FFFDF8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/beijing/beijing",
+        "text": "探索",
+        "iconPath": "images/tabbar/icon_explore.png",
+        "selectedIconPath": "images/tabbar/icon_explore_on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabbar/icon_mine.png",
+        "selectedIconPath": "images/tabbar/icon_mine_on.png"
+      }
+    ]
+  },
+  "style": "v2"
+}

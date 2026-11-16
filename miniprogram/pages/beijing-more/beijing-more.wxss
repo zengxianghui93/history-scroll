@@ -1,0 +1,11 @@
+@import "../../styles/discovery-motion.wxss";
+@import "../../styles/beijing-stories.wxss";
+
+page { background: #F7F1E3; color: #443E32; }
+.page { padding: 30rpx 26rpx calc(40rpx + env(safe-area-inset-bottom)); }
+.stories-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12rpx; margin-bottom: 24rpx; }
+.stories-title { color: #4D493A; font-family: "Songti SC", serif; font-size: 46rpx; font-weight: 700; }
+.stories-count { color: #756951; font-size: 23rpx; }
+.page button.map-action, .page button.share-action { display: block; width: 100%; max-width: none; min-width: 0; box-sizing: border-box; margin: 12rpx 0 0; padding: 15rpx 18rpx; border-radius: 12rpx; color: #526A42; background: #EBEFE2; font-size: 24rpx; line-height: 1.6; }
+.page button.share-action { background: transparent; }
+.page button::after { border: 0; }

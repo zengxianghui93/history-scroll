@@ -1,0 +1,70 @@
+@import "../../styles/discovery-motion.wxss";
+
+page { background: #F7F1E3; color: #443E32; }
+.page { padding: 32rpx 32rpx calc(36rpx + env(safe-area-inset-bottom)); }
+.brief-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12rpx; color: #76654D; font-size: 23rpx; }
+.brief-title { font-family: "Songti SC", "SimSun", serif; font-size: 44rpx; font-weight: 700; line-height: 1.4; margin: 16rpx 0 24rpx; }
+.brief-art { position: relative; height: 252rpx; overflow: hidden; border-radius: 18rpx; background: #ECE1C8; }
+.brief-image { display: block; width: 100%; height: 100%; }
+.brief-crop { position: absolute; margin-top: -49rpx; }
+.brief-emoji { display: block; text-align: center; line-height: 252rpx; font-size: 100rpx; }
+.axis-art { background: #EEE1CA; border-radius: 18rpx; padding: 22rpx; }
+.axis-line { display: flex; justify-content: space-between; gap: 6rpx; align-items: center; margin-top: 12rpx; color: #704C39; font-size: 25rpx; }
+.axis-line > text:nth-child(odd) { padding: 12rpx 8rpx; background: #FFF8E9; border-radius: 8rpx; }
+.art-caption { color: #756951; font-size: 20rpx; }
+.brief-answer { font-size: 31rpx; color: #526A42; font-weight: 700; line-height: 1.55; margin: 24rpx 0 10rpx; }
+.brief-body { font-size: 28rpx; line-height: 1.75; }
+.stamp-note { margin-top: 14rpx; color: #526A42; font-size: 23rpx; }
+.page button { margin: 0; padding: 0; min-width: 0; max-width: none; font-weight: 500; line-height: 1.5; }
+.page button::after { border: 0; }
+.brief-actions { display: flex; gap: 10rpx; margin-top: 24rpx; }
+.page .brief-actions button { flex: 1; width: 0; box-sizing: border-box; padding: 15rpx 3rpx; font-size: 24rpx; border-radius: 10rpx; }
+.finish-action { background: #526A42; color: #FFFDF4; }
+.page button.finish-action[disabled] { background: #E2E9D7; color: #526A42; }
+.secondary-action { background: #EEE3CD; color: #644E36; }
+.read-progress { color: #756951; font-size: 21rpx; margin-top: 12rpx; }
+.page button.next-brief { display: block; width: 100%; box-sizing: border-box; background: #FFF9EE; border: 1rpx solid #DDD0B6; text-align: left; border-radius: 14rpx; margin-top: 22rpx; padding: 18rpx 20rpx; }
+.next-label { color: #526A42; font-size: 22rpx; }
+.next-label text { float: right; }
+.next-question { margin-top: 6rpx; color: #443E32; font-size: 28rpx; }
+.detail-links { display: flex; flex-wrap: wrap; gap: 8rpx 20rpx; margin: 16rpx 0; }
+.page .detail-links button, .page button.source { display: block; width: auto; padding: 8rpx 0; background: transparent; color: #6E604B; text-align: left; font-size: 23rpx; }
+.page button.source { font-size: 20rpx; }
+.article-art { height: 300rpx; }
+.article-section { margin-top: 32rpx; }
+.article-heading { color: #526A42; font-size: 31rpx; font-weight: 700; line-height: 1.5; margin-bottom: 12rpx; }
+.article-paragraph { color: #443E32; font-size: 28rpx; line-height: 1.85; margin-top: 12rpx; }
+.article-figure { margin-top: 20rpx; }
+.article-figure-image { display: block; width: 100%; border-radius: 14rpx; background: #ECE1C8; }
+.article-figure .art-caption { margin-top: 8rpx; text-align: center; }
+.guide-intro { font-size: 28rpx; line-height: 1.75; }
+.guide-tags { display: flex; flex-wrap: wrap; gap: 10rpx; margin: 15rpx 0 22rpx; }
+.guide-tag { padding: 5rpx 13rpx; border-radius: 8rpx; background: #E8EBDD; color: #506346; font-size: 21rpx; }
+.guide-story, .guide-route { margin-top: 38rpx; padding-top: 23rpx; border-top: 1rpx solid #DACDB5; }
+.guide-story + .article-section { margin-top: 18rpx; }
+.guide-kicker { color: #815944; font-size: 21rpx; }
+.guide-title { margin-top: 8rpx; color: #443E32; font-family: "Songti SC", "SimSun", serif; font-size: 40rpx; font-weight: 700; line-height: 1.4; }
+.ridge-plate { position: relative; overflow: hidden; border: 1rpx solid #DDCDB3; border-radius: 14rpx; }
+.ridge-plate .article-figure-image { border-radius: 0; }
+.ridge-labels { position: absolute; left: 0; right: 0; display: flex; align-items: center; text-align: center; color: #584531; font-size: 22rpx; }
+.ridge-labels.row-first { top: 42%; }
+.ridge-labels.row-second { top: 89%; }
+.ridge-label { flex: 1; white-space: nowrap; }
+.ridge-labels .last-beast { color: #8A3E2C; font-weight: 700; }
+.route-caption { color: #756951; font-size: 22rpx; margin: 8rpx 0 15rpx; }
+.route-stop { display: flex; gap: 14rpx; padding: 13rpx 0; border-bottom: 1rpx solid #E5D9C4; }
+.route-stop:last-child { border-bottom: 0; }
+.route-index { flex: 0 0 42rpx; height: 42rpx; line-height: 42rpx; text-align: center; background: #E6EAD9; color: #526A42; border-radius: 50%; font-size: 22rpx; }
+.route-copy { flex: 1; min-width: 0; }
+.route-name { color: #443E32; font-size: 27rpx; font-weight: 700; line-height: 1.5; }
+.route-note { color: #6E604B; font-size: 25rpx; line-height: 1.7; margin-top: 4rpx; }
+.visit-card { margin-top: 22rpx; border: 1rpx solid #DACEB7; border-radius: 14rpx; background: #FBF6E9; }
+.page .visit-card button.visit-toggle { display: flex; width: 100%; box-sizing: border-box; align-items: center; justify-content: space-between; padding: 17rpx 20rpx; color: #443E32; background: transparent; text-align: left; }
+.visit-title { font-size: 29rpx; font-weight: 700; }
+.visit-subtitle { color: #756951; font-size: 22rpx; margin-top: 4rpx; }
+.visit-indicator { color: #526A42; font-size: 32rpx; }
+.visit-body { padding: 0 20rpx 18rpx; }
+.visit-note { padding: 12rpx 0; border-top: 1rpx solid #E6DAC5; color: #526A42; font-size: 25rpx; font-weight: 700; line-height: 1.65; }
+.visit-note-text { display: block; margin-top: 4rpx; color: #554A3B; font-weight: 400; }
+.visit-date { margin: 8rpx 0; font-size: 21rpx; color: #756951; }
+.page .visit-card button.visit-link { display: inline-block; width: auto; padding: 10rpx 0; color: #526A42; background: transparent; font-size: 24rpx; }

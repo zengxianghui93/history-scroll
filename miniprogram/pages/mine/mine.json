@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "我的城市册",
+  "usingComponents": { "xian-art": "/xian/components/scroll-art/scroll-art" },
+  "componentPlaceholder": { "xian-art": "view" }
+}

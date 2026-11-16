@@ -1,0 +1,53 @@
+<template name="landmark-ink">
+  <view class="landmark-ink {{compact ? 'landmark-ink-compact' : ''}}" aria-hidden="true">
+    <block wx:if="{{landmarkId === 'square'}}">
+      <view class="gate-icon"><view class="gate-roof" /><view class="gate-roof lower" /><view class="gate-wall"><view /><view /><view /><view /><view /></view></view>
+      <text>天安門</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'archery-tower'}}">
+      <view class="arrow-tower-icon"><view class="arrow-tower-roof"/><view class="arrow-tower-wall"><view class="arrow-windows"/><view class="arrow-windows"/><view class="arrow-windows"/></view><view class="arrow-tower-base"><view/></view></view><text>正陽門</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'temple-heaven'}}"><view class="temple-icon"><view class="temple-finial"/><view class="temple-roof upper"/><view class="temple-roof middle"/><view class="temple-roof lower"/><view class="temple-hall"/><view class="temple-platform"/></view><text>天壇</text></block>
+    <block wx:elif="{{landmarkId === 'yongding'}}"><view class="yongding-icon"><view class="yongding-hall"/><view class="yongding-roof upper"/><view class="yongding-roof middle"/><view class="yongding-roof lower"/><view class="yongding-base"><view/></view></view><text>永定門</text></block>
+    <block wx:elif="{{landmarkId === 'summer'}}">
+      <view class="gardens-icon"><view class="gardens-pavilion"><view class="gardens-roof upper"/><view class="gardens-roof middle"/><view class="gardens-roof lower"/><view class="gardens-hall"/><view class="gardens-platform"/></view><view class="gardens-ruins"><view/><view/><view/></view><view class="gardens-water"/></view><text>湖山雙園</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'lama'}}">
+      <view class="lama-icon"><view class="lama-hall"/><view class="lama-roof"/><view class="lama-skylights"><view/><view/><view/><view/><view/></view><view class="lama-steps"/></view><text>雍和宮</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'hutong-lane'}}">
+      <view class="hutong-ink-icon"><view class="hutong-ink-axis"/><view class="hutong-ink-branches"><view/><view/><view/><view/><view/><view/><view/><view/></view></view><text>南鑼鼓巷</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'olympic'}}">
+      <view class="olympic-ink-icon"><view class="olympic-cube"><view/><view/><view/><view/></view><view class="olympic-nest"><view/></view><view class="olympic-ground"/></view><text>雙奧</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'qianmen'}}">
+      <view class="qianmen-ink-icon"><view class="qianmen-ink-car"><view class="qianmen-ink-windows"><view/><view/><view/></view><view class="qianmen-ink-lamp"/><view class="qianmen-ink-bumper"/></view><view class="qianmen-ink-rail left"/><view class="qianmen-ink-rail right"/></view><text>前門</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'lugou'}}">
+      <view class="lugou-ink-icon"><view class="lugou-ink-gate"><view class="lugou-ink-roof"/><view class="lugou-ink-wall"><view/></view></view><view class="lugou-ink-bridge"><view/><view/><view/><view/></view><view class="lugou-ink-water"/></view><text>盧溝宛平</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'shougang'}}">
+      <view class="shougang-ink-icon"><view class="shougang-ink-tower"><view/></view><view class="shougang-ink-ramp"/><view class="shougang-ink-support"/><view class="shougang-ink-ground"/></view><text>首鋼</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'canal-culture'}}">
+      <view class="canal-ink-icon"><view class="canal-ink-granary"><view/></view><view class="canal-ink-leaf"><view/></view><view class="canal-ink-sail"/><view class="canal-ink-water"/></view><text>運河文苑</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'art-798'}}">
+      <view class="art798-ink-icon"><view class="art798-ink-roofs"><view/><view/><view/></view><view class="art798-ink-wall"><view/><view/><view/></view><view class="art798-ink-ground"/></view><text>798</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'sanlitun'}}">
+      <view class="sanlitun-ink-icon"><view class="sanlitun-ink-building left"><view/><view/><view/></view><view class="sanlitun-ink-building right"><view/><view/><view/></view><view class="sanlitun-ink-lane"/></view><text>三里屯</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'longfu'}}">
+      <view class="longfu-ink-icon"><view class="longfu-ink-roof"/><view class="longfu-ink-hall"><view/><view/><view/></view><view class="longfu-ink-terrace"/><view class="longfu-ink-base"><view/><view/><view/></view></view><text>隆福</text>
+    </block>
+    <block wx:elif="{{landmarkId === 'daxing'}}">
+      <view class="daxing-ink-icon"><view class="daxing-ink-terminal"/><view class="daxing-ink-core"/></view><text>大興</text>
+    </block>
+    <block wx:else>
+      <view class="bell-drum-symbols"><view class="bronze-bell" /><view class="watch-drum" /></view>
+      <text>鐘鼓樓</text>
+    </block>
+  </view>
+</template>

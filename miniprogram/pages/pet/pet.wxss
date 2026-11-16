@@ -1,0 +1,143 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 40rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #FDF6E3 0%, #FBEFD6 100%);
+}
+
+.card {
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 6rpx 18rpx rgba(120, 90, 60, .10);
+  padding: 26rpx 28rpx;
+  margin-bottom: 24rpx;
+}
+.block-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+
+/* 萌宠大图卡 */
+.profile { animation: fadeUp .5s ease both; }
+.pet-stage {
+  height: 300rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.stage-cat { background: #FBEFD6; }
+.stage-dog { background: #EAF3DD; }
+.pet-big {
+  font-size: 140rpx;
+  animation: float 3s ease-in-out infinite alternate;
+}
+.pet-name-row {
+  display: flex;
+  align-items: baseline;
+  margin: 20rpx 0 6rpx;
+}
+.pet-name {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #4A3F35;
+}
+.pet-species {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  margin-left: 12rpx;
+}
+.pet-lv {
+  font-size: 24rpx;
+  color: #E8924A;
+  font-weight: 600;
+  margin-left: 12rpx;
+}
+.prog {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+}
+.prog-label {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  width: 60rpx;
+}
+.track {
+  flex: 1;
+  height: 12rpx;
+  background: #F0E6D2;
+  border-radius: 999rpx;
+  overflow: hidden;
+  margin: 0 14rpx;
+}
+.fill { height: 100%; border-radius: 999rpx; }
+.fill.gold { background: #E0A93B; }
+.fill.green { background: #A8C66C; }
+.prog-num {
+  font-size: 22rpx;
+  color: #8A7B6E;
+  min-width: 60rpx;
+  text-align: right;
+}
+
+/* 旅行时间线 */
+.trip {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F5EDDC;
+  animation: fadeUp .5s ease both;
+}
+.trip:last-of-type { border-bottom: none; }
+.trip-date {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #E8924A;
+  width: 110rpx;
+  flex-shrink: 0;
+}
+.trip-label {
+  flex: 1;
+  font-size: 28rpx;
+  color: #4A3F35;
+}
+.chev {
+  color: #C9BCA8;
+  font-size: 34rpx;
+}
+.empty {
+  padding: 30rpx 0 10rpx;
+  font-size: 26rpx;
+  color: #8A7B6E;
+  text-align: center;
+}
+
+/* 阶段二占位 */
+.future {
+  display: flex;
+  gap: 20rpx;
+}
+.fbtn {
+  flex: 1;
+  text-align: center;
+  border-radius: 999rpx;
+  padding: 18rpx 0;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #E8924A;
+  background: #FFFDF8;
+  border: 1rpx solid #F0D3B5;
+  box-shadow: 0 6rpx 18rpx rgba(120, 90, 60, .10);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16rpx); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12rpx); }
+}

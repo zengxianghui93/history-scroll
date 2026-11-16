@@ -1,0 +1,154 @@
+<view class="page" wx:if="{{city}}">
+  <button wx:if="{{hasDiscovery}}" class="return-map" bindtap="onBeijingMap">← 回到北京城市画卷，继续发现</button>
+
+  <!-- 1. 封面大卡（先沉浸"我在北京"） -->
+  <view class="cover">
+    <view class="cover-illus">
+      <image wx:if="{{city.cover}}" src="{{city.cover}}" mode="aspectFill" class="cover-img" />
+      <text wx:else class="cover-emoji">{{petEmoji}}</text>
+      <view class="share-btn" bindtap="onShareTap">🔗</view>
+    </view>
+    <view class="cover-info card">
+      <view class="cover-name-row">
+        <text class="cover-name">{{city.name}}</text>
+        <view wx:if="{{hasDiscovery}}" class="collect {{collected ? 'on' : ''}}">{{outcomeIcons.city}} {{collected ? '已开启探索' : '探索后获印章'}}</view>
+        <view wx:else class="collect {{collected ? 'on' : ''}}" bindtap="onToggleCollect">
+          {{collected ? '✓ 已收集' : '收集'}}
+        </view>
+      </view>
+      <view class="cover-sub">{{city.province}} · {{city.slogan}}</view>
+    </view>
+  </view>
+
+  <!-- 2. 名称溯源（一座城的第一课） -->
+  <view id="city-name" class="kb card" wx:for="{{blocks}}" wx:key="id" wx:for-item="b" wx:if="{{b.id === 'name'}}">
+    <view class="kb-head">
+      <view class="kb-illus"><text>{{b.icon}}</text></view>
+      <text class="kb-title">{{b.title}}</text>
+    </view>
+    <view class="kb-text {{b.needFold && !b.expanded ? 'clamp' : ''}}">{{b.text}}</view>
+    <view wx:if="{{b.needFold}}" class="kb-fold" data-id="{{b.id}}" bindtap="onToggleBlock">
+      {{b.expanded ? '收起' : '展开 ›'}}
+    </view>
+  </view>
+
+  <!-- 3. 玩法卡（有 discovery 的城显示：乐趣与操作） -->
+  <view id="city-play" wx:if="{{hasDiscovery}}" class="card play-card" bindtap="onDiscovery">
+    <view class="play-illus">🗺️</view>
+    <view class="play-body">
+      <view class="block-title">寻找北京看不见的线 ›</view>
+      <view class="play-text">点地图找线索，完成探索后获得发现书签。</view>
+    </view>
+  </view>
+
+  <!-- 4. 风物册：美食与景点见闻 -->
+  <view class="fenwu" id="city-fengwu">
+    <view wx:if="{{focusedFengwuId}}" class="focus-hint">见闻定位 · 找到描边的卡片，打开看看答案。</view>
+    <view class="fw-section">
+      <view class="fw-title">🍜 美食风物</view>
+      <scroll-view scroll-x class="fw-scroll" scroll-into-view="{{focusedFengwuAnchor}}">
+        <view id="fengwu-{{index}}" class="fw-card {{item.lit ? 'lit' : ''}} {{item.id === focusedFengwuId ? 'focused' : ''}}" wx:for="{{fenwu}}" wx:key="id" wx:if="{{item.kind === 'food'}}"
+          data-id="{{item.id}}" bindtap="{{hasDiscovery ? 'onOpenFengwu' : 'onToggleFenwu'}}">
+          <view class="fw-illus">{{item.emoji}}</view>
+          <view class="fw-name">{{item.name}}</view>
+          <view class="fw-intro" wx:if="{{hasDiscovery}}">{{item.intro}}</view>
+          <view class="fw-lit">{{item.lit ? (hasDiscovery ? '▣ 已收藏 · 回看' : '✓ 已收藏 · 回看') : (hasDiscovery ? '打开，发现一点新知 ›' : '点亮')}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="fw-section">
+      <view class="fw-title">🏛 城市漫游</view>
+      <scroll-view scroll-x class="fw-scroll">
+        <view id="fengwu-{{index}}" class="fw-card {{item.lit ? 'lit' : ''}}" wx:for="{{fenwu}}" wx:key="id" wx:if="{{item.kind === 'spot'}}"
+          data-id="{{item.id}}" bindtap="{{hasDiscovery ? 'onOpenFengwu' : 'onToggleFenwu'}}">
+          <view class="fw-illus {{item.cls}}">{{item.emoji}}</view>
+          <view class="fw-name">{{item.name}}</view>
+          <view class="fw-intro">{{item.intro}}</view>
+          <view class="fw-lit">{{item.lit ? (hasDiscovery ? '▣ 已收藏 · 回看' : '✓ 已收藏 · 回看') : (hasDiscovery ? '打开，发现一点新知 ›' : '点亮')}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="fw-progress">{{hasDiscovery ? '▣ 已收藏' : '已点亮'}} {{fenwuLitCount}} / {{fenwuTotal}} 则见闻</view>
+  </view>
+
+  <!-- 5. 橘橘旅行日记头（信件开场，深读层） -->
+  <view id="city-diary" class="diary-head card" wx:if="{{chapter}}">
+    <view class="reading-label">城市手记 · 浅卷轻读</view>
+    <view class="deep-tabs" wx:if="{{shallowTabs.length}}">
+      <view class="deep-tab {{chapter.id === item.id ? 'on' : ''}}" wx:for="{{shallowTabs}}" wx:key="id" data-id="{{item.id}}" bindtap="onSwitchChapter">{{item.title}}</view>
+    </view>
+    <view wx:if="{{deepTabs.length}}" class="reading-label">深卷 · 继续追问</view>
+    <view class="deep-tabs" wx:if="{{deepTabs.length}}">
+      <button class="deep-tab chapter-topic {{chapter.id === item.id ? 'on' : ''}}" wx:for="{{deepTabs}}" wx:key="id" data-id="{{item.id}}" bindtap="onSwitchChapter"><view>{{item.title}}</view><text>{{chapter.id === item.id ? '正在阅读' : '切换这一篇 ›'}}</text></button>
+    </view>
+    <view class="dh-top">
+      <text class="dh-emoji">{{petEmoji}}</text>
+      <view class="dh-meta">
+        <text class="dh-from">城市手记 · 橘橘见闻</text>
+        <text class="dh-title">{{chapter.title}}</text>
+      </view>
+    </view>
+    <view class="dh-diary">{{chapter.diary}}</view>
+    <view class="takeaway">
+      <view class="tw-label">今日新知</view>
+      <view class="tw-text">{{chapter.takeaway}}</view>
+    </view>
+    <view wx:if="{{chapter.sources}}" class="chapter-sources"><view wx:for="{{chapter.sources}}" wx:key="url"><button data-index="{{index}}" bindtap="onCopyChapterSource">来源：{{item.title}} · 复制原文 ↗</button></view></view>
+    <view class="read-btn {{chapterRead ? 'done' : ''}}" bindtap="onMarkRead">
+      {{chapterRead ? '▤ 已读' : '标记已读'}}
+    </view>
+    <view wx:if="{{stampAwarded}}" class="outcome-note">{{outcomeIcons.city}} 获得北京印章 · 已开启探索</view>
+  </view>
+
+  <!-- 6. 深卷专题知识点（跟随日记头） -->
+  <view class="deep-block card" wx:if="{{deepPoints.length}}">
+    <view class="block-title">深度知识点</view>
+    <view class="deep-point" wx:for="{{deepPoints}}" wx:key="title">
+      <text class="dp-icon">{{item.icon}}</text>
+      <view class="dp-body">
+        <text class="dp-title">{{item.title}}</text>
+        <text class="dp-text">{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 7. 延伸知识：历史沿革 / 冷知识 -->
+  <view class="kb card" wx:for="{{blocks}}" wx:key="id" wx:for-item="b" wx:if="{{b.id === 'history' || b.id === 'facts'}}">
+    <view class="kb-head">
+      <view class="kb-illus"><text>{{b.icon}}</text></view>
+      <text class="kb-title">{{b.title}}</text>
+    </view>
+    <block wx:if="{{b.id === 'history'}}">
+      <view class="timeline">
+        <view class="tl-node" wx:for="{{b.nodes}}" wx:key="*this" wx:for-item="node">
+          <view class="tl-dot"></view>
+          <text class="tl-text">{{node}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:elif="{{b.id === 'facts'}}">
+      <view class="kb-fact" wx:for="{{b.facts}}" wx:key="*this" wx:for-item="fact">{{fact}}</view>
+    </block>
+  </view>
+
+  <!-- 8. 橘橘旅行时间线（分享裂变素材） -->
+  <view class="tl-card card" wx:if="{{timeline.length}}">
+    <view class="block-title">{{hasDiscovery ? '▤ 阅读足迹' : '橘橘的旅行足迹'}}</view>
+    <view class="timeline">
+      <view class="tl-node" wx:for="{{timeline}}" wx:key="title">
+        <view class="tl-dot"></view>
+        <text class="tl-date">{{item.date}}</text>
+        <text class="tl-city">{{item.cityName}}</text>
+        <text class="tl-title">{{item.title}}</text>
+      </view>
+    </view>
+    <view class="tl-share">截图分享，邀好友一起逛中国城市 🐾</view>
+  </view>
+
+  <!-- 吸底操作 -->
+  <view class="footer">
+    <view class="fbtn want {{want ? 'on' : ''}}" bindtap="onToggleWant">{{want ? '✓ 已想去' : '标记想去'}}</view>
+    <view class="fbtn go" bindtap="onViewFengwu">查看风物册 {{fenwuLitCount}}/{{fenwuTotal}}</view>
+  </view>
+  <view class="footer-space"></view>
+</view>

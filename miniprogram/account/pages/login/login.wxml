@@ -1,0 +1,3 @@
+<view class="login-page"><view class="login-seal">城</view><view class="eyebrow">大千小卷 · 我的城市册</view><view class="title"><text>把走过的风景，
+留在自己的画卷里。</text></view><view class="note"><text>登录后，印章和收藏见闻将随微信账号保存。
+这台手机上已有的探索记录也会一起收好。</text></view><button class="login-button" bindtap="onLogin" loading="{{busy}}" disabled="{{busy}}">微信账号登录</button><view class="privacy">无需提供手机号、头像或昵称</view><view wx:if="{{error}}" class="error">{{error}}</view></view>

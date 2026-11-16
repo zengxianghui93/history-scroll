@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "北京 · 城市画卷",
+  "navigationBarBackgroundColor": "#F7F1E3",
+  "disableScroll": true,
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true,
+  "usingComponents": { "xian-art": "/xian/components/scroll-art/scroll-art" },
+  "componentPlaceholder": { "xian-art": "view" }
+}

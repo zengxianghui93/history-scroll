@@ -1,0 +1,122 @@
+.page {
+  min-height: 100vh;
+  padding: 24rpx 28rpx 60rpx;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #FDF6E3 0%, #FBEFD6 100%);
+}
+
+.discovery-entry { background: #E7ECDF; border: 2rpx solid #CCD7BF; padding: 28rpx; border-radius: 24rpx; margin-bottom: 30rpx; }
+.discovery-label { font-size: 22rpx; color: #677954; letter-spacing: 2rpx; }
+.discovery-title { font-size: 36rpx; font-weight: 800; color: #43553A; margin: 14rpx 0; }
+.discovery-description { font-size: 25rpx; color: #6C775F; line-height: 1.8; }
+.discovery-action { background: #607A50; color: #FFFDF8; font-size: 27rpx; border-radius: 14rpx; margin-top: 22rpx; line-height: 1.6; padding: 19rpx; }
+.discovery-action::after { border: 0; }
+
+/* 旅伴一行 */
+.companion {
+  display: flex;
+  align-items: center;
+  padding: 8rpx 6rpx 18rpx;
+}
+.comp-emoji { font-size: 36rpx; margin-right: 14rpx; }
+.comp-text { font-size: 28rpx; color: #4A3F35; font-weight: 600; }
+.comp-chev { color: #C9BCA8; font-size: 30rpx; margin-left: 6rpx; }
+
+/* 卡片基底 */
+.card {
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 22rpx rgba(120, 90, 60, .12);
+}
+
+/* 信封 */
+.letter {
+  padding: 30rpx 30rpx 30rpx;
+  position: relative;
+  animation: fadeUp .5s ease both;
+}
+.letter-top {
+  display: flex;
+  align-items: center;
+}
+.letter-stamp {
+  font-size: 54rpx;
+  margin-right: 18rpx;
+}
+.letter-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.letter-from {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #4A3F35;
+}
+.letter-to {
+  font-size: 24rpx;
+  color: #8A7B6E;
+  margin-top: 4rpx;
+}
+.letter-divider {
+  height: 1rpx;
+  background: repeating-linear-gradient(90deg, #E5D9C5 0 14rpx, transparent 14rpx 28rpx);
+  margin: 22rpx 0 20rpx;
+}
+.letter-title {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #4A3F35;
+  margin-bottom: 14rpx;
+  letter-spacing: 1rpx;
+}
+.letter-preview {
+  font-size: 28rpx;
+  color: #6E6157;
+  line-height: 1.9;
+}
+.open-btn {
+  margin-top: 26rpx;
+  text-align: center;
+  background: #E8924A;
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 6rpx 16rpx rgba(232, 146, 74, .28);
+}
+
+/* 底部操作 */
+.card-foot {
+  display: flex;
+  gap: 36rpx;
+  margin-top: 22rpx;
+  padding: 20rpx 28rpx;
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  box-shadow: 0 3rpx 10rpx rgba(120, 90, 60, .06);
+}
+.foot-act {
+  flex: 0 0 auto;
+  font-size: 26rpx;
+  color: #8A7B6E;
+  background: none;
+  border: none;
+  line-height: 1.6;
+  padding: 0;
+}
+.foot-act.active { color: #E0A93B; font-weight: 600; }
+.foot-act.share::after { border: none; }
+
+.more {
+  margin-top: 34rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #8A7B6E;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16rpx); }
+  to { opacity: 1; transform: none; }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "北京一分钟挑战",
+  "usingComponents": {
+    "beijing-challenge": "/components/beijing-challenge/beijing-challenge"
+  }
+}

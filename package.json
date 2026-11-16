@@ -1,0 +1,17 @@
+{
+  "name": "history-scroll",
+  "version": "0.1.0",
+  "private": true,
+  "description": "历史画卷：中华历史文化科普微信小程序（原生 + TypeScript）",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test:smoke": "node scripts/discovery-smoke.cjs",
+    "test:handbook": "node scripts/handbook-smoke.cjs",
+    "pretest:smoke": "npm run build --prefix cloudfunctions/exploration"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.1.0",
+    "miniprogram-api-typings": "^3.12.2",
+    "typescript": "^5.0.0"
+  }
+}

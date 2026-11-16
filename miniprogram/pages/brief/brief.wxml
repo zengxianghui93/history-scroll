@@ -1,0 +1,98 @@
+<view class="page" wx:if="{{brief}}">
+  <block wx:if="{{brief.article}}">
+    <view class="brief-meta"><text>北京故事 · {{brief.entry.name}}</text><text>{{brief.article.duration}}</text></view>
+    <view class="brief-title">{{brief.article.guide ? brief.entry.name : brief.article.title}}</view>
+    <view wx:if="{{brief.article.intro}}" class="guide-intro">{{brief.article.intro}}</view>
+    <block wx:if="{{brief.article.guide}}">
+      <view class="guide-intro">{{brief.article.guide.intro}}</view>
+      <view class="guide-tags"><text class="guide-tag" wx:for="{{brief.article.guide.tags}}" wx:key="*this">{{item}}</text></view>
+    </block>
+    <view class="brief-art article-art">
+      <image wx:if="{{brief.entry.image}}" class="brief-image" src="{{brief.entry.image}}" mode="aspectFill" aria-label="{{brief.entry.name}}插画" />
+      <image wx:else class="brief-crop" src="{{mapImage}}" mode="scaleToFill" style="{{artStyle}}" aria-label="{{brief.entry.name}}插画" />
+    </view>
+
+    <view wx:if="{{brief.article.guide}}" class="guide-story">
+      <view class="guide-kicker">先看一个细节</view>
+      <view class="guide-title">{{brief.article.title}}</view>
+    </view>
+    <view class="article-section" wx:for="{{brief.article.sections}}" wx:key="id">
+      <view class="article-heading">{{item.title}}</view>
+      <view class="article-paragraph" wx:for="{{item.paragraphs}}" wx:for-item="paragraph" wx:key="*this">{{paragraph}}</view>
+      <view wx:if="{{item.illustration}}" class="article-figure">
+        <image class="article-figure-image" src="{{item.illustration.src}}" mode="widthFix" aria-label="{{item.illustration.alt}}" />
+        <view class="art-caption">{{item.illustration.caption}}</view>
+      </view>
+      <view wx:if="{{brief.article.guide && index === 0}}" class="article-figure">
+        <view class="ridge-plate">
+          <image class="article-figure-image" src="{{brief.article.guide.figure.src}}" mode="widthFix" aria-label="{{brief.article.guide.figure.alt}}" />
+          <view class="ridge-labels row-{{row.id}}" wx:for="{{brief.article.guide.figure.rows}}" wx:for-item="row" wx:key="id" aria-hidden="true">
+            <text wx:for="{{row.beasts}}" wx:for-item="beast" wx:key="number" class="ridge-label {{beast.number === 10 ? 'last-beast' : ''}}">{{beast.number}} {{beast.name}}</text>
+          </view>
+        </view>
+        <view class="art-caption">走兽造型示意 · 每行从左向右数</view>
+      </view>
+    </view>
+
+    <block wx:if="{{brief.article.guide}}">
+      <view class="guide-route">
+        <view class="guide-kicker">带着发现去看</view>
+        <view class="guide-title">从午门到神武门</view>
+        <view class="route-caption">中路观察路线 · 由南向北</view>
+        <view class="route-stop" wx:for="{{brief.article.guide.route}}" wx:key="name">
+          <text class="route-index" aria-hidden="true">{{index + 1}}</text>
+          <view class="route-copy"><view class="route-name">{{item.name}}</view><view class="route-note">{{item.observation}}</view></view>
+        </view>
+      </view>
+      <view class="visit-card">
+        <button class="motion-control visit-toggle" hover-class="motion-pressed" bindtap="onToggleVisit" aria-expanded="{{visitExpanded}}">
+          <view><view class="visit-title">参观前看一眼</view><view class="visit-subtitle">预约、交通和景山联动</view></view>
+          <text class="visit-indicator" aria-hidden="true">{{visitExpanded ? '−' : '+'}}</text>
+        </button>
+        <view wx:if="{{visitExpanded}}" class="visit-body">
+          <view class="visit-note" wx:for="{{brief.article.guide.visit.notes}}" wx:key="title"><view>{{item.title}}</view><text class="visit-note-text">{{item.text}}</text></view>
+          <view class="visit-date">{{brief.article.guide.visit.checkedOn}}核对</view>
+          <button class="motion-control visit-link" hover-class="motion-pressed" bindtap="onCopyVisitUrl">复制故宫官方预约链接 ↗</button>
+        </view>
+      </view>
+    </block>
+    <view class="brief-actions article-actions">
+      <button class="motion-control secondary-action" hover-class="motion-pressed" hover-start-time="0" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+      <button class="motion-control finish-action" hover-class="motion-pressed" hover-start-time="0" open-type="share">分享给朋友</button>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="brief-meta"><text>北京短读 · {{brief.entry.name}}</text><text>约 1 分钟</text></view>
+    <view class="brief-title">{{brief.entry.question}}</view>
+    <view wx:if="{{brief.id === 'spot:北京中轴线'}}" class="axis-art" aria-label="三个地标从南到北的位置关系示意">
+      <text class="art-caption">由南向北 · 位置示意</text>
+      <view class="axis-line"><text>永定门</text><text>→</text><text>天安门</text><text>→</text><text>钟鼓楼</text></view>
+    </view>
+    <view wx:else class="brief-art">
+      <image wx:if="{{brief.entry.image}}" class="brief-image" src="{{brief.entry.image}}" mode="aspectFill" />
+      <image wx:elif="{{artStyle}}" class="brief-crop" src="{{mapImage}}" mode="scaleToFill" style="{{artStyle}}" />
+      <text wx:else class="brief-emoji">{{brief.entry.emoji}}</text>
+    </view>
+    <view class="brief-answer">{{brief.entry.answer}}</view>
+    <view class="brief-body">{{brief.entry.knowledge}}</view>
+    <view wx:if="{{stampAwarded}}" class="stamp-note">◈ 获得北京印章</view>
+
+    <view class="brief-actions">
+      <button class="motion-control finish-action" hover-class="motion-pressed" hover-start-time="0" bindtap="onFinish" disabled="{{read}}">{{read ? '✓ 已读' : '读完了'}}</button>
+      <button class="motion-control secondary-action" hover-class="motion-pressed" hover-start-time="0" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+      <button class="motion-control secondary-action" hover-class="motion-pressed" hover-start-time="0" open-type="share">分享给朋友</button>
+    </view>
+    <view class="read-progress">北京短读 · 已读 {{readCount}} / {{total}} 则<text wx:if="{{collected}}"> · ▣ 已收藏</text></view>
+
+    <button wx:if="{{next}}" class="motion-control next-brief" hover-class="motion-pressed" hover-start-time="0" bindtap="onNext">
+      <view class="next-label">再看一则 · {{next.entry.name}} <text>→</text></view>
+      <view class="next-question">{{next.entry.question}}</view>
+    </button>
+    <view class="detail-links">
+      <button bindtap="onDeepDive">{{brief.detailLabel}} ›</button>
+      <button bindtap="onMap">展开北京画卷 ›</button>
+    </view>
+    <button class="source" bindtap="onCopySource">{{brief.entry.sourceTitle}} · 复制来源链接</button>
+  </block>
+  <landmark-seal wx:if="{{landmarkId}}" landmark-id="{{landmarkId}}" />
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "北京 · 地标故事",
+  "navigationBarBackgroundColor": "#F7F1E3",
+  "enableShareAppMessage": true,
+  "usingComponents": { "landmark-seal": "/components/landmark-seal/landmark-seal" }
+}

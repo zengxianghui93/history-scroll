@@ -1,0 +1,36 @@
+{
+  "city_beijing": {
+    "landmarks": [
+      "bell-drum",
+      "palace",
+      "square",
+      "archery-tower",
+      "temple-heaven",
+      "yongding",
+      "wall",
+      "summer",
+      "lama",
+      "hutong-lane",
+      "qianmen",
+      "lugou",
+      "olympic",
+      "shougang",
+      "canal-culture",
+      "art-798",
+      "sanlitun",
+      "longfu",
+      "daxing"
+    ],
+    "legacyLandmarks": [
+      "shichahai",
+      "flavors",
+      "axis"
+    ]
+  },
+  "city_xian": {
+    "landmarks": [
+      "yongning-gate"
+    ],
+    "legacyLandmarks": []
+  }
+}

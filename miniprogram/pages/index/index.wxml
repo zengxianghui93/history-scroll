@@ -1,0 +1,36 @@
+<view class="page" wx:if="{{chapter}}">
+  <view class="discovery-entry" bindtap="goDiscovery">
+    <view class="discovery-label">可参与的城市探索 · 北京</view>
+    <view class="discovery-title">北京藏着一条看不见的线</view>
+    <view class="discovery-description">和橘橘找 3 处地标，收下一枚中轴线书签。</view>
+    <button class="discovery-action" catchtap="goDiscovery">{{discoveryCollected ? '重看我的发现 ›' : '一起找线索 ›'}}</button>
+  </view>
+  <!-- 旅伴一行 -->
+  <view class="companion" bindtap="goRead">
+    <text class="comp-emoji">{{pet.species === 'cat' ? '🐱' : '🐶'}}</text>
+    <text class="comp-text">橘橘今天给你寄了一封信</text>
+    <text class="comp-chev">›</text>
+  </view>
+
+  <!-- 信封卡片 -->
+  <view class="letter card" bindtap="goRead">
+    <view class="letter-top">
+      <text class="letter-stamp">📮</text>
+      <view class="letter-meta">
+        <text class="letter-from">来自橘橘的旅行日记</text>
+        <text class="letter-to">寄往 · 你 · {{city.name}}</text>
+      </view>
+    </view>
+    <view class="letter-divider"></view>
+    <view class="letter-title">{{chapter.title}}</view>
+    <view class="letter-preview">{{story}}</view>
+    <view class="open-btn" catchtap="goRead">拆开今日信件</view>
+  </view>
+
+  <view class="card-foot">
+    <view class="foot-act {{collected ? 'active' : ''}}" bindtap="onCollect">{{collected ? '♥ 已收藏' : '♡ 收藏'}}</view>
+    <button class="foot-act share" open-type="share">🔗 分享给好友</button>
+  </view>
+
+  <view class="more" bindtap="goExplore">探索更多城市 ›</view>
+</view>

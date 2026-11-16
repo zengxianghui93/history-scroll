@@ -1,0 +1,20 @@
+<view class="topic-list">
+  <view class="topic-shell {{item.id}}" wx:for="{{readingCards}}" wx:key="id">
+    <button hover-start-time="0" hover-stay-time="100" class="motion-control topic-card" data-id="{{item.id}}" bindtap="onOpenReading" hover-class="motion-pressed" aria-label="{{item.title}}{{item.duration ? '，' + item.duration : ''}}">
+      <view class="topic-content">
+        <view class="topic-cover">
+          <image wx:if="{{item.cover}}" class="topic-cover-image" src="{{item.cover}}" mode="aspectFill" aria-hidden="true" />
+          <image wx:else class="topic-illustration {{item.id}}" src="{{image}}" mode="scaleToFill" aria-hidden="true" />
+        </view>
+        <view class="topic-body">
+          <view class="topic-title">{{item.title}}</view>
+          <view class="topic-subtitle">{{item.subtitle}}</view>
+          <view class="topic-footer">
+            <text wx:if="{{item.duration}}" class="topic-duration">{{item.duration}}</text>
+            <text class="topic-action" aria-hidden="true">阅读 ↗</text>
+          </view>
+        </view>
+      </view>
+    </button>
+  </view>
+</view>

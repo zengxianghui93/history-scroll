@@ -1,0 +1,62 @@
+<view class="page" wx:if="{{entry}}">
+  <view class="eyebrow">北京风物册 · {{entry.kind === 'food' ? '城市味道' : '城市风景'}}</view>
+  <view class="illustration {{entry.kind}}"><image wx:if="{{entry.image}}" class="full-illustration" src="{{entry.image}}" mode="aspectFill" /><image wx:elif="{{artStyle}}" src="{{image}}" mode="scaleToFill" style="{{artStyle}}" /><text wx:else>{{entry.emoji}}</text></view>
+  <view wx:if="{{entry.observation}}" class="observation"><text>看一眼</text><view>{{entry.observation}}</view></view>
+  <view class="name">{{entry.name}}</view>
+  <view wx:if="{{learning && activeFocus}}" class="learning-card">
+    <view class="label">动手看一点 · 随时可以切换</view>
+    <view class="learning-title">{{learning.title}}</view>
+    <view wx:if="{{learning.kind === 'palace'}}" class="palace-layout">
+      <view class="direction">北 · 后 ↑</view>
+      <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control palace-zone {{activeFocus.id === 'inner' ? 'active' : ''}}" aria-pressed="{{activeFocus.id === 'inner'}}" data-id="inner" bindtap="onLearningFocus"><view>内廷 · 后三宫</view><text>乾清宫 · 交泰殿 · 坤宁宫</text></button>
+      <view class="palace-axis">│</view>
+      <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control palace-zone {{activeFocus.id === 'outer' ? 'active' : ''}}" aria-pressed="{{activeFocus.id === 'outer'}}" data-id="outer" bindtap="onLearningFocus"><view>外朝 · 三大殿</view><text>太和殿 · 中和殿 · 保和殿</text></button>
+      <view class="direction">南 · 前 ↓</view>
+    </view>
+    <block wx:else>
+      <view class="learning-tabs">
+        <view class="learning-tab-cell" wx:for="{{learning.focuses}}" wx:key="id"><button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control learning-tab {{activeFocus.id === item.id ? 'active' : ''}}" aria-pressed="{{activeFocus.id === item.id}}" data-id="{{item.id}}" bindtap="onLearningFocus">{{item.label}}</button></view>
+      </view>
+      <view wx:if="{{learning.kind === 'wall'}}" class="wall-window"><image src="{{image}}" mode="scaleToFill" style="{{activeFocus.illustrationStyle}}" /><view class="window-label">{{activeFocus.label}} · 插画局部</view></view>
+      <view wx:if="{{learning.kind === 'water'}}" class="water-layout {{activeFocus.id}}">
+        <view class="water-space-label">场馆内的同一个空间</view>
+        <view class="ice-platform" aria-hidden="{{activeFocus.id !== 'ice'}}"><view>冰面 + 可拆装制冰系统</view><view class="platform-support">可转换支撑结构</view></view>
+        <view class="pool-space"><view class="pool-water" aria-hidden="{{activeFocus.id !== 'pool'}}">≈ ≈ ≈<view>泳池 · 水上使用</view></view><view class="empty-pool" aria-hidden="{{activeFocus.id !== 'ice'}}">原泳池空间</view></view>
+      </view>
+    </block>
+    <block wx:for="{{learning.focuses}}" wx:key="id"><view wx:if="{{activeFocus.id === item.id}}" class="learning-explanation {{learningChanged ? 'focus-changed' : ''}}"><view>{{item.title}}</view><text>{{item.text}}</text></view></block>
+    <view class="learning-caption">{{learning.caption}}</view>
+  </view>
+  <view class="card question-card">
+    <view class="label">一个小发现</view>
+    <view class="question">{{entry.question}}</view>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{!revealed}}" class="motion-control primary" bindtap="onReveal">{{learning ? '整理这次发现' : '看看答案'}}</button>
+    <block wx:else>
+      <view class="memory-box {{answerFresh ? 'answer-fresh' : ''}}" bindanimationend="onAnswerMotionEnd"><view class="memory-label">这次记住</view><view class="answer">{{entry.answer}}</view></view>
+      <view class="knowledge">{{entry.knowledge}}</view>
+      <view wx:if="{{stampAwarded}}" class="outcome-note">{{outcomeIcons.city}} 获得北京印章 · 已开启探索</view>
+      <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control source" bindtap="onCopySource">来源：{{entry.sourceTitle}} · 复制原文链接 ↗</button>
+    </block>
+  </view>
+  <view wx:if="{{revealed}}" class="collection-card">
+    <view wx:if="{{collected}}" class="collection-stamp {{justCollected ? 'fresh' : ''}}" bindanimationend="onStampMotionEnd">{{outcomeIcons.fengwu}} 已收藏</view>
+    <view class="collection-heading">{{collected ? '这则见闻已收藏' : '想记住这次发现？'}}</view>
+    <view class="collection-caption">{{collected ? '在“我的见闻”中，随时回看这次发现。' : '收藏见闻，把这个小知识留在我的见闻中。'}}</view>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{!collected}}" class="motion-control primary" bindtap="onCollect">收藏见闻</button>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:else class="motion-control primary continue-action" bindtap="onCity">回到画卷，再发现一处 ›</button>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{collected}}" class="motion-control text-button" bindtap="onMyCollection">查看我的见闻 ›</button>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{collected}}" class="motion-control remove" bindtap="onRemove">取消收藏</button>
+  </view>
+  <view wx:if="{{collected && recommendation}}" class="recommendation-card">
+    <view class="label">下一处，和这次发现有什么联系？</view>
+    <view class="recommendation-reason">{{recommendation.reason}}</view>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control next-discovery" bindtap="onNextDiscovery"><view>{{recommendation.entry.name}}<text>继续发现 ↗</text></view><view class="recommendation-question">{{recommendation.entry.question}}</view></button>
+  </view>
+  <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{revealed}}" class="motion-control share" open-type="share">分享这个小发现 ↗</button>
+  <view wx:if="{{revealed && (entry.id === 'spot:故宫' || entry.id === 'spot:什刹海')}}" class="related-topics">
+    <view class="label">把这次发现，放回城市的故事里</view>
+    <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control" wx:for="{{topics}}" wx:key="id" wx:if="{{entry.id === 'spot:故宫' ? item.id !== 'hutong' : item.id === 'hutong'}}" data-id="{{item.id}}" bindtap="onTopic"><view>{{item.title}}</view><text>{{item.subtitle}} ›</text></button>
+  </view>
+  <button hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" wx:if="{{!collected}}" class="motion-control text-button" bindtap="onCity">回到北京画卷，再发现一处 ›</button>
+  <landmark-seal wx:if="{{landmarkId}}" landmark-id="{{landmarkId}}" />
+</view>

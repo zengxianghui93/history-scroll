@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="eyebrow">北京 · 城市小档案</view>
+  <view class="title">认识北京</view>
+  <view class="intro">从故宫的红墙到什刹海的水岸，从胡同里的日常到奥运场馆，北京的不同年代可以在同一座城市里看见。</view>
+  <view class="section">
+    <view class="section-title">北京这个名字怎么来的？</view>
+    <view class="body">{{nameSource}}</view>
+  </view>
+  <view class="section">
+    <view class="section-title">这座城是怎么走到今天的？</view>
+    <view class="body">{{history}}</view>
+  </view>
+  <view class="section">
+    <view class="section-title">从哪儿看懂老城？</view>
+    <view class="body">{{axisFact}}</view>
+    <view class="body">沿这条线认老城的格局，再拐进胡同看看街巷生活。想看今天的北京，也可以从鸟巢和水立方入手。</view>
+  </view>
+  <view class="section">
+    <view class="section-title">城市故事</view>
+    <include src="../beijing/story-list.wxml" />
+  </view>
+</view>

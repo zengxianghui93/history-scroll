@@ -1,0 +1,23 @@
+@import "../../styles/discovery-motion.wxss";
+page { background: #F7F1E3; color: #4A4235; }
+.page { padding: 34rpx 32rpx calc(44rpx + env(safe-area-inset-bottom)); }
+button::after { border: 0; }
+.eyebrow { color: #9A8667; font-size: 22rpx; letter-spacing: 3rpx; }
+.title { font-family: "Songti SC", serif; font-size: 42rpx; font-weight: 700; margin: 20rpx 0 26rpx; }
+.hero { height: 350rpx; position: relative; overflow: hidden; border-radius: 90rpx 90rpx 18rpx 18rpx; background: #F0DEC1; }
+.hero image { position: absolute; max-width: none; }
+.lead { font-size: 31rpx; color: #796039; margin: 28rpx 0 16rpx; }
+.description { font-size: 26rpx; color: #8D7F68; line-height: 1.8; }
+.progress { display: flex; justify-content: space-between; align-items: baseline; font-size: 29rpx; font-weight: 600; margin: 36rpx 0 22rpx; }
+.progress text { font-size: 22rpx; font-weight: 400; color: #9D7F4F; }
+.food-card { display: flex; align-items: center; text-align: left; margin: 0 0 20rpx; padding: 26rpx 22rpx; border: 2rpx solid #E3D6BF; background: #FFFDF5; border-radius: 10rpx 10rpx 30rpx 10rpx; line-height: 1.6; }
+.food-card.collected { border-color: #C4A163; background: #FBF0D9; }
+.food-card.focused { outline: 4rpx solid #7C926788; outline-offset: 2rpx; }
+.food-icon { font-size: 50rpx; margin-right: 20rpx; }
+.food-body { flex: 1; }
+.food-name { font-size: 28rpx; font-weight: 600; }
+.food-question { font-size: 24rpx; color: #8D7E66; margin-top: 5rpx; }
+.food-state { font-size: 21rpx; color: #A17C42; margin-top: 12rpx; }
+.arrow { font-size: 28rpx; color: #9B8969; margin-left: 16rpx; }
+.note { font-size: 21rpx; line-height: 1.7; color: #998C75; margin-top: 24rpx; }
+.map-button { font-size: 26rpx; color: #FFFDF5; background: #657A55; margin: 28rpx 0 0; padding: 22rpx 10rpx; border-radius: 12rpx; }

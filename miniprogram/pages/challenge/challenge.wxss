@@ -1,0 +1,3 @@
+page { background: #FDF6E3; }
+.page { box-sizing: border-box; padding: 24rpx 28rpx calc(36rpx + env(safe-area-inset-bottom)); }
+.invitation { font-size: 25rpx; color: #66563E; margin: 0 0 14rpx; }

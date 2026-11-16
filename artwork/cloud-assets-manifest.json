@@ -1,0 +1,187 @@
+[
+  {
+    "sourceKey": "/images/beijing/beijing-map.jpg",
+    "path": "cities/beijing/scrolls/beijing-map.jpg",
+    "sha256": "a66902778eae828607e4528a4f7cccfbb115c7843389e121b42d4365ba84a9e5"
+  },
+  {
+    "sourceKey": "/images/beijing/birds-nest.jpg",
+    "path": "cities/beijing/landmarks/birds-nest.jpg",
+    "sha256": "2031f4ad67b0583704ce63acd102956d7b9aa0785ac8180e119febf8a4d40bd9"
+  },
+  {
+    "sourceKey": "/images/beijing/national-theatre.jpg",
+    "path": "cities/beijing/landmarks/national-theatre.jpg",
+    "sha256": "779a83f51ecd6f85c3abc20e243bc68f8699df624608a98aec7271ea63f1d515"
+  },
+  {
+    "sourceKey": "/images/beijing/palace-ridge-beasts.jpg",
+    "path": "cities/beijing/landmarks/palace-ridge-beasts.jpg",
+    "sha256": "b4a3a3b1ff2d01ff3a32f1f9b9481b21c1a0ccce32e461def087536736f127c9"
+  },
+  {
+    "sourceKey": "/images/beijing/palace-seal-blank.jpg",
+    "path": "cities/beijing/stamps/palace-seal-blank.jpg",
+    "sha256": "7ddc4aa6a2003c299eebca4a147439cf36120af981bda2f44b868985928dd0b5"
+  },
+  {
+    "sourceKey": "/images/beijing/palace-seal-reveal.jpg",
+    "path": "cities/beijing/stamps/palace-seal-reveal.jpg",
+    "sha256": "12b2b418caa8eba0b05e385dbef12292cdabc7a342deb9bfa15aaee7b78d8907"
+  },
+  {
+    "sourceKey": "/images/beijing/scroll-axis.jpg",
+    "path": "cities/beijing/scrolls/scroll-axis.jpg",
+    "sha256": "365e444a5632fd9aca6f8b1dd1886095fc1c166e9363ef5572bf3d34577efeec"
+  },
+  {
+    "sourceKey": "/images/beijing/scroll-heritage.jpg",
+    "path": "cities/beijing/scrolls/scroll-heritage.jpg",
+    "sha256": "216762b7e72f3343bfcf162d645a35b06c6b0d58a883da5aa3c98e5c864ac4d6"
+  },
+  {
+    "sourceKey": "/images/beijing/scroll-modern.jpg",
+    "path": "cities/beijing/scrolls/scroll-modern.jpg",
+    "sha256": "d3044f339324267de511502e53d55b789b3ab7df654d9ad5842bb8ed048baa42"
+  },
+  {
+    "sourceKey": "/images/beijing/summer-palace-landscape.jpg",
+    "path": "cities/beijing/landmarks/summer-palace-landscape.jpg",
+    "sha256": "3ac09ba6ccaa6f19ea1590681f0042250439f5481f8da878e3f09a39a1e6f5b9"
+  },
+  {
+    "sourceKey": "/images/beijing/temple-heaven.jpg",
+    "path": "cities/beijing/landmarks/temple-heaven.jpg",
+    "sha256": "c53013c91fe7f3cb10838f2806cf0e81a48e540a7848ff341ec86c03aa65ca7c"
+  },
+  {
+    "sourceKey": "/images/beijing/water-cube-ice-cutaway.jpg",
+    "path": "cities/beijing/landmarks/water-cube-ice-cutaway.jpg",
+    "sha256": "1e7823632c0f02741e81eb891ecb463517b452e1b6742dce90f2c9dca4884b16"
+  },
+  {
+    "sourceKey": "/images/beijing/water-cube.jpg",
+    "path": "cities/beijing/landmarks/water-cube.jpg",
+    "sha256": "83db9fc04b71a01733ea0722346d6aa397277d401a9fda8b2fe20e57cc835773"
+  },
+  {
+    "sourceKey": "/images/covers/cover_beijing.jpg",
+    "path": "shared/covers/cover_beijing.jpg",
+    "sha256": "e7db22fc5fd2359d135a57427dca6be4bde9f2288aac2392a0a6011708da7507"
+  },
+  {
+    "sourceKey": "/images/covers/cover_chengdu.jpg",
+    "path": "shared/covers/cover_chengdu.jpg",
+    "sha256": "851ca5d7e6d8fc939951c4e0e35782d7fcb57af5c9e6ea3ab3160315285c9b4d"
+  },
+  {
+    "sourceKey": "/images/covers/cover_hangzhou.jpg",
+    "path": "shared/covers/cover_hangzhou.jpg",
+    "sha256": "09901069ef71116a2d5562077028c178abdc24b0a02b38724e0309e4f8eec75f"
+  },
+  {
+    "sourceKey": "/images/covers/cover_harbin.jpg",
+    "path": "shared/covers/cover_harbin.jpg",
+    "sha256": "c8e50cf165a737da01e6b69d2f87a699ce452ab396f8f66b4363bc3e90bb1056"
+  },
+  {
+    "sourceKey": "/images/covers/cover_xian.jpg",
+    "path": "shared/covers/cover_xian.jpg",
+    "sha256": "7b055b3b9de5a675862aa6dab5cd410e8a6237982626d9f569d0c0f330e32533"
+  },
+  {
+    "sourceKey": "/xian/images/ancient-axis.jpg",
+    "path": "cities/xian/scrolls/ancient-axis.jpg",
+    "sha256": "0033d65be76cfd2ecdfc36cae94ecc044d72196fe1103c5ee25c8259fb1611ab"
+  },
+  {
+    "sourceKey": "/xian/images/market.jpg",
+    "path": "cities/xian/scrolls/market.jpg",
+    "sha256": "d7d57ef7873fff66f9e41d74ccba976db14bbd1cfa6172e930e0af16c96ce88e"
+  },
+  {
+    "sourceKey": "/xian/images/qin.jpg",
+    "path": "cities/xian/scrolls/qin.jpg",
+    "sha256": "f93ca3b226acadc448f56d256ff944b67b634e3fbed8ba015e5ab0fe97dae31a"
+  },
+  {
+    "sourceKey": "/xian/images/yanta.jpg",
+    "path": "cities/xian/scrolls/yanta.jpg",
+    "sha256": "30028c360fef113469a5ccaf8260819a184cc5a303e667a875e7837cc1d236c3"
+  },
+  {
+    "sourceKey": "/images/beijing/archery-windows.jpg",
+    "path": "cities/beijing/landmarks/archery-windows.jpg",
+    "sha256": "fba8418ec02413ffbcf4b8d7ea1edefb90a3a29618775546ca94a5d35dbc6a5d"
+  },
+  {
+    "sourceKey": "/images/beijing/temple-heaven-comparison.jpg",
+    "path": "cities/beijing/landmarks/temple-heaven-comparison.jpg",
+    "sha256": "682da4b520158530d7c312597a9137a47879c9ce167229d3b028af6b9460a4b6"
+  },
+  {
+    "sourceKey": "/images/beijing/yongding-axis.jpg",
+    "path": "cities/beijing/landmarks/yongding-axis.jpg",
+    "sha256": "7bc5ea76f9d132334369c7421fd8bb36e0622b1eb65ad3dcf40f28532a0ad0a6"
+  },
+  {
+    "sourceKey": "/images/beijing/imperial-gardens-comparison.jpg",
+    "path": "cities/beijing/landmarks/imperial-gardens-comparison.jpg",
+    "sha256": "e734e4429060c125f03ebd0757ee3fafe6f94724728ece0312088e880169870e"
+  },
+  {
+    "sourceKey": "/images/beijing/lama-bracelet.jpg",
+    "path": "cities/beijing/landmarks/lama-bracelet.jpg",
+    "sha256": "b05eae5bcbbacaf4a0ad5689c58ea905fa4f33d6490f1512e3a94ceca2334d7b"
+  },
+  {
+    "sourceKey": "/images/beijing/nanluogu-fishbone.jpg",
+    "path": "cities/beijing/landmarks/nanluogu-fishbone.jpg",
+    "sha256": "cfaac0ce7d636ef7fd711e69a1fd40eeebab24431f8d7658a10e13d6cb364c01"
+  },
+  {
+    "sourceKey": "/images/beijing/olympic-round-square.jpg",
+    "path": "cities/beijing/landmarks/olympic-round-square.jpg",
+    "sha256": "3e226033e1b3959466b8a659639b0d4e2448a988d35f00c4ea2ef98717783e8a"
+  },
+  {
+    "sourceKey": "/images/beijing/qianmen-tram.jpg",
+    "path": "cities/beijing/landmarks/qianmen-tram.jpg",
+    "sha256": "52e2542afa0e7c0babb3041866aeede1a045e9be05cb3f9b9f3798f986b6ed98"
+  },
+  {
+    "sourceKey": "/images/beijing/lugou-wanping.jpg",
+    "path": "cities/beijing/landmarks/lugou-wanping.jpg",
+    "sha256": "13ce20901e2302fd42adf581f2c80c91bdcc5f32da400b3cb9d9f47e3840944d"
+  },
+  {
+    "sourceKey": "/images/beijing/shougang-cooling-towers.jpg",
+    "path": "cities/beijing/landmarks/shougang-cooling-towers.jpg",
+    "sha256": "d9a27a8eabc6ce1a2117c41e896ec085dc1a5a51ddf8fe2d9385c835b3cab914"
+  },
+  {
+    "sourceKey": "/images/beijing/canal-cultural-trio.jpg",
+    "path": "cities/beijing/landmarks/canal-cultural-trio.jpg",
+    "sha256": "7f001579f232b284d6c6c1fce3ab97912ed56d693b65fe7fecd2783bc9b0b11a"
+  },
+  {
+    "sourceKey": "/images/beijing/art-798-skylight.jpg",
+    "path": "cities/beijing/landmarks/art-798-skylight.jpg",
+    "sha256": "c17dc719407c675789569bf1c966cc04ea7ac533935b4c88ee7890d30d141ee9"
+  },
+  {
+    "sourceKey": "/images/beijing/sanlitun-open-lanes.jpg",
+    "path": "cities/beijing/landmarks/sanlitun-open-lanes.jpg",
+    "sha256": "107f941917ea9d924f645bf1d004c9ee3f3158edc76ddef6608cf7d51eac4dcb"
+  },
+  {
+    "sourceKey": "/images/beijing/longfu-rooftop.jpg",
+    "path": "cities/beijing/landmarks/longfu-rooftop.jpg",
+    "sha256": "4aa98f13fce2b87a985dde3974700c538ca251d4047a0b6b97226595dd381615"
+  },
+  {
+    "sourceKey": "/images/beijing/daxing-radial-terminal.jpg",
+    "path": "cities/beijing/landmarks/daxing-radial-terminal.jpg",
+    "sha256": "7210a2238368a3dd44e45d600fcd48bf7c3fe9750a3800c027a3c2ec96ab255e"
+  }
+]

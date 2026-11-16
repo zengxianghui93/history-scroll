@@ -1,0 +1,30 @@
+<view class="page {{inXian ? 'xian-map' : ''}}">
+  <view class="map-toolbar">
+    <view class="map-summary"><text class="title">{{cityName}}</text><text class="map-progress">{{litCount}} / {{totalLandmarks}} 已点亮</text></view>
+    <view class="map-actions">
+      <button wx:if="{{!inXian}}" hover-class="motion-pressed" hover-start-time="0" class="motion-control city-info" bindtap="onIntroduction">认识北京 ›</button>
+      <button hover-class="motion-pressed" hover-start-time="0" class="motion-control" open-type="share" aria-label="分享画卷">分享 ↗</button>
+    </view>
+  </view>
+  <button wx:if="{{invited && recommendedEntry}}" class="invitation" bindtap="onOpenRecommendation">朋友推荐 · 从{{recommendedEntry.name}}开始 ›</button>
+
+  <view class="map-stage">
+    <view wx:if="{{mapWidth}}" class="map-frame {{mapWidth < 250 ? 'compact' : ''}} {{playMapIntro ? 'map-opening' : ''}}" style="width:{{mapWidth}}px;height:{{mapHeight}}px" bindanimationend="onMapIntroEnd">
+      <swiper class="map-swiper" current="{{currentScroll}}" autoplay="{{false}}" circular="{{false}}" bindchange="onScrollChange" aria-label="{{cityName}}画卷，左右滑动切换">
+        <swiper-item wx:for="{{scrolls}}" wx:key="id" wx:for-item="scroll" wx:for-index="scrollIndex">
+          <xian-art wx:if="{{inXian}}" class="map-art" src="{{scroll.image}}" label="西安城市插画 · {{scroll.name}}" bindartload="onMapImageLoad" />
+          <image wx:else bindload="onMapImageLoad" class="map-art" src="{{scroll.image}}" mode="scaleToFill" aria-label="北京城市插画 · {{scroll.name}}" />
+          <view wx:if="{{!inXian && scrollIndex === 0}}" class="compass">北 ↑</view>
+          <view wx:if="{{inXian && !scroll.landmarks.length}}" class="map-preview">画卷预览</view>
+          <button wx:for="{{scroll.landmarks}}" wx:key="id" hover-start-time="0" hover-stay-time="100" hover-class="motion-pressed" class="motion-control map-pin {{litLookup[item.id] ? 'lit' : ''}} {{recommendedPin === item.id ? 'recommended' : ''}} {{freshSealId === item.id ? 'fresh-seal' : ''}}" style="--pin-x:{{item.x}}%;--pin-y:{{item.y}}%;--pin-delay:{{120 + index * 60}}ms;" data-id="{{item.id}}" bindtap="onOpenEntry" bindanimationend="onSealGlowEnd" aria-label="{{item.name}}，{{litLookup[item.id] ? '已点亮' : '待点亮'}}{{recommendedPin === item.id ? '，朋友推荐' : ''}}">
+            <text wx:if="{{litLookup[item.id]}}" class="pin-seal" aria-hidden="true">印</text><text wx:else class="pin-mark" aria-hidden="true">○</text>{{item.name}}
+          </button>
+        </swiper-item>
+      </swiper>
+      <view class="map-index"><text wx:if="{{showScrollHint}}" class="map-hint">左右滑看</text><text class="map-page-number">{{currentScroll + 1}} / {{scrolls.length}}</text></view>
+    </view>
+    <view class="map-dots" aria-label="选择画卷">
+      <button wx:for="{{scrolls}}" wx:key="id" class="map-dot {{index === currentScroll ? 'current' : ''}}" data-index="{{index}}" bindtap="onScrollDot" aria-label="第 {{index + 1}} 张，{{item.name}}{{index === currentScroll ? '，当前画卷' : ''}}"><view class="map-dot-mark" /></button>
+    </view>
+  </view>
+</view>
