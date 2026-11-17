@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 长安十二时辰 <text>约 2 分钟</text></view>
+  <view class="title">长安十二时辰</view>
+  <view class="intro">今天在唐风街区，夜越深越热闹。若真的回到唐代长安，听见暮鼓时，你可能得赶紧回家。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安盛世大唐画卷中的长安十二时辰" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先听一声鼓</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">唐代长安的住宅区分在一座座“坊”里。白天可以穿过坊门上街；到日暮，街鼓依次响起，坊门按规定关闭。鼓声不只是报时，也在提醒行人赶在门关前归坊。</view>
+    <view class="body">所以，今天从容逛到夜里的唐风街景，不能直接当作唐代日常。长安十二时辰主题街区以影视故事和唐风市井营造沉浸体验；真正的唐人生活，则还受坊门和夜禁约束。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="唐代长安暮色中街鼓响起、坊门将闭的故事插画" /><view>暮鼓与坊门 · 根据史料绘制的艺术想象，非遗址复原</view></view>
+    <view class="aside"><text>鼓声一响</text><text>城市的通行方式，也从白天切换到夜晚</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">把热闹街市想成一天的两面</view>
+    <view class="body">在今天的街区里，找一处店铺、一段叫卖和一扇门。想象自己是唐代赶路的人：暮鼓响了，你会先逛完摊位，还是朝坊门走？</view>
+    <view class="body">这不是要把眼前的街区当作历史现场，而是借它去理解：在唐长安，时间不只写在钟鼓上，也写在每个人回家的路上。</view>
+    <view class="takeaway">记住这一句：唐代长安的暮鼓，既告诉人们天色已晚，也提醒他们坊门快关了。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

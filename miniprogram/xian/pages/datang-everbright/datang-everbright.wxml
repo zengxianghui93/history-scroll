@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 大唐不夜城 <text>约 2 分钟</text></view>
+  <view class="title">大唐不夜城</view>
+  <view class="intro">灯火、人群、唐风街景，像是走进了长安。可眼前的这条街，究竟属于哪个年代？</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安盛世大唐画卷中的大唐不夜城" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">沿着灯火向前走，你会看见仿唐风格的屋檐、雕塑、商店和夜游的人群。它们让人想起盛唐，但这条热闹的步行街，是今天的西安为人们打造的唐文化体验。</view>
+    <view class="body">再回头望一眼大雁塔。塔的故事可以追溯到玄奘主持建塔的唐代；塔前的灯街，则把古城记忆写进当代生活。一眼望过去，两个时代出现在同一幅画里。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="今夜的大唐不夜城步行街与远处的大雁塔同框" /><view>当代夜街与历史古迹 · 场景为艺术表现</view></view>
+    <view class="aside"><text>一古一今</text><text>大雁塔是历史古迹；夜街是当代的唐文化主题空间</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">在灯火里，找出两个时代</view>
+    <view class="body">从大雁塔附近走进街区，先找塔，再找街上的灯饰、雕塑和店铺。你能看见哪些东西属于留下来的历史，哪些是今天的人为讲述长安而设计的？</view>
+    <view class="body">这条街有趣的地方，不在于它把唐代原样搬了回来，而在于古塔旁边，现代西安仍在用自己的方式讲长安故事。</view>
+    <view class="takeaway">记住这一句：一座古塔，照见千年前的求知；一条新街，照见今天的人怎样想象长安。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

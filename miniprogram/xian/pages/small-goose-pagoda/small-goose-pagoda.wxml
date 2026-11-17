@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 小雁塔 <text>约 2 分钟</text></view>
+  <view class="title">小雁塔</view>
+  <view class="intro">抬头看小雁塔，塔顶不像大雁塔那样完整。这段略显残缺的轮廓，本身就是它的故事。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安盛世大唐画卷中的小雁塔" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看塔顶</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">小雁塔原名荐福寺塔，建于唐代。它后来经历了地震：塔刹不再，最上两级也被震坏。今天看见的塔顶，不是设计时就打算停在这里。</view>
+    <view class="body">完整的古建筑令人惊叹，留下损伤的古建筑也值得看。小雁塔没有把所有岁月痕迹都抹平；那道不规整的顶端，提醒我们它真实地走过了千余年。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="清晨的小雁塔与塔顶原有轮廓的淡墨示意" /><view>现存塔顶与旧貌对照 · 旧貌为艺术想象，非精确复原</view></view>
+    <view class="aside"><text>看塔尖</text><text>明代地震留下的变化，今天仍能从轮廓里读到</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">退后几步，认出它的轮廓</view>
+    <view class="body">从远一点的位置望向塔身，先看它逐级收窄的线条，再看顶端怎样忽然收住。别急着数层数，先记住这条独特的外形。</view>
+    <view class="body">荐福寺还与唐代译经僧义净有关；这让小雁塔有自己的来历。下次再看到两座雁塔，你可以从塔顶轮廓，先认出其中的这一座。</view>
+    <view class="takeaway">记住这一句：小雁塔缺失的塔尖，是它把经历过的地震留在了今天。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

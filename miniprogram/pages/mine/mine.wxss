@@ -1,5 +1,6 @@
 @import "../../styles/discovery-motion.wxss";
 @import "../../components/landmark-seal/landmark-ink.wxss";
+@import "../../styles/xian-theme.wxss";
 .page {
   min-height: 100vh;
   padding: 24rpx 28rpx 40rpx;
@@ -224,3 +225,14 @@
 .handbook-shelf{margin:34rpx 0 40rpx}.handbook-books{white-space:nowrap;padding:8rpx 0 14rpx}.handbook-books-row{display:flex;gap:26rpx;padding:4rpx 8rpx 12rpx}.handbook-book{position:relative;flex-shrink:0;width:286rpx;height:360rpx;border-radius:5rpx 15rpx 15rpx 5rpx;overflow:hidden;padding:0;margin:0;text-align:left;background:#d6dcc2;box-shadow:5rpx 7rpx 0 #d7c8a8,8rpx 11rpx 12rpx #604d2525;border:1rpx solid #b6a47f}.handbook-book::after{border:1rpx solid #a39065;inset:15rpx;border-radius:2rpx}.handbook-book image{position:absolute;width:100%;height:100%;opacity:.72}.handbook-book-wash{position:absolute;inset:0;background:linear-gradient(180deg,#f7efdce8,transparent 65%,#f4e8d0)}.handbook-book-xian .handbook-book-wash{background:linear-gradient(180deg,#e9cfabe8,transparent 65%,#e8d0ab)}.handbook-book-spine{position:absolute;left:0;top:0;bottom:0;width:18rpx;background:linear-gradient(90deg,#6d5c5145,transparent);border-right:1rpx solid #a28d643b}.handbook-book-label{position:absolute;left:36rpx;top:32rpx;font-size:18rpx;letter-spacing:4rpx;color:#82704d}.handbook-book-city{position:absolute;left:33rpx;top:78rpx;font:58rpx serif;color:#414435;letter-spacing:9rpx}.handbook-book-count{position:absolute;left:37rpx;top:158rpx;font-size:20rpx;color:#74654d}.handbook-book-footer{position:absolute;bottom:33rpx;left:35rpx;font:20rpx serif;color:#5b6348}
 
 .preview-record-note { margin: 16rpx 0; color: #8A795F; font-size: 24rpx; line-height: 1.7; }
+.handbook-book-xian { border-color: #B99872; background: #E5CFAC; }
+.handbook-book-xian .handbook-book-city { color: #303837; }
+.handbook-book-xian .handbook-book-footer { color: #914B39; }
+.xian-preview-sheet { background: var(--xian-paper); }
+.xian-preview-sheet .city-sheet-art image { filter: none; opacity: 1; }
+.xian-preview-sheet .city-sheet-art-shade { background: linear-gradient(0deg, var(--xian-paper), transparent 85%); }
+.xian-preview-sheet .city-sheet-city { color: var(--xian-ink); }
+.xian-preview-sheet .city-sheet-title { color: var(--xian-ink); }
+.xian-preview-sheet .city-sheet-copy { color: var(--xian-muted); }
+.xian-preview-sheet .city-sheet-primary { background: var(--xian-night); color: #FFF4E0; }
+.xian-preview-sheet .city-sheet-free { color: var(--xian-cinnabar); }

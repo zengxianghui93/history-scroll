@@ -1,5 +1,5 @@
 <import src="../../../components/landmark-seal/landmark-ink.wxml" />
-<view wx:if="{{book}}" class="handbook {{book.cityId === 'city_xian' ? 'handbook-xian' : ''}}">
+<view wx:if="{{book}}" class="handbook {{book.cityId === 'city_xian' ? 'handbook-xian xian-theme' : ''}}">
   <view class="book-top"><view><text class="eyebrow">{{shared ? '朋友分享的探索纪念' : '把一城发现，装订成册'}}</text><view class="book-title">{{book.cityName}}{{book.preview ? '试读纪念册' : '探索手册'}}</view></view><text class="book-count">{{book.leaves.length}} 枚印章</text></view>
   <swiper class="book-swiper" current="{{pageIndex}}" bindchange="onPageChange" duration="450" easing-function="easeInOutCubic" aria-label="左右滑动翻阅探索手册">
     <swiper-item><view class="book-paper cover-paper"><image class="cover-art" src="{{book.cover}}" mode="aspectFill"/><view class="cover-wash"/><view class="cover-frame"/><view class="binding"/><view class="cover-brand">大 千 小 卷 · 探 索 纪 念</view><view class="cover-name">{{book.cityName}}</view><view class="cover-subtitle">探索手册</view><view class="cover-seal">{{book.cityId === 'city_beijing' ? '京' : '長安'}}</view><view class="cover-bottom"><view>{{book.sentence}}</view><text>{{book.complete ? '本城已集齐 · 一册圆满' : book.leaves.length ? '已收录 ' + book.leaves.length + ' 段发现' : '你的第一段发现，正等着落在纸上'}}</text></view></view></swiper-item>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "大明宫遗址公园 · 西安",
+  "navigationBarBackgroundColor": "#EEE3D1",
+  "enableShareAppMessage": true,
+  "usingComponents": { "landmark-seal": "/components/landmark-seal/landmark-seal" }
+}

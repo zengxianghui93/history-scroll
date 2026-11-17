@@ -1,10 +1,65 @@
-<view class="preview-page">
-  <view class="preview-cover"><image src="{{cover}}" mode="aspectFill"/><view class="preview-wash"/><view class="preview-cover-copy"><text>下一卷 · 正在绘制</text><view>西安</view><text>从一道城门，走近长安</text></view></view>
+<view class="preview-page xian-theme">
+  <view class="preview-cover"><image src="{{cover}}" mode="aspectFill"/><view class="preview-wash"/><view class="preview-cover-copy"><text>下一卷 · 正在绘制</text><view>西安</view><text>沿着古城中轴，走近长安</text></view></view>
   <view class="preview-paper">
-    <view class="preview-kicker">先带来一篇完整故事</view>
+    <view class="preview-kicker">先带来十二篇完整故事</view>
     <view class="preview-title">进永宁门，为什么要穿过好几道门？</view>
     <view class="preview-copy">过了第一道门，眼前还有一座被城墙围住的院子。先从永宁门，认识古城怎样守住自己的入口。</view>
     <button class="preview-primary" bindtap="onRead">读永宁门 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">再看一处 · 钟楼</view>
+    <view class="preview-title">西安钟楼，为什么搬过一次家？</view>
+    <view class="preview-copy">从广济街口到四条大街交会处，看一座报时楼怎样追上城市的中心。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadBellTower">读钟楼 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">再听一声 · 鼓楼</view>
+    <view class="preview-title">没有手机的西安，傍晚听谁报时？</view>
+    <view class="preview-copy">鼓楼比钟楼早四年。听懂“晨钟暮鼓”，也就听懂古城的一天。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadDrumTower">读鼓楼 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">走进笔墨 · 书院门／碑林</view>
+    <view class="preview-title">书院门尽头，为什么有一座“石头图书馆”？</view>
+    <view class="preview-copy">从街上的毛笔到碑林的114块石碑，看一部唐代经典怎样留到今天。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadShuyuanmen">读书院门 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">第二卷 · 雁塔流光</view>
+    <view class="preview-title">玄奘带回的经卷，为什么需要一座塔？</view>
+    <view class="preview-copy">从远方带回长安的经卷与佛像，在大慈恩寺有了一处安放之所。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadGiantGoose">读大雁塔 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">灯火长安 · 大唐不夜城</view>
+    <view class="preview-title">大唐不夜城的灯，照亮的是唐代的长安吗？</view>
+    <view class="preview-copy">回望大雁塔，分清历史古迹与今天的唐文化夜街。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadDatangEverbright">读大唐不夜城 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">一枚唐代小器物 · 陕西历史博物馆</view>
+    <view class="preview-title">唐人的银香囊晃来晃去，香灰为什么不容易洒？</view>
+    <view class="preview-copy">打开一枚葡萄花鸟纹银球，看看里面托住香盂的巧妙结构。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadShaanxiHistory">读陕西历史博物馆 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">暮鼓将响 · 长安十二时辰</view>
+    <view class="preview-title">如果你是唐代长安人，入夜后还能出门逛街吗？</view>
+    <view class="preview-copy">从今天的唐风街景，想象暮鼓响起时，唐人为何赶着归坊。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadChanganTwelveHours">读长安十二时辰 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">清晨古塔 · 小雁塔</view>
+    <view class="preview-title">小雁塔的塔尖去哪儿了？</view>
+    <view class="preview-copy">从一段不完整的塔顶轮廓，读出古塔走过的岁月。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadSmallGoose">读小雁塔 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">第三卷 · 秦风浩荡</view>
+    <view class="preview-title">为什么今天看到的兵马俑大多是土色？</view>
+    <view class="preview-copy">从一尊兵俑残留的颜色，看见原本更鲜艳的秦代俑阵。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadTerracottaArmy">读秦始皇兵马俑 · 约 2 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">读一片遗址 · 大明宫</view>
+    <view class="preview-title">宫殿消失了，为什么还值得看？</view>
+    <view class="preview-copy">沿丹凤门到含元殿的方向，读出唐代宫城留下的空间线索。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadDamingPalace">读大明宫遗址 · 约 3 分钟 ↗</button>
+    <view class="preview-divider" />
+    <view class="preview-kicker">骊山温泉 · 华清宫</view>
+    <view class="preview-title">海棠汤里没有水，为什么还能看出唐人的讲究？</view>
+    <view class="preview-copy">沿着花瓣形石砌池沿，读懂一座唐代汤池留下的审美。</view>
+    <button class="preview-primary preview-secondary" bindtap="onReadHuaqingPalace">读华清宫 · 约 2 分钟 ↗</button>
     <view class="preview-note">西安其余地标正在打磨，暂不开放整城探索。试读中获得的印章、收藏与手册记录都会保留。</view>
     <button class="preview-back" bindtap="onBeijing">继续逛北京 ›</button>
   </view>

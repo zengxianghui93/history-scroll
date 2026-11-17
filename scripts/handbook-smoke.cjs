@@ -59,6 +59,17 @@ function load(filename) {
   await verify('strip', 1200, 6720, () => renderer.createHandbookStrip(beijing, beijing.leaves.slice(0,4)));
   await verify('last-strip', 1200, 1680, () => renderer.createHandbookStrip(beijing, beijing.leaves.slice(4)));
   await verify('xian', 1500, 2100, () => renderer.createHandbookCover(xian));
+  assert.equal(xian.leaves[0].customInk, true, '永宁门导出图使用专属城门朱印');
+  await verify('xian-leaf', 1500, 2100, () => renderer.createHandbookLeaf(xian, xian.leaves[0]));
+  const drumTower = model.buildHandbook('city_xian', ['drum-tower']);
+  assert.equal(drumTower.leaves[0].customInk, true, '鼓楼导出图使用专属楼鼓朱印');
+  await verify('xian-drum-tower-leaf', 1500, 2100, () => renderer.createHandbookLeaf(drumTower, drumTower.leaves[0]));
+  const shuyuanmen = model.buildHandbook('city_xian', ['shuyuanmen-beilin']);
+  assert.equal(shuyuanmen.leaves[0].customInk, true, '碑林导出图使用专属碑石朱印');
+  await verify('xian-shuyuanmen-leaf', 1500, 2100, () => renderer.createHandbookLeaf(shuyuanmen, shuyuanmen.leaves[0]));
+  const giantGoose = model.buildHandbook('city_xian', ['giant-goose-pagoda']);
+  assert.equal(giantGoose.leaves[0].customInk, true, '大雁塔导出图使用专属塔形朱印');
+  await verify('xian-giant-goose-leaf', 1500, 2100, () => renderer.createHandbookLeaf(giantGoose, giantGoose.leaves[0]));
   const lama = model.buildHandbook('city_beijing', ['lama']);
   await verify('lama', 1500, 2100, () => renderer.createHandbookLeaf(lama, lama.leaves[0]));
   await verify('lama-cover', 1500, 2100, () => renderer.createHandbookCover(lama));
@@ -92,7 +103,7 @@ function load(filename) {
   const daxing = model.buildHandbook('city_beijing', ['daxing']);
   await verify('daxing', 1500, 2100, () => renderer.createHandbookLeaf(daxing, daxing.leaves[0]));
   await verify('daxing-cover', 1500, 2100, () => renderer.createHandbookCover(daxing));
-  assert.equal(exported, 27);
+  assert.equal(exported, 31);
   await assert.rejects(renderer.createHandbookStrip(beijing, []), /1至4页/);
   console.log('通过：正式手册导出函数、北京西安真实插画、封面、单页、四页长图与末段输出。');
 })().catch((error) => { console.error(error); process.exitCode = 1; });

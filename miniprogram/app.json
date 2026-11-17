@@ -21,6 +21,17 @@
       "root": "xian",
       "pages": [
         "pages/yongning/yongning",
+        "pages/bell-tower/bell-tower",
+        "pages/drum-tower/drum-tower",
+        "pages/shuyuanmen/shuyuanmen",
+        "pages/giant-goose-pagoda/giant-goose-pagoda",
+        "pages/datang-everbright/datang-everbright",
+        "pages/shaanxi-history-museum/shaanxi-history-museum",
+        "pages/changan-twelve-hours/changan-twelve-hours",
+        "pages/small-goose-pagoda/small-goose-pagoda",
+        "pages/terracotta-army/terracotta-army",
+        "pages/daming-palace/daming-palace",
+        "pages/huaqing-palace/huaqing-palace",
         "pages/preview/preview"
       ]
     },

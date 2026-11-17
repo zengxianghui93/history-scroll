@@ -6,7 +6,7 @@ import { beijingScrolls, scrollLandmarks } from './beijing-scrolls';
 import { beijingPlacePath } from './beijing-briefs';
 import { FengwuCard, readBeijingFengwuCards, readBeijingFengwuIds } from './beijing-fengwu';
 import { beijingCityId, xianCityId } from './city-scroll-position';
-import { readXianStampIds, readXianStories, readXianStoryIds, xianScrolls, yongningGate } from './xian-scroll';
+import { findXianLandmark, readXianStampIds, readXianStories, readXianStoryIds, xianScrolls } from './xian-scroll';
 
 export interface CityAlbumStamp {
   id: string;
@@ -61,10 +61,7 @@ export const publishedCityScrolls: readonly PublishedCityScroll[] = [
     cover: xianScrolls[0].image, id: xianCityId, name: '西安', open: (): void => resumeCityMap(xianCityId),
     stampSections: xianScrolls.filter((scroll): boolean => scroll.landmarks.length > 0),
     pastStamps: [], readStampIds: readXianStampIds, readStories: readXianStories, readStoryIds: readXianStoryIds,
-    storyPath: (id: string): string => {
-      if (id !== yongningGate.id) throw new RangeError('西安见闻不存在：' + id);
-      return yongningGate.path;
-    },
+    storyPath: (id: string): string => findXianLandmark(id).path,
   },
 ];
 

@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 秦始皇兵马俑 <text>约 2 分钟</text></view>
+  <view class="title">秦始皇兵马俑</view>
+  <view class="intro">一眼望去，俑阵是大片陶土色。但秦人制作这些兵俑时，看到的可能是一支更鲜艳的队伍。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安秦风浩荡画卷中的兵马俑" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一处颜色</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">兵马俑并不是烧成以后就以土色列队。它们原本大多施有彩绘：有人物面部的色彩，也有衣甲上的不同颜色。</view>
+    <view class="body">这些颜色经历了漫长的埋藏、火焚等损伤。陶俑出土后，原本稳定的环境突然改变，残存彩绘也可能迅速起翘、脱落。所以发掘一尊俑时，考古人员还要抢时间保护它身上的颜色。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="同一兵俑的现存土色与彩绘艺术推想对照" /><view>左：今日土色印象　右：彩绘艺术推想 · 非确切原色复原</view></view>
+    <view class="aside"><text>不只土色</text><text>残存的彩绘，也是需要守住的文物信息</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">从俑阵，走近其中一个人</view>
+    <view class="body">先看整片排列，再挑一尊兵俑，观察他的发式、脸和甲片。倘若看到留下的色彩痕迹，别把它当成污渍——那可能是我们靠近秦代原貌的一点线索。</view>
+    <view class="body">这些俑今天的土色，并不等于它们从来没有颜色。也正因为色彩脆弱，考古和保护需要一起进行。</view>
+    <view class="takeaway">记住这一句：兵马俑曾有彩绘；今天守住一小片残色，就多守住一点秦人的创作。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 陕西历史博物馆 <text>约 2 分钟</text></view>
+  <view class="title">陕西历史博物馆</view>
+  <view class="intro">看一座博物馆，可以先从一件小东西开始。唐人随身带的银香囊，里面藏着怎样的巧思？</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安盛世大唐画卷中的陕西历史博物馆" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">1970年发现的何家村唐代窖藏里，有一枚葡萄花鸟纹银香囊。它的外壳镂空，饰有葡萄和花鸟纹样；透过纹样，香气可以从球里慢慢散出来。</view>
+    <view class="body">更巧的是里面：盛香料的小盂并非直接固定在外壳上，而是由能相对转动的环承托。外面的球晃动或倾斜，内层香盂仍能尽量保持平稳。把漂亮的纹样与实用的结构放在一起，才是这枚小银球真正迷人的地方。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="唐代银香囊的镂空外壳、同心转环和内层香盂示意插画" /><view>银香囊结构示意 · 艺术表现，非文物原状复刻</view></view>
+    <view class="aside"><text>球里有球</text><text>外壳可以转动，内层香盂尽量保持平稳</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">先找葡萄与鸟，再想象里面的机关</view>
+    <view class="body">看银香囊的图像时，先找出球壳上缠绕的葡萄枝和花鸟；再把目光移到球体中央，想象内层的转环怎样托住香盂。</view>
+    <view class="body">逛博物馆不必一次记住所有朝代。先读懂这一件小器物，就能摸到唐人生活里审美与巧思相遇的一刻。</view>
+    <view class="takeaway">记住这一句：唐人的香囊不只好看，球壳里面还有让香盂保持平稳的巧妙结构。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

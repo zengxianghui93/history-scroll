@@ -1,4 +1,4 @@
-<view class="page {{inXian ? 'xian-map' : ''}}">
+<view class="page {{inXian ? 'xian-map xian-theme' : ''}}">
   <view class="map-toolbar">
     <view class="map-summary"><text class="title">{{cityName}}</text><text class="map-progress">{{litCount}} / {{totalLandmarks}} 已点亮</text></view>
     <view class="map-actions">

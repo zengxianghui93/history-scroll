@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "秦始皇兵马俑 · 西安",
+  "navigationBarBackgroundColor": "#EEE3D1",
+  "enableShareAppMessage": true,
+  "usingComponents": { "landmark-seal": "/components/landmark-seal/landmark-seal" }
+}

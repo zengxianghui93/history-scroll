@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "大雁塔 · 西安",
+  "navigationBarBackgroundColor": "#EEE3D1",
+  "enableShareAppMessage": true,
+  "usingComponents": { "landmark-seal": "/components/landmark-seal/landmark-seal" }
+}

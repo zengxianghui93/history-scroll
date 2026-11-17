@@ -116,3 +116,99 @@
 .daxing-ink-icon { position: relative; width: 2.8em; height: 1.6em; }
 .daxing-ink-terminal { position: absolute; inset: 0; background: currentColor; clip-path: polygon(46% 0,54% 0,56% 31%,62% 34%,88% 8%,97% 13%,97% 22%,65% 49%,67% 55%,94% 75%,94% 84%,86% 88%,60% 67%,56% 67%,56% 96%,50% 100%,44% 96%,44% 67%,40% 67%,14% 88%,6% 84%,6% 75%,33% 55%,35% 49%,3% 22%,3% 13%,12% 8%,38% 34%,44% 31%); }
 .daxing-ink-core { position: absolute; top: 40%; left: 43%; width: 14%; height: 17%; background: #963B2D; clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%); }
+
+.yongning-ink-icon { position: relative; width: 2.9em; height: 1.6em; }
+.yongning-ink-tower { position: absolute; left: 21%; top: .28em; width: 58%; height: .65em; box-sizing: border-box; display: flex; align-items: flex-end; justify-content: space-evenly; padding: 0 .12em .05em; background: currentColor; }
+.yongning-ink-tower>view { width: .08em; height: .18em; background: #963b2d; }
+.yongning-ink-roof { position: absolute; height: .31em; background: currentColor; clip-path: polygon(0 43%,8% 55%,16% 41%,25% 4%,75% 4%,84% 41%,92% 55%,100% 43%,98% 79%,86% 100%,14% 100%,2% 79%); }
+.yongning-ink-roof.upper { top: 0; left: 18%; width: 64%; }
+.yongning-ink-roof.lower { top: .43em; left: 12%; width: 76%; }
+.yongning-ink-wall { position: absolute; left: 0; right: 0; bottom: 0; height: .55em; background: currentColor; }
+.yongning-ink-merlons { position: absolute; left: 0; right: 0; top: -.13em; height: .14em; background: repeating-linear-gradient(90deg,currentColor 0,currentColor .14em,transparent .14em,transparent .25em); }
+.yongning-ink-arch { position: absolute; left: calc(50% - .21em); bottom: 0; width: .42em; height: .43em; border-radius: .23em .23em 0 0; background: #963b2d; }
+.xian-bell-icon { position: relative; width: 2.8em; height: 1.65em; }
+.xian-bell-finial { position: absolute; top: 0; left: calc(50% - .045em); width: .09em; height: .16em; background: currentColor; border-radius: 50% 50% 0 0; }
+.xian-bell-roof { position: absolute; height: .29em; background: currentColor; clip-path: polygon(0 72%,12% 73%,27% 28%,37% 8%,63% 8%,73% 28%,88% 73%,100% 72%,95% 94%,5% 94%); }
+.xian-bell-roof.upper { left: 22%; top: .12em; width: 56%; }
+.xian-bell-roof.lower { left: 10%; top: .66em; width: 80%; }
+.xian-bell-hall { position: absolute; left: 30%; width: 40%; height: .27em; background: currentColor; }
+.xian-bell-hall.upper { top: .38em; }
+.xian-bell-hall.lower { top: .91em; left: 21%; width: 58%; height: .22em; }
+.xian-bell-base { position: absolute; left: 8%; right: 8%; bottom: 0; height: .5em; background: currentColor; }
+.xian-bell-base view { position: absolute; bottom: 0; width: .35em; height: .33em; border-radius: .2em .2em 0 0; background: #963b2d; }
+.xian-bell-base view:first-child { left: 18%; }
+.xian-bell-base view:last-child { right: 18%; }
+.xian-drum-icon { position: relative; width: 3em; height: 1.65em; }
+.xian-drum-roof { position: absolute; left: 0; right: 0; top: .08em; height: .48em; background: currentColor; clip-path: polygon(0 65%,8% 68%,16% 41%,27% 17%,73% 17%,84% 41%,92% 68%,100% 65%,97% 86%,3% 86%); }
+.xian-drum-hall { position: absolute; left: 12%; right: 12%; top: .48em; height: .58em; box-sizing: border-box; border-left: .12em solid currentColor; border-right: .12em solid currentColor; border-bottom: .09em solid currentColor; }
+.xian-drum-beat { position: absolute; left: calc(50% - .25em); top: .06em; width: .5em; height: .43em; border: .09em solid currentColor; border-radius: 50%; box-sizing: border-box; }
+.xian-drum-base { position: absolute; left: 8%; right: 8%; bottom: 0; height: .59em; background: currentColor; }
+.xian-drum-base view { position: absolute; left: calc(50% - .26em); bottom: 0; width: .52em; height: .43em; border-radius: .3em .3em 0 0; background: #963b2d; }
+.xian-beilin-icon { position: relative; width: 1.8em; height: 1.7em; }
+.xian-beilin-cap { position: absolute; top: 0; left: 8%; right: 8%; height: .35em; background: currentColor; clip-path: polygon(0 76%,13% 42%,24% 23%,40% 13%,50% 0,60% 13%,76% 23%,87% 42%,100% 76%,100% 100%,0 100%); }
+.xian-beilin-stone { position: absolute; top: .34em; left: 18%; right: 18%; bottom: .2em; display: flex; align-items: center; justify-content: space-around; padding: .12em .11em; box-sizing: border-box; background: currentColor; }
+.xian-beilin-stone view { height: 75%; width: .07em; background: #963b2d; box-shadow: .13em -.08em 0 #963b2d, -.08em .12em 0 #963b2d; }
+.xian-beilin-foot { position: absolute; left: 6%; right: 6%; bottom: 0; height: .2em; background: currentColor; }
+.xian-goose-icon { position: relative; width: 2em; height: 1.72em; }
+.xian-goose-finial { position: absolute; top: 0; left: calc(50% - .045em); width: .09em; height: .15em; border-radius: 50% 50% 0 0; background: currentColor; }
+.xian-goose-tiers { position: absolute; top: .13em; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; }
+.xian-goose-tiers view { position: relative; height: .22em; flex-shrink: 0; background: currentColor; clip-path: polygon(0 55%,8% 60%,20% 4%,80% 4%,92% 60%,100% 55%,97% 100%,3% 100%); }
+.xian-goose-tiers view::after { content: ''; position: absolute; top: .09em; left: calc(50% - .035em); width: .07em; height: .08em; border-radius: .04em .04em 0 0; background: #963b2d; }
+.xian-goose-tiers view:nth-child(1) { width: 34%; }
+.xian-night-icon { position: relative; width: 2.8em; height: 1.7em; }
+.xian-night-lantern { position: absolute; top: .08em; width: .42em; height: .55em; border-radius: .13em; background: currentColor; }
+.xian-night-lantern::before { content: ''; position: absolute; top: -.18em; left: 48%; width: .04em; height: .2em; background: currentColor; }
+.xian-night-lantern::after { content: ''; position: absolute; bottom: -.17em; left: 48%; width: .04em; height: .2em; background: currentColor; }
+.xian-night-lantern.left { left: .24em; }
+.xian-night-lantern.right { right: .24em; }
+.xian-night-street { position: absolute; top: .47em; left: .8em; width: 1.2em; height: .72em; border-left: .17em solid currentColor; border-right: .17em solid currentColor; border-top: .17em solid currentColor; box-sizing: border-box; }
+.xian-night-path { position: absolute; bottom: 0; left: .2em; right: .2em; height: .43em; border-top: .1em solid currentColor; background: currentColor; clip-path: polygon(0 0,100% 0,100% 20%,75% 20%,62% 100%,38% 100%,25% 20%,0 20%); }
+.xian-incense-icon { position: relative; width: 1.8em; height: 1.8em; }
+.xian-incense-loop { position: absolute; top: 0; left: .72em; width: .36em; height: .3em; border: .1em solid currentColor; border-radius: 50%; box-sizing: border-box; }
+.xian-incense-shell { position: absolute; top: .25em; left: .1em; width: 1.6em; height: 1.5em; border: .15em solid currentColor; border-radius: 50%; box-sizing: border-box; background: repeating-linear-gradient(40deg,transparent 0,transparent .12em,currentColor .12em,currentColor .17em,transparent .17em,transparent .3em); }
+.xian-incense-ring { position: absolute; top: .27em; left: .27em; width: .75em; height: .75em; border: .1em solid currentColor; border-radius: 50%; box-sizing: border-box; background: #963b2d; }
+.xian-incense-bowl { position: absolute; top: .31em; left: .12em; width: .31em; height: .2em; border-radius: 0 0 50% 50%; background: currentColor; }
+.xian-ward-icon { position: relative; width: 2.7em; height: 1.7em; }
+.xian-ward-roof { position: absolute; top: .06em; left: .2em; width: 2.3em; height: .36em; background: currentColor; clip-path: polygon(0 80%,12% 76%,25% 14%,75% 14%,88% 76%,100% 80%,96% 100%,4% 100%); }
+.xian-ward-gate { position: absolute; top: .42em; left: .44em; width: 1.82em; height: 1.2em; border: .15em solid currentColor; box-sizing: border-box; }
+.xian-ward-doors { position: absolute; bottom: 0; left: .35em; width: .8em; height: .75em; border-radius: .4em .4em 0 0; background: currentColor; }
+.xian-ward-drum { position: absolute; top: .51em; right: 0; width: .5em; height: .45em; border: .1em solid currentColor; border-radius: 50%; box-sizing: border-box; background: #963b2d; }
+.xian-small-goose-icon { position: relative; display: flex; flex-direction: column; align-items: center; width: 1.8em; height: 1.72em; }
+.xian-small-goose-icon view { flex: 1; height: .12em; background: currentColor; clip-path: polygon(0 60%,7% 60%,13% 0,87% 0,93% 60%,100% 60%,97% 100%,3% 100%); }
+.xian-small-goose-icon view:nth-child(1) { width: 24%; clip-path: polygon(16% 32%,85% 20%,100% 100%,0 100%); }
+.xian-small-goose-icon view:nth-child(2) { width: 28%; }
+.xian-small-goose-icon view:nth-child(3) { width: 32%; }
+.xian-small-goose-icon view:nth-child(4) { width: 36%; }
+.xian-small-goose-icon view:nth-child(5) { width: 40%; }
+.xian-small-goose-icon view:nth-child(6) { width: 44%; }
+.xian-small-goose-icon view:nth-child(7) { width: 48%; }
+.xian-small-goose-icon view:nth-child(8) { width: 52%; }
+.xian-small-goose-icon view:nth-child(9) { width: 56%; }
+.xian-small-goose-icon view:nth-child(10) { width: 60%; }
+.xian-small-goose-icon view:nth-child(11) { width: 64%; }
+.xian-small-goose-icon view:nth-child(12) { width: 68%; }
+.xian-small-goose-icon view:nth-child(13) { width: 72%; }
+.xian-warrior-icon { position: relative; width: 2.3em; height: 1.7em; }
+.xian-warrior-top { position: absolute; top: 0; left: .94em; width: .45em; height: .24em; border-radius: .12em .12em 0 0; background: currentColor; }
+.xian-warrior-head { position: absolute; top: .22em; left: .68em; width: .96em; height: .8em; border-radius: .35em .35em .4em .4em; background: currentColor; }
+.xian-warrior-shoulders { position: absolute; bottom: 0; left: .13em; width: 2.04em; height: .7em; border-radius: .7em .7em .1em .1em; background: currentColor; }
+.xian-warrior-shoulders view { position: absolute; inset: .22em .24em .06em; background: repeating-linear-gradient(0deg,#963b2d 0,#963b2d .07em,transparent .07em,transparent .14em); }
+.xian-daming-icon { position: relative; width: 2.8em; height: 1.7em; }
+.xian-daming-roof { position: absolute; top: .12em; left: .35em; right: .35em; height: .36em; background: currentColor; clip-path: polygon(0 76%,12% 72%,25% 11%,75% 11%,88% 72%,100% 76%,96% 100%,4% 100%); }
+.xian-daming-gate { position: absolute; top: .48em; left: .48em; right: .48em; height: .52em; background: currentColor; display: flex; align-items: flex-end; justify-content: center; }
+.xian-daming-gate view { width: .34em; height: .4em; border-radius: .2em .2em 0 0; background: #963b2d; }
+.xian-daming-axis { position: absolute; bottom: 0; left: .18em; right: .18em; height: .6em; background: currentColor; clip-path: polygon(45% 0,55% 0,80% 100%,20% 100%); }
+.xian-haitang-icon { position: relative; width: 2.1em; height: 1.8em; }
+.xian-haitang-petal { position: absolute; width: 1.05em; height: .95em; border: .14em solid currentColor; border-radius: 50% 50% 42% 42%; box-sizing: border-box; }
+.xian-haitang-petal.top { top: 0; left: .53em; }
+.xian-haitang-petal.right { top: .43em; right: 0; transform: rotate(90deg); }
+.xian-haitang-petal.bottom { bottom: 0; left: .53em; transform: rotate(180deg); }
+.xian-haitang-petal.left { top: .43em; left: 0; transform: rotate(-90deg); }
+.xian-haitang-pool { position: absolute; top: .56em; left: .68em; width: .74em; height: .66em; border-radius: 50%; background: currentColor; display: flex; align-items: center; justify-content: center; }
+.xian-haitang-pool view { width: .3em; height: .19em; border-radius: 50%; background: #963b2d; }
+.xian-goose-tiers view:nth-child(2) { width: 43%; }
+.xian-goose-tiers view:nth-child(3) { width: 52%; }
+.xian-goose-tiers view:nth-child(4) { width: 61%; }
+.xian-goose-tiers view:nth-child(5) { width: 70%; }
+.xian-goose-tiers view:nth-child(6) { width: 79%; }
+.xian-goose-tiers view:nth-child(7) { width: 88%; }

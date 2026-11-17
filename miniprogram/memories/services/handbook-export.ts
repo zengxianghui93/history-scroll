@@ -55,13 +55,13 @@ function palaceInk(context: Context, image: WechatMiniprogram.Image, x: number, 
   context.drawImage(image,image.width*.29,image.height*.554,image.width*.395,image.height*.263,x,y,size,size);
 }
 
-function paper(context: Context): void {
-  context.fillStyle = '#f7efdd'; context.fillRect(0, 0, 1500, 2100);
-  context.strokeStyle = '#e3d6bc'; context.lineWidth = 1;
+function paper(context: Context, cityId: string): void {
+  context.fillStyle = cityId === 'city_xian' ? '#EEE3D1' : '#f7efdd'; context.fillRect(0, 0, 1500, 2100);
+  context.strokeStyle = cityId === 'city_xian' ? '#DAC8AB' : '#e3d6bc'; context.lineWidth = 1;
   for (let y: number = 2; y < 2100; y += 13) {
     context.beginPath(); context.moveTo(0, y); context.lineTo(1500, y + 7); context.stroke();
   }
-  context.strokeStyle = '#bfa77f'; context.lineWidth = 2; context.strokeRect(40, 40, 1420, 2020);
+  context.strokeStyle = cityId === 'city_xian' ? '#A87539' : '#bfa77f'; context.lineWidth = 2; context.strokeRect(40, 40, 1420, 2020);
   context.fillStyle = '#b09a7030'; context.fillRect(50, 40, 20, 2020);
   context.strokeStyle = '#aa9670'; context.setLineDash([15, 21]); context.beginPath(); context.moveTo(63, 95); context.lineTo(63, 2000); context.stroke(); context.setLineDash([]);
 }
@@ -84,6 +84,140 @@ function polygon(context: Context, points: readonly (readonly [number, number])[
 /** 与公用朱印沿用相同的建筑识别元素和朱红、暖金配色。 */
 function inkSymbol(context: Context, id: string): void {
   context.fillStyle = '#ffe3b4';
+  if (id === 'huaqing-palace') {
+    for (let petal: number = 0; petal < 5; petal += 1) {
+      const angle: number = petal * Math.PI * 2 / 5 - Math.PI / 2;
+      context.beginPath();
+      context.ellipse(50 + Math.cos(angle) * 22, 48 + Math.sin(angle) * 22, 18, 25, angle + Math.PI / 2, 0, Math.PI * 2);
+      context.fill();
+    }
+    context.fillStyle = '#963b2d';
+    context.beginPath(); context.arc(50, 48, 19, 0, Math.PI * 2); context.fill();
+    context.fillStyle = '#ffe3b4';
+    context.beginPath(); context.ellipse(50, 48, 10, 5, -.25, 0, Math.PI * 2); context.fill();
+    return;
+  }
+  if (id === 'daming-palace') {
+    polygon(context, [[14,35],[23,32],[33,17],[67,17],[77,32],[86,35],[82,41],[18,41]]);
+    context.fillRect(24,41,52,20);
+    context.fillStyle = '#963b2d'; context.fillRect(45,46,10,15);
+    context.fillStyle = '#ffe3b4';
+    polygon(context, [[47,61],[53,61],[70,96],[30,96]]);
+    return;
+  }
+  if (id === 'terracotta-army') {
+    context.fillRect(42,8,16,10);
+    context.beginPath(); context.arc(50,36,20,0,Math.PI*2); context.fill();
+    polygon(context, [[17,83],[22,70],[35,60],[65,60],[78,70],[83,83]]);
+    context.fillStyle = '#963b2d';
+    context.fillRect(31,69,38,3);
+    context.fillRect(31,76,38,3);
+    return;
+  }
+  if (id === 'small-goose-pagoda') {
+    for (let tier: number = 0; tier < 13; tier += 1) {
+      const width: number = 22 + tier * 4;
+      const left: number = 50 - width / 2;
+      const y: number = 5 + tier * 6;
+      polygon(context, [[left + 2,y],[left + width - 3,y],[left + width,y + 5],[left,y + 5]]);
+    }
+    context.fillStyle = '#963b2d';
+    polygon(context, [[45,5],[54,3],[56,9],[44,9]]);
+    return;
+  }
+  if (id === 'changan-twelve-hours') {
+    polygon(context, [[8,34],[18,33],[29,13],[71,13],[82,33],[92,34],[89,42],[11,42]]);
+    context.fillRect(18,42,64,45);
+    context.fillStyle = '#963b2d';
+    context.fillRect(38,55,25,32);
+    context.beginPath(); context.arc(50,55,12,Math.PI,0); context.fill();
+    context.fillStyle = '#ffe3b4';
+    context.beginPath(); context.arc(79,50,9,0,Math.PI*2); context.fill();
+    return;
+  }
+  if (id === 'shaanxi-history-museum') {
+    context.lineWidth = 5;
+    context.strokeStyle = '#ffe3b4';
+    context.beginPath(); context.arc(50,52,34,0,Math.PI*2); context.stroke();
+    context.beginPath(); context.arc(50,52,22,0,Math.PI*2); context.stroke();
+    context.fillRect(46,7,8,13);
+    context.beginPath(); context.arc(50,7,6,0,Math.PI*2); context.stroke();
+    context.beginPath(); context.arc(50,57,9,0,Math.PI); context.fill();
+    return;
+  }
+  if (id === 'datang-everbright') {
+    for (const x of [16, 73]) {
+      context.fillRect(x + 5, 14, 2, 12);
+      context.fillRect(x, 26, 12, 20);
+      context.fillRect(x + 5, 46, 2, 10);
+    }
+    context.fillRect(31, 50, 38, 8);
+    context.fillRect(36, 58, 4, 22);
+    context.fillRect(60, 58, 4, 22);
+    polygon(context, [[20,83],[80,83],[63,98],[37,98]]);
+    return;
+  }
+  if (id === 'giant-goose-pagoda') {
+    context.fillRect(48,3,4,5);
+    for (let tier: number = 0; tier < 7; tier += 1) {
+      const width: number = 30 + tier * 9;
+      const left: number = 50 - width / 2;
+      const right: number = 50 + width / 2;
+      const y: number = 8 + tier * 9;
+      polygon(context,[[left,y+6],[left+5,y+6],[left+9,y],[right-9,y],[right-5,y+6],[right,y+6],[right-2,y+10],[left+2,y+10]]);
+      context.fillStyle = '#963b2d'; context.fillRect(49,y+5,2,3); context.fillStyle = '#ffe3b4';
+    }
+    return;
+  }
+  if (id === 'shuyuanmen-beilin') {
+    polygon(context,[[25,25],[32,16],[42,12],[50,7],[58,12],[68,16],[75,25],[75,30],[25,30]]);
+    context.fillRect(31,30,38,43);
+    context.fillRect(24,73,52,5);
+    context.fillStyle = '#963b2d';
+    for (const x of [39, 50, 61]) {
+      context.fillRect(x,39,2,25); context.fillRect(x-3,44,6,2); context.fillRect(x-2,55,5,2);
+    }
+    context.fillStyle = '#ffe3b4'; return;
+  }
+  if (id === 'drum-tower') {
+    polygon(context,[[6,36],[14,38],[23,25],[31,17],[69,17],[77,25],[86,38],[94,36],[91,44],[9,44]]);
+    context.fillRect(18,44,64,24);
+    context.fillStyle = '#963b2d';
+    context.beginPath(); context.arc(50,54,10,0,Math.PI*2); context.fill();
+    context.fillStyle = '#ffe3b4';
+    context.beginPath(); context.arc(50,54,7,0,Math.PI*2); context.fill();
+    context.fillRect(13,68,74,15);
+    context.fillStyle = '#963b2d';
+    context.beginPath(); context.moveTo(43,83); context.lineTo(43,78); context.arc(50,78,7,Math.PI,0); context.lineTo(57,83); context.closePath(); context.fill();
+    context.fillStyle = '#ffe3b4'; return;
+  }
+  if (id === 'bell-tower') {
+    polygon(context,[[25,32],[30,34],[39,22],[46,16],[54,16],[61,22],[70,34],[75,32],[73,39],[27,39]]);
+    context.fillRect(35,39,30,12);
+    polygon(context,[[12,55],[19,56],[29,48],[36,43],[64,43],[71,48],[81,56],[88,55],[85,63],[15,63]]);
+    context.fillRect(26,63,48,8);
+    context.fillRect(17,71,66,12);
+    context.fillRect(17,83,66,2);
+    context.fillStyle = '#963b2d';
+    for (const x of [29, 58]) {
+      context.beginPath(); context.moveTo(x,83); context.lineTo(x,78); context.arc(x+7,78,7,Math.PI,0); context.lineTo(x+14,83); context.closePath(); context.fill();
+    }
+    context.fillStyle = '#ffe3b4'; return;
+  }
+  if (id === 'yongning-gate') {
+    context.save(); context.translate(0,4); context.scale(1,.84);
+    polygon(context,[[20,29],[26,31],[33,25],[38,16],[62,16],[67,25],[74,31],[80,29],[78,36],[22,36]]);
+    context.fillRect(31,36,38,19);
+    context.fillStyle = '#963b2d';
+    for (let window: number = 0; window < 5; window += 1) context.fillRect(35+window*7,40,3,7);
+    context.fillStyle = '#ffe3b4';
+    polygon(context,[[14,49],[21,51],[30,46],[36,42],[64,42],[70,46],[79,51],[86,49],[84,57],[16,57]]);
+    for (let merlon: number = 0; merlon < 10; merlon += 1) context.fillRect(8+merlon*9,62,5,7);
+    context.fillRect(8,68,84,13);
+    context.fillStyle = '#963b2d';
+    context.beginPath(); context.moveTo(43,81); context.lineTo(43,75); context.arc(50,75,7,Math.PI,0); context.lineTo(57,81); context.closePath(); context.fill();
+    context.restore(); context.fillStyle = '#ffe3b4'; return;
+  }
   if (id === 'daxing') {
     context.save(); context.translate(6,0); context.scale(.88,1);
     polygon(context,[[46,15],[54,15],[56,34],[62,36],[88,20],[97,23],[97,29],[65,46],[67,50],[94,63],[94,69],[86,72],[60,58],[56,58],[56,77],[50,80],[44,77],[44,58],[40,58],[14,72],[6,69],[6,63],[33,50],[35,46],[3,29],[3,23],[12,20],[38,36],[44,34]]);
@@ -229,7 +363,7 @@ function drawInk(context: Context, leaf: HandbookLeaf, x: number, y: number, siz
   context.fillStyle = '#ffe3b4'; context.textAlign = 'center';
   if (leaf.customInk) {
     inkSymbol(context,leaf.id); context.font = '11px serif'; context.fillStyle = '#ffe3b4';
-    const labels: Readonly<Record<string,string>> = { daxing:'大興',longfu:'隆福',sanlitun:'三里屯','art-798':'798','canal-culture':'運河文苑',shougang:'首鋼',lugou:'盧溝宛平',qianmen:'前門',olympic:'雙奧','hutong-lane':'南鑼鼓巷',lama:'雍和宮',summer:'湖山雙園',square:'天安門','bell-drum':'鐘鼓樓','archery-tower':'正陽門','temple-heaven':'天壇',yongding:'永定門' };
+    const labels: Readonly<Record<string,string>> = { 'yongning-gate':'永寧門','bell-tower':'鐘樓','drum-tower':'鼓樓','shuyuanmen-beilin':'碑林','giant-goose-pagoda':'大雁塔','datang-everbright':'不夜城','shaanxi-history-museum':'銀香囊','changan-twelve-hours':'十二時辰','small-goose-pagoda':'小雁塔','terracotta-army':'秦俑','daming-palace':'大明宮','huaqing-palace':'海棠湯',daxing:'大興',longfu:'隆福',sanlitun:'三里屯','art-798':'798','canal-culture':'運河文苑',shougang:'首鋼',lugou:'盧溝宛平',qianmen:'前門',olympic:'雙奧','hutong-lane':'南鑼鼓巷',lama:'雍和宮',summer:'湖山雙園',square:'天安門','bell-drum':'鐘鼓樓','archery-tower':'正陽門','temple-heaven':'天壇',yongding:'永定門' };
     context.fillText(labels[leaf.id],50,89);
   } else {
     context.font = (leaf.name.length > 7 ? '11' : '15') + 'px serif';
@@ -241,7 +375,7 @@ function drawInk(context: Context, leaf: HandbookLeaf, x: number, y: number, siz
 async function paintLeaf(surface: ExportSurface, book: CityHandbook, leaf: HandbookLeaf): Promise<void> {
   const { canvas, context } = surface;
   const art: WechatMiniprogram.Image = await loadArt(canvas,leaf.image);
-  paper(context);
+  paper(context, book.cityId);
   context.fillStyle = '#897759'; context.font = '28px sans-serif'; context.fillText('大千小卷 / ' + book.cityName + '探索手册',110,130);
   if (leaf.fullArt) fullArt(context,art);
   else fitArt(context,art,110,190,1280,1010);
@@ -263,12 +397,12 @@ export async function createHandbookCover(book: CityHandbook): Promise<string> {
   const surface: ExportSurface = await exportSurface(1500,2100);
   const { canvas,context } = surface;
   const art: WechatMiniprogram.Image = await loadArt(canvas,book.cover);
-  paper(context);
+  paper(context, book.cityId);
   context.fillStyle = '#88765b'; context.font = '30px sans-serif'; context.fillText('大 千 小 卷  /  探 索 纪 念',110,135);
   context.fillStyle = '#3f3a2f'; context.font = '135px serif'; context.fillText(book.cityName,100,310);
   context.fillStyle = '#88765b'; context.font = '32px serif'; context.fillText(book.preview ? '我的西安试读纪念册' : '我的城市探索手册',110,385);
   fitArt(context,art,110,440,1280,890);
-  context.fillStyle = '#536449'; context.font = '30px sans-serif'; context.fillText('已收录 ' + book.leaves.length + ' 枚印章' + (book.complete ? ' · 本城已集齐' : ''),110,1410);
+  context.fillStyle = book.cityId === 'city_xian' ? '#914B39' : '#536449'; context.font = '30px sans-serif'; context.fillText('已收录 ' + book.leaves.length + ' 枚印章' + (book.complete ? ' · 本城已集齐' : ''),110,1410);
   for (const [index,leaf] of book.leaves.slice(0,3).entries()) {
     const x: number = 170 + index*430;
     if (leaf.inkArt) palaceInk(context,await loadArt(canvas,leaf.inkArt),x,1460,230);

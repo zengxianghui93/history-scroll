@@ -1,5 +1,5 @@
 import { xianCityId } from '../../../data/city-scroll-position';
-import { readXianStoryIds, toggleYongningFavorite, xianScrolls, yongningGate, yongningStory } from '../../../data/xian-scroll';
+import { readXianStoryIds, toggleXianFavorite, xianScrolls, yongningGate, yongningStory } from '../../../data/xian-scroll';
 
 Page({
   data: {
@@ -13,7 +13,7 @@ Page({
     this.setData({ collected: readXianStoryIds().includes(yongningStory.id) });
   },
   onToggleFavorite(): void {
-    this.setData({ collected: toggleYongningFavorite() });
+    this.setData({ collected: toggleXianFavorite(yongningGate.id) });
   },
   onShareAppMessage(): { title: string; path: string; imageUrl: string } {
     return { title: yongningStory.question, path: yongningGate.path, imageUrl: xianScrolls[0].image };

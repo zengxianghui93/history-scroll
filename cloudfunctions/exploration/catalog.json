@@ -29,7 +29,18 @@
   },
   "city_xian": {
     "landmarks": [
-      "yongning-gate"
+      "yongning-gate",
+      "bell-tower",
+      "drum-tower",
+      "shuyuanmen-beilin",
+      "giant-goose-pagoda",
+      "datang-everbright",
+      "shaanxi-history-museum",
+      "changan-twelve-hours",
+      "small-goose-pagoda",
+      "terracotta-army",
+      "daming-palace",
+      "huaqing-palace"
     ],
     "legacyLandmarks": []
   }

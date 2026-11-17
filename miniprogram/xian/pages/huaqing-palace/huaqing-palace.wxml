@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 华清宫／骊山 <text>约 2 分钟</text></view>
+  <view class="title">华清宫 · 骊山</view>
+  <view class="intro">来到骊山脚下，除了听唐玄宗与杨贵妃的故事，还可以低头看一座真正留下来的唐代汤池。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安秦风浩荡画卷中的华清宫与骊山" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一圈石头</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">华清宫以骊山温泉闻名。唐华清宫御汤遗址中，有一处海棠汤：石块砌起两层花瓣形池沿，俯看就像一朵展开的海棠。</view>
+    <view class="body">今天池中没有当年的泉水，石砌轮廓却还在。你可以从池沿一瓣接一瓣的转折，看出这里不仅要盛水，也被精心设计成一件可供欣赏的宫苑空间。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="俯看海棠形石砌汤池遗址与温泉水光想象" /><view>海棠汤池沿示意 · 水光与周边场景为艺术想象，非遗址原状复刻</view></view>
+    <view class="aside"><text>花形池沿</text><text>没有泉水，也能从石头读到唐人的审美</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">找出“海棠”的花瓣</view>
+    <view class="body">在御汤遗址看海棠汤时，先别寻找华丽宫殿。沿着池沿慢慢看，找出石块如何围出花瓣，再想象温泉水曾怎样填满池心。</view>
+    <view class="body">同一处华清宫也保存了不同时代的故事。这一回先记住唐代的一座池，让真实遗存把传说落到眼前。</view>
+    <view class="takeaway">记住这一句：海棠汤最动人的地方，是温泉已远去，花形池沿仍留着。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

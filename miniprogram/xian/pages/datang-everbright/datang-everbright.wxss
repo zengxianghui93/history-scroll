@@ -1,0 +1,2 @@
+@import "../../../styles/xian-theme.wxss";
+@import "../giant-goose-pagoda/giant-goose-pagoda.wxss";

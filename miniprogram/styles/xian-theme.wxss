@@ -1,0 +1,10 @@
+.xian-theme {
+  --xian-paper: #EEE3D1;
+  --xian-sheet: #FAF0DE;
+  --xian-ink: #303837;
+  --xian-muted: #67594D;
+  --xian-cinnabar: #914B39;
+  --xian-gold: #A87539;
+  --xian-border: #CFB99B;
+  --xian-night: #333B3A;
+}

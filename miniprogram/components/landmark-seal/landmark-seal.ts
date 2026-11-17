@@ -6,7 +6,7 @@ import { readLitMapEntryIds, returnToCityMap, stampBeijingLandmark } from '../..
 import { findScrollLandmark } from '../../data/beijing-scrolls';
 import { beijingCityId, nextPublishedCityScroll } from '../../data/city-scrolls';
 import { xianCityId } from '../../data/city-scroll-position';
-import { readXianStampIds, stampXianLandmark, yongningGate } from '../../data/xian-scroll';
+import { findXianLandmark, readXianStampIds, stampXianLandmark } from '../../data/xian-scroll';
 
 Component({
   properties: {
@@ -45,7 +45,7 @@ Component({
       if (!id) return;
       const inXian: boolean = this.properties.cityId === xianCityId;
       const stamps: string[] = inXian ? readXianStampIds() : readLitMapEntryIds();
-      const landmark = inXian ? yongningGate : findScrollLandmark(id);
+      const landmark = inXian ? findXianLandmark(id) : findScrollLandmark(id);
       this.setData({ loggedIn: isLoggedIn(), stamped: stamps.includes(id), sealName: landmark.name, palaceReveal: !inXian && id === 'palace',
         cityName: inXian ? '西安' : '北京' });
     },

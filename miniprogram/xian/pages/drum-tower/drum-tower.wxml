@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 鼓楼 <text>约 2 分钟</text></view>
+  <view class="title">鼓楼</view>
+  <view class="intro">太阳渐落，街上渐渐亮起灯。过去，城里的人还会听见一个来自高处的提醒。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安古城中轴画卷中的鼓楼" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">鼓楼始建于明洪武十三年（1380），比钟楼早四年。今天两座楼遥遥相望：钟楼曾以钟声报时，鼓楼则用鼓声告诉城里人时辰的变化。</view>
+    <view class="body">想象没有手机、手表的傍晚。街边的人不必都望着同一只钟，只要听到从楼上传来的鼓声，就知道一天又走到了某个时刻。“晨钟暮鼓”说的正是这种公共时间信号。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="黄昏鼓楼、大鼓与逐渐亮灯的街巷插画" /><view>黄昏街景为艺术想象 · 非明代现场复原</view></view>
+    <view class="aside">先有鼓楼，四年后才有钟楼。两座楼把古城的一天连在一起。</view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">从鼓楼下抬头，再回望钟楼</view>
+    <view class="body">走近鼓楼，先看宽阔的砖砌台基和穿过台基的券洞；再向东望，找一找钟楼。两座楼不在一处，却共同留住了古人用声音认识时间的方式。</view>
+    <view class="body">今天看到的敲鼓表演，是帮助我们感受旧时习俗的展示。真正值得带走的发现是：一座城曾能把时间“敲”给所有人听。</view>
+    <view class="takeaway">下次听见“晨钟暮鼓”，你会想到两座相望的楼，也想到街上同时听见声音的人。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

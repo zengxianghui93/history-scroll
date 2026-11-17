@@ -1,0 +1,30 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 大雁塔 <text>约 2 分钟</text></view>
+  <view class="title">大雁塔</view>
+  <view class="intro">仰头看塔，它有七层。真正把它和长安连起来的，是一批从远方带回的经卷。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安盛世大唐画卷中的大雁塔" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">玄奘从天竺归来，把经卷与佛像带回长安。唐永徽三年（652），他在大慈恩寺主持修建大雁塔，为这些远行而来的珍贵经像留下一处安放之所。</view>
+    <view class="body">这些经卷还要被保存、翻译、阅读。站在塔前，试着把目光从高高的塔顶移回塔门：一段跨越山川的求知旅程，最后在这里找到了落点。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="暮色大雁塔前，经卷与佛像抵达长安的故事插画" /><view>经卷抵达长安 · 艺术想象，非塔内史实复原</view></view>
+    <view class="aside"><text>652年</text><text>玄奘主持建塔，安放带回的经卷与佛像</text></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">从塔门，看见另一种“经卷”</view>
+    <view class="body">先从塔南面看七层逐层收分的轮廓。再看看底层南面券门两侧：那里有与玄奘译经有关的两通碑，碑文由唐太宗、唐高宗撰写，褚遂良书写。</view>
+    <view class="body">经卷曾被带回，文字又被刻在石上。下次站在塔下，你就能从塔身和碑刻读到同一个故事的两面。</view>
+    <view class="takeaway">记住这一句：大雁塔是玄奘求知旅程抵达长安后，留给经卷的一处家。</view>
+  </view>
+
+  <view class="small-note"><view>再看一个小细节 · 塔身倾斜</view><text>大雁塔曾被测得向西北倾斜。研究认为主要与地面不均匀沉降有关；文物保护人员一直对塔体进行监测。</text></view>
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

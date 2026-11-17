@@ -1,0 +1,13 @@
+@import "../giant-goose-pagoda/giant-goose-pagoda.wxss";
+.title { font-size: 58rpx; line-height: 1.35; margin: 20rpx 0; }
+.eyebrow { flex-wrap: wrap; gap: 10rpx; font-size: 22rpx; }
+.intro-question { margin: 18rpx 0 36rpx; color: var(--xian-cinnabar); }
+.chapter { padding: 30rpx 26rpx; margin-bottom: 26rpx; }
+.heading { font-size: 38rpx; line-height: 1.5; }
+.body { line-height: 1.95; margin-top: 22rpx; }
+.insight { margin-top: 26rpx; padding: 18rpx 20rpx; border-left: 4rpx solid var(--xian-cinnabar); background: #EBDCC54D; font-size: 29rpx; line-height: 1.85; color: var(--xian-cinnabar); }
+.discovery-chapter { border-top: 4rpx solid #A57152; }
+.observation { margin-top: 25rpx; padding-top: 22rpx; border-top: 1rpx solid var(--xian-border); }
+.observation-title { font-size: 28rpx; font-weight: 600; color: var(--xian-cinnabar); }
+.observation .body { margin-top: 10rpx; }
+.takeaway { margin-top: 32rpx; }

@@ -1,0 +1,29 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 书院门／碑林 <text>约 2 分钟</text></view>
+  <view class="title">书院门 · 碑林</view>
+  <view class="intro">书院门的街边摆着毛笔和宣纸。再往里走，字却从纸上“走”到了石头上。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安古城中轴画卷中的书院门与碑林" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">书院门因明代的关中书院得名。今天走在街上，你还能见到笔墨、字画和纸张。但这条街最值得记住的，不只是字写得好看。</view>
+    <view class="body">走到碑林，找一找《开成石经》：唐人把《论语》等十二种经典刻在114块石碑的两面，约65万字。它们像一套极重的“书”，让后人仍能读到当时刻下的文字。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="从书院门笔墨摊位走向碑林石碑的插画" /><view>街巷与碑林的关系示意 · 碑面文字非馆藏复刻</view></view>
+    <view class="numbers"><view><text>114</text><text>块石碑</text></view><view><text>约65万</text><text>刻字</text></view><view><text>837年</text><text>刻成</text></view></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">先看笔尖，再看刀痕</view>
+    <view class="body">在书院门看一眼纸上的字：落笔可以轻重快慢。到了碑林，再看石碑上排列整齐的字，想象刻工怎样把一笔一画留在坚硬的石面上。</view>
+    <view class="body">《开成石经》并不是街上书院的“课本”，两者相隔数百年。把它们连在一起的是一件事：一代代人都在认真地写字、读书，想把知识传给后来的人。</view>
+    <view class="takeaway">下次看见“碑林”二字，别只想到书法展。这里还保存着一座刻在石头上的图书馆。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

@@ -4,6 +4,9 @@
   <view class="stamp-grid">
     <button wx:for="{{section.stamps}}" wx:key="id" class="motion-control stamp-cell {{item.collected ? 'inked' : 'uninked'}}" hover-class="motion-pressed" data-id="{{item.id}}" data-city="{{cityId}}" bindtap="goLandmark" aria-label="{{item.name}}，{{item.collected ? '已盖章，回看地标' : '待盖章，探索地标'}}">
       <view wx:if="{{item.collected && item.art}}" class="stamp-art" aria-hidden="true"><image src="{{item.art}}" mode="scaleToFill" /></view>
+      <view wx:elif="{{item.collected && cityId === 'city_xian' && (item.id === 'yongning-gate' || item.id === 'bell-tower' || item.id === 'drum-tower' || item.id === 'shuyuanmen-beilin' || item.id === 'giant-goose-pagoda' || item.id === 'datang-everbright' || item.id === 'shaanxi-history-museum' || item.id === 'changan-twelve-hours' || item.id === 'small-goose-pagoda' || item.id === 'terracotta-army' || item.id === 'daming-palace' || item.id === 'huaqing-palace')}}" class="stamp-art">
+        <template is="landmark-ink" data="{{landmarkId: item.id, compact: true}}" />
+      </view>
       <view wx:elif="{{item.collected && cityId === 'city_beijing' && (item.id === 'bell-drum' || item.id === 'square' || item.id === 'archery-tower' || item.id === 'temple-heaven' || item.id === 'yongding' || item.id === 'summer' || item.id === 'lama' || item.id === 'hutong-lane' || item.id === 'olympic' || item.id === 'qianmen' || item.id === 'lugou' || item.id === 'shougang' || item.id === 'canal-culture' || item.id === 'art-798' || item.id === 'sanlitun' || item.id === 'longfu' || item.id === 'daxing')}}" class="stamp-art">
         <template is="landmark-ink" data="{{landmarkId: item.id, compact: true}}" />
       </view>
@@ -127,7 +130,7 @@
 
 <view wx:if="{{showCitySheet}}" class="city-sheet-overlay" catchtouchmove="onSheetMove">
   <view class="city-sheet-backdrop" bindtap="onCloseCitySheet"/>
-  <view class="city-sheet">
+  <view class="city-sheet {{!nextCityAvailable ? 'xian-preview-sheet xian-theme' : ''}}">
     <button class="city-sheet-close" bindtap="onCloseCitySheet" aria-label="关闭">×</button>
     <view class="city-sheet-art"><image src="{{nextCityAvailable ? nextCityCover : xianCover}}" mode="aspectFill"/><view class="city-sheet-art-shade"/><view class="city-sheet-city">{{nextCityAvailable ? '下一卷 · ' + nextCityName : '西安 · 正在绘制'}}</view></view>
     <view class="city-sheet-body">

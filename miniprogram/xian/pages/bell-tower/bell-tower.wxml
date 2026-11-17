@@ -1,0 +1,28 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 钟楼 <text>约 2 分钟</text></view>
+  <view class="title">钟楼</view>
+  <view class="intro">四条大街在楼下相遇。它像一直站在城的正中，可它最初并不在这里。</view>
+  <view class="cover"><image src="{{cover}}" mode="aspectFill" aria-label="西安古城中轴画卷中的钟楼" /></view>
+
+  <view class="chapter">
+    <view class="kicker">先看一个细节</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">站在钟楼旁，向东、西、南、北各望一眼：四条大街从这座楼向外延伸。现在的钟楼像城市坐标的中心，但明初建楼时，它位于今天广济街口一带。</view>
+    <view class="body">后来明城扩展，城的中心逐渐向东。明万历十年（1582），钟楼迁建到今天的四街交会处。换了位置，报时的楼才再次站到当时的城市中心。</view>
+    <view class="relocation"><image src="{{relocation}}" mode="widthFix" aria-label="钟楼旧址与今址的关系插画：旧址在左，今址在右，四条大街在今址交会" /><view>从旧址到今址 · 城市关系示意，非实际路线图</view></view>
+  </view>
+
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">在一座楼前，读懂城的方向</view>
+    <view class="body">先别急着抬头拍楼。站在安全的人行区域，找一找四条大街分别通向哪里；再想想旧址所在的广济街口，为什么如今不在这个十字中心。</view>
+    <view class="body">最后再看楼：砖砌台基的四面都有券洞，楼阁从上方升起。它既是能被全城看见的地标，也曾是一座用钟声报时的建筑。</view>
+    <view class="takeaway">记住这一句：钟楼的位置变了，正好留下城市长大的痕迹。</view>
+  </view>
+
+  <view class="actions">
+    <button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button>
+    <button hover-class="pressed" open-type="share">分享给朋友 ↗</button>
+  </view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

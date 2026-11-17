@@ -1,0 +1,45 @@
+<view class="page xian-theme">
+  <view class="eyebrow">西安先睹为快 · 大明宫遗址公园 <text>约 3 分钟</text></view>
+  <view class="title">大明宫遗址公园</view>
+  <view class="intro">想象中的大明宫，是金碧辉煌的唐代宫殿。走进遗址，你却先看见开阔的地面、高低不同的台基，以及远处的丹凤门。</view>
+  <view class="intro intro-question">宫殿去哪儿了？这些留下来的痕迹，又能告诉我们什么？</view>
+  <view class="chapter">
+    <view class="kicker">壹 · 从空间读宫殿</view>
+    <view class="heading">{{story.question}}</view>
+    <view class="body">大明宫占地约3.2平方公里，约为北京故宫的4.5倍。面对这么大的地方，如果只寻找一座完整的古建筑，很容易错过它真正留下的东西。</view>
+    <view class="body">先把目光放到含元殿遗址。</view>
+    <view class="body">唐代的含元殿，是举行元日、冬至等重大典礼的场所。它借着龙首原的高地而建，殿基高出前方地面十多米。两侧的翔鸾阁、栖凤阁通过廊道与主殿相连，形成一组展开的建筑。</view>
+    <view class="body">试着想象：你从南面的丹凤门走来，经过宽阔的殿前空间，迎面看见高处的宫殿。越走近，越需要抬头。</view>
+    <view class="insight">庄严感不只来自屋顶和装饰，也来自脚下这段距离，以及你与宫殿之间的高差。</view>
+    <view class="body">今天木构殿堂已经消失，这些空间关系却仍能从遗址中读出来。</view>
+    <view class="scene"><image src="{{scene}}" mode="widthFix" aria-label="从南向北望含元殿台基，淡墨叠出消失的宫殿，前方保留开阔的殿前空间"/><view>宫殿轮廓为帮助理解空间关系的艺术想象</view></view>
+  </view>
+  <view class="chapter">
+    <view class="kicker">贰 · 证据藏在脚下</view>
+    <view class="heading">没有宫殿，怎么知道这里原来是什么？</view>
+    <view class="body">木柱、梁架撑起殿堂，下面的台基承托建筑。经历战乱、火灾和拆毁，地上的木构更容易消失，地下或近地面的遗存则可能保留下来。</view>
+    <view class="body">考古人员会寻找夯土台基、柱础、瓦件等线索，再结合文献，辨认建筑的位置、规模和布局。</view>
+    <view class="body">所以，眼前一处看起来不起眼的土台，并不是“什么也没有”。</view>
+    <view class="body">它可能保存着建筑的边界，留下柱子排列的痕迹，让人知道：这里曾经有多宽，殿堂朝向哪里，又与旁边的建筑怎样连接。</view>
+    <view class="insight">我们今天能想象大明宫，靠的正是这些细小而具体的证据。</view>
+  </view>
+  <view class="chapter discovery-chapter">
+    <view class="kicker">叁 · 一个意外的细节</view>
+    <view class="heading">皇帝上朝，也从正面走上去吗？</view>
+    <view class="body">看见高台上的正殿，你可能会自然地想：中间留一条路给皇帝，两侧让百官登殿。</view>
+    <view class="body">过去，研究者也曾受故宫太和殿形制的影响，推想含元殿前有这样的三条登殿道路。但考古研究纠正了这种想象。</view>
+    <view class="insight">唐代皇帝的居所在含元殿北面，上朝从殿后进入，并不需要从南面中央走上来。</view>
+    <view class="body">同样是宫殿，不同时代的布局与礼仪并不完全相同。我们熟悉的故宫，不能直接当作想象唐宫的模板。</view>
+    <view class="body">这也是遗址值得看的原因：它有时会让我们发现，历史和脑海里的画面并不一样。</view>
+  </view>
+  <view class="chapter field-note">
+    <view class="kicker">带着发现去看</view>
+    <view class="heading">带着这三个线索去看</view>
+    <view class="observation"><view class="observation-title">01 · 先看高差</view><view class="body">在开放参观区域，比较含元殿台基与殿前地面的高度。想象当年的殿堂立在上面，人从下面望过去，会是什么感受。</view></view>
+    <view class="observation"><view class="observation-title">02 · 再找方向</view><view class="body">面向南方寻找丹凤门，辨认从宫门通向正殿的轴线。把远处的门、眼前的台基和中间的空间连起来看。</view></view>
+    <view class="observation"><view class="observation-title">03 · 看遗存与展示的区别</view><view class="body">留意现场说明牌，分清哪些是考古遗存，哪些是为了保护和帮助理解而增加的展示设施。你会更清楚，眼前哪些线索真正来自唐代。</view></view>
+    <view class="takeaway"><view class="kicker">带走的发现</view>宫殿不在了，台基的高度、道路的方向和殿前的空间，仍在告诉我们：唐人怎样让一座宫殿显得庄严。</view>
+  </view>
+  <view class="actions"><button hover-class="pressed" bindtap="onToggleFavorite">{{collected ? '取消收藏' : '收藏见闻'}}</button><button hover-class="pressed" open-type="share">分享给朋友 ↗</button></view>
+  <landmark-seal city-id="{{cityId}}" landmark-id="{{landmark.id}}" />
+</view>

@@ -1,4 +1,5 @@
 @import "../../styles/discovery-motion.wxss";
+@import "../../styles/xian-theme.wxss";
 page { background: #F7F1E3; color: #443E32; }
 .page { position: fixed; inset: 0; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; padding: 2rpx 16rpx 4rpx; }
 button { margin: 0; padding: 0; font-weight: 400; background: transparent; line-height: 1.5; }
@@ -44,8 +45,17 @@ button::after { border: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .page .map-frame button.map-pin.fresh-seal { animation: none; } }
 .page .map-frame button.map-pin.recommended { outline: 4rpx solid #597B52; outline-offset: 4rpx; z-index: 2; }
-.xian-map { background: #EEE5D6; }
-.xian-map .map-progress { color: #8D4938; }
-.xian-map .map-frame { border-color: #AF8D65; background: #31302F; }
-.xian-map .map-dot.current .map-dot-mark { background: #8D4938; }
+.xian-map { background: var(--xian-paper); color: var(--xian-ink); }
+.xian-map .map-progress { color: var(--xian-cinnabar); }
+.xian-map .map-actions button { color: var(--xian-muted); }
+.xian-map .map-frame { border-color: var(--xian-border); background: var(--xian-night); box-shadow: 0 8rpx 24rpx #3E32222A; }
+.xian-map .map-index { color: var(--xian-ink); }
+.xian-map .map-page-number, .xian-map .map-hint { background: rgba(250, 240, 222, .94); }
+.xian-map .map-frame button.map-pin { border-color: var(--xian-border); background: rgba(250, 240, 222, .96); color: var(--xian-ink); box-shadow: 0 5rpx 16rpx #30271E3D; }
+.xian-map .pin-mark { color: var(--xian-cinnabar); }
+.xian-map .map-frame button.map-pin.lit { border-color: var(--xian-gold); background: #F4DFB7; box-shadow: 0 5rpx 18rpx #392A1B50; }
+.xian-map .map-frame button.map-pin.recommended { outline-color: var(--xian-cinnabar); }
+.xian-map .map-dot-mark { background: #BEAD94; }
+.xian-map .map-dot.current .map-dot-mark { background: var(--xian-cinnabar); }
+.xian-map .map-preview { background: #333B3ADD; color: #FAF0DE; }
 .map-preview { position: absolute; left: 22rpx; bottom: 20rpx; padding: 5rpx 14rpx; border-radius: 99rpx; background: #292422DE; color: #FDF2DE; font-size: 21rpx; }

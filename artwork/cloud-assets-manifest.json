@@ -180,6 +180,61 @@
     "sha256": "4aa98f13fce2b87a985dde3974700c538ca251d4047a0b6b97226595dd381615"
   },
   {
+    "sourceKey": "/xian/images/bell-tower-relocation.jpg",
+    "path": "cities/xian/landmarks/bell-tower-relocation.jpg",
+    "sha256": "359115cee686554093ddb122e7d67a85e39ad9e9e8f09a01203d49431d4ce54b"
+  },
+  {
+    "sourceKey": "/xian/images/drum-tower-dusk.jpg",
+    "path": "cities/xian/landmarks/drum-tower-dusk.jpg",
+    "sha256": "31302c0d56285fa41b2f818062af58380ad396511bed2cbdda4ee06321b5fa83"
+  },
+  {
+    "sourceKey": "/xian/images/shuyuanmen-beilin.jpg",
+    "path": "cities/xian/landmarks/shuyuanmen-beilin.jpg",
+    "sha256": "af1fc2b00d8e7247922aca478bb532d1b54d3d95658cba4ba4ebf150ec8a238d"
+  },
+  {
+    "sourceKey": "/xian/images/giant-goose-pagoda-sutras.jpg",
+    "path": "cities/xian/landmarks/giant-goose-pagoda-sutras.jpg",
+    "sha256": "6edaa773f25c489348039cfde816f7483b00796a64f9b37dc686d5767268f760"
+  },
+  {
+    "sourceKey": "/xian/images/datang-everbright-night.jpg",
+    "path": "cities/xian/landmarks/datang-everbright-night.jpg",
+    "sha256": "9931a3f9c3e38351ec108078f3bfb35de3e2a81660143db36c0d8cb279a59d0b"
+  },
+  {
+    "sourceKey": "/xian/images/shaanxi-history-incense-ball.jpg",
+    "path": "cities/xian/landmarks/shaanxi-history-incense-ball.jpg",
+    "sha256": "b921394f713df9af6a93af2c5c1943b91f7bc57df222fc0cbf617a120ac6f691"
+  },
+  {
+    "sourceKey": "/xian/images/changan-twelve-ward-gate.jpg",
+    "path": "cities/xian/landmarks/changan-twelve-ward-gate.jpg",
+    "sha256": "b96c52205a99c5a6fedab25f2cfefaf70bc402f45c63cb7e22bb7f33a953cc1d"
+  },
+  {
+    "sourceKey": "/xian/images/small-goose-pagoda-top.jpg",
+    "path": "cities/xian/landmarks/small-goose-pagoda-top.jpg",
+    "sha256": "80fb0bb5368394ba8c7a68ae3a009b2f327b472aff96421195ffc7978031a141"
+  },
+  {
+    "sourceKey": "/xian/images/terracotta-warrior-colors.jpg",
+    "path": "cities/xian/landmarks/terracotta-warrior-colors.jpg",
+    "sha256": "80d86d3ca75241538d16386cf2bb66ec2e20988b6637adc6a96605b0ea1bde17"
+  },
+  {
+    "sourceKey": "/xian/images/daming-palace-ruins.jpg",
+    "path": "cities/xian/landmarks/daming-palace-space.jpg",
+    "sha256": "d1f093c5e52cc785141040cfe8cb2baab5a87a0d2ad7579215e123f75d8cc5a6"
+  },
+  {
+    "sourceKey": "/xian/images/huaqing-haitang-pool.jpg",
+    "path": "cities/xian/landmarks/huaqing-haitang-pool.jpg",
+    "sha256": "a5a9364e2af6d04348c7d2f2293afd41058deff30278dea97e3017d44e2e4a92"
+  },
+  {
     "sourceKey": "/images/beijing/daxing-radial-terminal.jpg",
     "path": "cities/beijing/landmarks/daxing-radial-terminal.jpg",
     "sha256": "7210a2238368a3dd44e45d600fcd48bf7c3fe9750a3800c027a3c2ec96ab255e"

@@ -25,7 +25,7 @@ export interface CityHandbook {
   leaves: HandbookLeaf[];
 }
 
-const customInks: readonly string[] = ['bell-drum', 'square', 'archery-tower', 'temple-heaven', 'yongding', 'summer', 'lama', 'hutong-lane', 'olympic', 'qianmen', 'lugou', 'shougang', 'canal-culture', 'art-798', 'sanlitun', 'longfu', 'daxing'];
+const customInks: readonly string[] = ['yongning-gate', 'bell-tower', 'drum-tower', 'shuyuanmen-beilin', 'giant-goose-pagoda', 'datang-everbright', 'shaanxi-history-museum', 'changan-twelve-hours', 'small-goose-pagoda', 'terracotta-army', 'daming-palace', 'huaqing-palace', 'bell-drum', 'square', 'archery-tower', 'temple-heaven', 'yongding', 'summer', 'lama', 'hutong-lane', 'olympic', 'qianmen', 'lugou', 'shougang', 'canal-culture', 'art-798', 'sanlitun', 'longfu', 'daxing'];
 
 export function handbookCity(cityId: string): PublishedCityScroll {
   const city: PublishedCityScroll | undefined = publishedCityScrolls.find((entry): boolean => entry.id === cityId);
@@ -47,7 +47,7 @@ export function buildHandbook(cityId: string, stampIds: readonly string[]): City
     const card = city.readStories().find((entry): boolean => entry.id === landmark.fengwuId || entry.id === id);
     const figure = landmark.story?.cover ?? landmark.story?.sections.find((section): boolean => !!section.illustration)?.illustration;
     return [{ id, name: stamp.name, path: stamp.path, image: figure?.src ?? card?.image ?? scroll.image,
-      excerpt: landmark.takeaway, inkArt: stamp.art ?? '', customInk: cityId === 'city_beijing' && customInks.includes(id),
+      excerpt: landmark.takeaway, inkArt: stamp.art ?? '', customInk: customInks.includes(id),
       fullArt: !!figure || (!!card?.image && card.image !== scroll.image) }];
   });
   return { cityId, cityName: city.name, preview: !isPublishedCity(cityId), cover: city.cover, total: stamps.length, complete: isPublishedCity(cityId) && stamps.length > 0 && leaves.length === stamps.length,

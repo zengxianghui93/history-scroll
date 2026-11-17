@@ -1,0 +1,27 @@
+@import "../../../styles/xian-theme.wxss";
+page { background: #EEE3D1; color: #303837; }
+.page { min-height: 100vh; box-sizing: border-box; padding: 32rpx 28rpx 42rpx; background: var(--xian-paper); color: var(--xian-ink); }
+.eyebrow { display: flex; justify-content: space-between; color: var(--xian-cinnabar); font-size: 24rpx; }
+.title, .heading { font-family: "Songti SC", "SimSun", serif; font-weight: 700; }
+.title { margin: 12rpx 0; font-size: 62rpx; line-height: 1.2; }
+.intro, .body { font-size: 29rpx; line-height: 1.82; }
+.intro { color: var(--xian-muted); }
+.cover { height: 326rpx; margin: 24rpx 0 30rpx; overflow: hidden; border: 1rpx solid var(--xian-border); border-radius: 18rpx; box-shadow: 0 7rpx 18rpx #46332624; }
+.cover image { width: 100%; height: 100%; }
+.chapter { margin-bottom: 18rpx; padding: 25rpx; border: 1rpx solid var(--xian-border); border-radius: 18rpx; background: var(--xian-sheet); }
+.kicker { margin-bottom: 9rpx; color: var(--xian-cinnabar); font-size: 23rpx; letter-spacing: 2rpx; }
+.heading { font-size: 37rpx; line-height: 1.38; }
+.body { margin-top: 15rpx; }
+.scene { margin-top: 25rpx; overflow: hidden; border: 1rpx solid #C4AA85; border-radius: 11rpx; background: #E9D4AE; }
+.scene image { display: block; width: 100%; }
+.scene view { padding: 10rpx 16rpx; color: #806A4D; font-size: 21rpx; line-height: 1.5; text-align: center; }
+.numbers { display: flex; justify-content: space-around; gap: 8rpx; margin-top: 23rpx; padding-top: 18rpx; border-top: 1rpx solid var(--xian-border); }
+.numbers view { display: flex; flex-direction: column; align-items: center; color: var(--xian-cinnabar); }
+.numbers text:first-child { font: 35rpx/1.5 "Songti SC", "SimSun", serif; }
+.numbers text:last-child { color: var(--xian-muted); font-size: 21rpx; }
+.field-note { background: #E8D8BC; }
+.takeaway { margin-top: 23rpx; padding-left: 18rpx; border-left: 5rpx solid var(--xian-cinnabar); color: var(--xian-cinnabar); font: 29rpx/1.7 "Songti SC", "SimSun", serif; }
+.actions { display: flex; gap: 12rpx; margin-top: 25rpx; }
+.actions button { flex: 1; width: auto; min-width: 0; max-width: none; margin: 0; padding: 14rpx 8rpx; border: 1rpx solid var(--xian-border); border-radius: 10rpx; background: var(--xian-sheet); color: var(--xian-cinnabar); font-size: 25rpx; line-height: 1.55; }
+.actions button::after { border: 0; }
+.actions button.pressed { background: #EAD4B5; }
