@@ -1,0 +1,13 @@
+import { FeedEntry } from '../../reading/core';
+import { sync, request, showError, stats } from '../../reading/store';
+interface RankEntry { id:string; name:string; seconds:number; mine:boolean; minutes:number; rank:number }
+Page({
+ data:{tab:'feed',busy:false,error:'',entries:[] as Array<FeedEntry & {minutes:number}>,rank:[] as RankEntry[],stats:{days:0,minutes:0}},
+ onShow():void{this.setData({stats:stats()});this.load();},
+ async load():Promise<void>{this.setData({busy:true,error:''});try{await sync();const result=await request(this.data.tab==='feed'?'feed':'rank',{});if(this.data.tab==='feed')this.setData({entries:((result.entries||[]) as FeedEntry[]).map(entry=>({...entry,minutes:Math.floor(entry.seconds/60)}))});else{let rank=0;let previous=-1;this.setData({rank:((result.entries||[]) as RankEntry[]).map((entry,index)=>{if(entry.seconds!==previous)rank=index+1;previous=entry.seconds;return {...entry,rank,minutes:Math.floor(entry.seconds/60)};})});}}catch(error){this.setData({error:error instanceof Error?error.message:'大厅暂未加载'});}finally{this.setData({busy:false});}},
+ onTab(event:WechatMiniprogram.TouchEvent):void{if(this.data.busy)return;this.setData({tab:event.currentTarget.dataset.tab});this.load();},
+ async onBlock(event:WechatMiniprogram.TouchEvent):Promise<void>{const item=this.data.entries.find(e=>e.id===event.currentTarget.dataset.id);if(!item||item.mine)return;const answer=await wx.showModal({title:'屏蔽这位读友？',content:'将隐藏对方动态，并停止接收对方的番茄邀请。',confirmText:'屏蔽'});if(!answer.confirm)return;try{await request('block',{target:item.userId});await this.load();}catch(error){showError(error);}},
+ async onStar(event:WechatMiniprogram.TouchEvent):Promise<void>{if(this.data.busy)return;const item=this.data.entries.find(e=>e.id===event.currentTarget.dataset.id);if(!item||item.mine)return;this.setData({busy:true});try{await request('star',{target:item.id,enabled:!item.starred});await this.load();}catch(error){showError(error);}finally{this.setData({busy:false});}},
+ async onTomato(event:WechatMiniprogram.TouchEvent):Promise<void>{const item=this.data.entries.find(e=>e.id===event.currentTarget.dataset.id);if(!item||item.mine||this.data.busy)return;if(item.tomatoSent){wx.showToast({title:'今天已经送过啦',icon:'none'});return;}const choice=await wx.showActionSheet({itemList:['我读了一小段，等你有空一起。','今天读一点点，也很好。','不着急，回来接着读就好。']}).catch(()=>null);if(!choice)return;this.setData({busy:true});try{await request('tomato',{target:item.userId,message:choice.tapIndex});wx.showToast({title:'元气番茄已送出',icon:'none'});await this.load();}catch(error){showError(error);}finally{this.setData({busy:false});}},
+ onRead():void{wx.switchTab({url:'/pages/reading-home/reading-home'});}
+});

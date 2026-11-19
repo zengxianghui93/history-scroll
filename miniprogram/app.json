@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/reading-home/reading-home",
+    "pages/reading-together/reading-together",
+    "pages/reading-mine/reading-mine",
+    "pages/book-reader/book-reader",
+    "pages/book-journal/book-journal",
     "pages/beijing/beijing",
     "pages/beijing-share/beijing-share",
     "pages/beijing-overview/beijing-overview",
@@ -50,28 +55,34 @@
     }
   ],
   "window": {
-    "navigationBarTitleText": "大千小卷",
-    "navigationBarBackgroundColor": "#FDF6E3",
+    "navigationBarTitleText": "阅读手记",
+    "navigationBarBackgroundColor": "#F8F5ED",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#FDF6E3"
+    "backgroundColor": "#F8F5ED"
   },
   "tabBar": {
-    "color": "#8A7B6E",
-    "selectedColor": "#E8924A",
-    "backgroundColor": "#FFFDF8",
+    "color": "#969489",
+    "selectedColor": "#40584b",
+    "backgroundColor": "#FBF8F1",
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/beijing/beijing",
-        "text": "探索",
-        "iconPath": "images/tabbar/icon_explore.png",
-        "selectedIconPath": "images/tabbar/icon_explore_on.png"
+        "pagePath": "pages/reading-home/reading-home",
+        "text": "阅读",
+        "iconPath": "images/reading/read.png",
+        "selectedIconPath": "images/reading/read-on.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/reading-together/reading-together",
+        "text": "同读",
+        "iconPath": "images/reading/together.png",
+        "selectedIconPath": "images/reading/together-on.png"
+      },
+      {
+        "pagePath": "pages/reading-mine/reading-mine",
         "text": "我的",
-        "iconPath": "images/tabbar/icon_mine.png",
-        "selectedIconPath": "images/tabbar/icon_mine_on.png"
+        "iconPath": "images/reading/mine.png",
+        "selectedIconPath": "images/reading/mine-on.png"
       }
     ]
   },

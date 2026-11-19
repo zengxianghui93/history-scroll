@@ -1,0 +1,33 @@
+<page-meta page-style="{{switching ? 'overflow:hidden;' : ''}}"/>
+<view class="screen home">
+ <view class="home-header"><view><view class="eyebrow">留一点时间，给自己</view><view class="heading">今天，读一点。</view></view><button class="shelf-link" bindtap="onSwitch" wx:if="{{library.length}}">我的书架 <text>↗</text></button></view>
+ <view class="reading-card" wx:if="{{book}}">
+  <view class="card-caption"><text class="caption-dot"/> 正在读 <text class="private-label">私人书页</text></view>
+  <view class="book-intro">
+   <view class="book-art"><image src="/images/reading/cover.jpg" mode="aspectFill"/><view class="book-art-title">阅读<view>手记</view></view><view class="book-spine"/></view>
+   <view class="book-info"><view class="book-title">{{book.title}}</view><view class="book-author" wx:if="{{book.author}}">{{book.author}}</view><view class="progress-label"><text>已读 <text class="percent">{{book.percent}}</text>%</text><text>慢慢读，也很好</text></view><view class="progress"><view style="width:{{book.percent}}%"/></view></view>
+  </view>
+  <view class="resume-note"><view class="resume-heading"><text>上次停在这里</text><text class="chapter-name">{{chapter}}</text></view><view class="excerpt">{{excerpt || '翻开书页，从这里继续。'}}</view></view>
+  <button class="read-action" hover-class="pressed" bindtap="onRead"><text>继续阅读</text><text class="action-arrow">→</text></button>
+  <view class="card-footer">不必读很多，一页也算开始。</view>
+ </view>
+ <view class="reading-card empty-card" wx:else>
+  <view class="empty-art"><image src="/images/reading/cover.jpg" mode="aspectFill"/><view class="empty-art-copy">把想读的日子，<view>变成读过的一页。</view></view></view>
+  <view class="empty-title">{{library.length?'这一段读完，下一段慢慢来':'从你的第一本书开始'}}</view><view class="empty-description">{{library.length?'当前没有在读书籍。可以重新翻开一本，或导入新书。':'带上自己的书，留下自己的阅读痕迹。'}}</view>
+  <button class="read-action" hover-class="pressed" loading="{{busy}}" disabled="{{busy}}" bindtap="{{library.length?'onSwitch':'onImport'}}">{{library.length?'从书架选一本':'＋ 导入第一本书'}}</button>
+  <view class="privacy">EPUB / UTF-8 TXT · 10MB 以内 · 仅自己可读</view>
+ </view>
+ <view class="week-section"><view class="section-heading"><text>这一周的积累</text><text class="week-caption">每一小段，都算数</text></view><view class="week-card"><view class="stat"><view><text class="stat-number">{{stats.days}}</text><text class="stat-unit">天</text></view><text class="stat-label">打开书的日子</text></view><view class="stat"><view><text class="stat-number">{{stats.minutes}}</text><text class="stat-unit">分钟</text></view><text class="stat-label">留给阅读的时间</text></view><button class="journal-link" bindtap="onJournal" wx:if="{{hasJournal}}"><text class="journal-icon">记</text><text>阅读手记 ↗</text></button></view></view>
+ <button class="notice invitation" wx:if="{{invitations.length}}" bindtap="onInvitation"><text class="tomato">{{invitations[0].kind==='star'?'☆':'🍅'}}</text><view class="invitation-copy">{{invitations[0].name}}送来{{invitations[0].kind==='star'?'一颗鼓励星星':'一颗元气番茄'}}<view class="tiny">{{invitations.length}} 份鼓励，等你收下</view></view><text>›</text></button>
+ <button class="restore-link" bindtap="onRestore" loading="{{busy}}" disabled="{{busy}}">书籍不见了？从云端恢复 ›</button>
+ <button class="sync-button" bindtap="onSync" loading="{{busy}}">{{syncText}} <text>›</text></button>
+</view>
+<view class="sheet-mask shelf-mask" wx:if="{{switching}}" bindtap="onClose" catchtouchmove="noop"><view class="shelf-sheet" catchtap="noop">
+ <view class="sheet-handle"/>
+ <view class="shelf-sheet-heading"><view><view class="shelf-sheet-title">我的书架</view><view class="shelf-sheet-subtitle">共 {{library.length}} 本 · 选一本，接着读</view></view><button class="shelf-close" bindtap="onClose" disabled="{{busy}}" aria-label="关闭书架">×</button></view>
+ <scroll-view class="shelf-book-list" style="height:{{library.length > 3 ? '48vh' : library.length * 186 + 'rpx'}}" scroll-y enhanced show-scrollbar="{{false}}"><view class="shelf-book {{book.id===item.id?'is-current':''}}" wx:for="{{library}}" wx:key="id" data-id="{{item.id}}" bindtap="onSelect" hover-class="pressed"><view class="shelf-book-cover"><image src="/images/reading/cover.jpg" mode="aspectFill"/><text>卷</text></view><view class="shelf-book-details"><view class="shelf-book-title">{{item.title}}</view><view class="shelf-book-author" wx:if="{{item.author}}">{{item.author}}</view><view class="shelf-book-meta"><text>{{item.status==='complete'?'已读完':item.status==='paused'?'暂时放下':'已读 '+item.percent+'%'}}</text><text wx:if="{{book.id===item.id}}" class="current-badge">正在读</text></view></view><text class="shelf-book-check">{{book.id===item.id?'✓':'›'}}</text></view></scroll-view>
+ <view class="shelf-sheet-footer"><button class="shelf-import" bindtap="onImport" loading="{{busy}}" disabled="{{busy}}">{{busy?'正在导入…':'＋ 导入一本书'}}</button><view>EPUB / UTF-8 TXT · 仅自己可读</view></view>
+</view></view>
+<view class="sheet-mask" wx:if="{{milestone}}"><view class="sheet"><view class="seal">半程</view><view class="sheet-title">这本书，你已经走到一半。</view><view class="muted">那些零碎的时间，正在慢慢留下痕迹。</view><view class="actions"><button class="secondary" bindtap="onDismiss">下次再说</button><button class="primary" bindtap="onJournal">看看纪念页</button></view></view></view>
+
+

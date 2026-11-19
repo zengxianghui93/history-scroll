@@ -1,0 +1,4 @@
+Use case: illustration-story
+Generated with built-in image_gen.
+Create a portrait 1024x1536 ORIGINAL generic book cover background for a calm Chinese reading app. No text anywhere. Warm ivory handmade paper subtle fibers, a beautiful small green tree growing from gently rolling sage and ochre hills occupying LOWER HALF, a small terracotta orange sun at upper right around 50% height, generous EMPTY upper 40% for code-rendered book title. Refined minimal watercolor illustration, soft warm daylight, elegant adult literary book jacket, no frame, no book mockup, no shadows outside, flat rectangular art only, no logos, no typography.
+

@@ -1,0 +1,12 @@
+{
+  "collections": {
+    "book_profiles": { "read": false, "write": false },
+    "book_library": { "read": false, "write": false },
+    "book_content": { "read": false, "write": false },
+    "book_events": { "read": false, "write": false },
+    "book_days": { "read": false, "write": false },
+    "book_stars": { "read": false, "write": false },
+    "book_invites": { "read": false, "write": false }
+  }
+}
+

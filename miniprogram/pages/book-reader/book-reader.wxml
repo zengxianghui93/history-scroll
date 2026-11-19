@@ -1,0 +1,19 @@
+<view class="reader {{prefs.dark?'dark':''}}">
+ <view class="reader-top"><text>{{book.title}}</text><button bindtap="onSettings" aria-label="阅读设置">Aa</button></view>
+ <view wx:if="{{error}}" class="error">{{error}}</view>
+ <block wx:else><view class="chapter-header"><view class="reader-title">{{title}}</view><text class="chapter-label">第 {{chapter+1}} 节</text></view>
+ <view class="page-stage" style="font-size:{{prefs.fontSize}}px;line-height:{{prefs.lineHeight}}" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <image wx:if="{{flip && flipDirection === 'previous' ? underImage : image}}" class="book-image" src="{{flip && flipDirection === 'previous' ? underImage : image}}" mode="aspectFit" data-source="{{flip && flipDirection === 'previous' ? underImage : image}}" bindload="onImageLoad" binderror="onImageError"/><view wx:else class="reading-area">{{flip && flipDirection === 'previous' ? underContent : content}}</view>
+  <view wx:if="{{flip}}" class="turn-sheet {{flipDirection}}" bindanimationend="finishTurn">
+   <image wx:if="{{turnImage}}" class="book-image paper-text" src="{{turnImage}}" mode="aspectFit" binderror="onImageError"/><view wx:else class="paper-text">{{turnContent}}</view>
+   <view class="paper-fold"/>
+  </view>
+ </view>
+ <view class="reader-foot"><text>{{idle?'5 分钟未操作 · 轻触继续计时':'点两侧翻页 · 点中央唤出工具'}}</text><text>{{percent}}% · {{pageNumber}}/{{pageCount}}</text></view>
+ <view class="reader-tools" wx:if="{{toolbar}}"><button bindtap="onDirectory">☷<text>目录</text></button><button bindtap="onNote">✎<text>记一句</text></button><button bindtap="onSettings">⚙<text>设置</text></button></view></block>
+ <view class="sheet-mask" wx:if="{{panel}}" bindtap="onClose"><view class="sheet" catchtap="noop">
+ <view class="row"><view class="sheet-title">{{panel==='directory'?'目录':'阅读设置'}}</view><button class="link" bindtap="onClose">关闭</button></view>
+ <block wx:if="{{panel==='directory'}}"><view wx:for="{{book.chapters}}" wx:key="index" class="list-row {{chapter===index?'current':''}}" data-index="{{index}}" bindtap="onChapter">{{item.title}}</view></block>
+ <block wx:else><view class="gesture-help">点左侧 / 右侧：上一页 / 下一页<view/>左右或上下滑动均可翻页，点中央开关工具栏。</view><view class="row list-row"><text>字号 {{prefs.fontSize}}</text><button class="secondary" data-delta="-1" bindtap="onFont">A−</button><button class="secondary" data-delta="1" bindtap="onFont">A＋</button></view><view class="row list-row" bindtap="onLine"><text>行距</text><text>{{prefs.lineHeight===1.9?'标准':'宽松'}} ›</text></view><view class="row list-row" bindtap="onDark"><text>深色背景</text><switch checked="{{prefs.dark}}" color="#40584b"/></view><view class="row list-row" bindtap="onAnimation"><text>纸张翻页动画</text><switch checked="{{prefs.animation}}" color="#40584b"/></view></block>
+ </view></view>
+</view>

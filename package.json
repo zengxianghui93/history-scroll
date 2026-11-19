@@ -7,11 +7,19 @@
     "typecheck": "tsc --noEmit",
     "test:smoke": "node scripts/discovery-smoke.cjs",
     "test:handbook": "node scripts/handbook-smoke.cjs",
-    "pretest:smoke": "npm run build --prefix cloudfunctions/exploration"
+    "pretest:smoke": "npm run build --prefix cloudfunctions/exploration",
+    "build:reader": "node scripts/build-book-parser.cjs",
+    "test:reading": "node scripts/reading-smoke.cjs",
+    "pretest:reading": "npm run build:reader"
   },
   "devDependencies": {
     "@napi-rs/canvas": "^1.1.0",
+    "esbuild": "^0.28.2",
     "miniprogram-api-typings": "^3.12.2",
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.12.1",
+    "fflate": "^0.8.3"
   }
 }

@@ -1,0 +1,10 @@
+<view class="journal-page">
+ <view class="journal-top"><view><view class="tiny">私人阅读纪念册</view><view class="journal-name">{{title}}</view></view><text class="tiny">{{current+1}} / {{leaves.length}}</text></view>
+ <swiper class="book-swiper" current="{{current}}" bindchange="onChange" duration="300">
+ <swiper-item wx:for="{{leaves}}" wx:key="id"><view class="paper {{item.id==='cover'?'paper-cover':''}}"><view class="spine"/><block wx:if="{{item.id==='cover'}}"><image class="cover-art" src="/images/reading/cover.jpg" mode="aspectFill"/><view class="cover-overlay"/><view class="paper-brand">阅读手记</view><view class="paper-title">{{item.title}}</view><view class="paper-bottom">{{item.note}}</view></block><block wx:else><view class="paper-brand">{{item.subtitle}}</view><view class="paper-title">{{item.title}}</view><view class="paper-time" wx:if="{{item.minutes}}">{{item.minutes}} <text>分钟的阅读时光</text></view><scroll-view scroll-y class="note-scroll"><view class="paper-note">{{item.note||'这一天，你为自己留了一小段阅读时间。'}}</view></scroll-view><button wx:if="{{item.id==='continue'&&exists}}" class="secondary" bindtap="onRead">继续阅读 ›</button></block><view class="paper-seal">{{item.seal}}</view><view class="folio">— {{index+1}} —</view></view></swiper-item>
+ </swiper>
+ <view class="share-options" bindtap="onDetails"><checkbox checked="{{details}}" color="#40584b"/>分享时包含书名、日期和我的感想</view>
+ <button class="primary" bindtap="onExport" loading="{{busy}}">预览分享这一页</button><button wx:if="{{exported}}" class="link save" bindtap="onSave">保存到相册</button>
+ <view class="tiny share-note">仅生成所选页面，不公开书籍正文与整本手册</view>
+ <canvas type="2d" id="journal-canvas" class="export-canvas"/>
+</view>
